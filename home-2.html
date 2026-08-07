@@ -59,47 +59,43 @@
       <a href="index.html" class="flex items-center gap-2">
         <span class="font-serif text-2xl font-bold tracking-widest text-brand-spaGold flex items-center gap-2"><i class="fa-solid fa-scissors"></i> NOVA Spa</span>
       </a>
-
       <!-- Desktop Nav Menu -->
-      <nav class="hidden lg:flex items-center gap-6">
-        <!-- Home dropdown -->
-        <div class="relative group py-2 flex flex-col items-center">
-          <a href="index.html" class="flex items-center gap-1.5 font-semibold text-white hover:text-brand-spaGold border border-brand-spaGold px-3.5 py-1.5 rounded-lg transition-all">
-            Home <i class="fa-solid fa-chevron-down text-xs transition-transform group-hover:rotate-180"></i>
-          </a>
-          <div class="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-40 bg-[#181818] border border-stone-850 rounded-xl shadow-2xl p-2 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-200 z-50">
-            <a href="index.html" class="block px-4 py-2.5 text-xs font-semibold rounded-lg text-white hover:bg-stone-800 hover:text-brand-spaGold transition-colors mb-1">Home 1</a>
-            <a href="home-2.html" class="block px-4 py-2.5 text-xs font-semibold rounded-lg bg-brand-spaGold text-stone-950 transition-colors">Home 2</a>
-          </div>
-          <!-- Active underline bar -->
+            <nav class="hidden lg:flex items-center gap-6">
+        <div class="relative py-2 group/nav flex flex-col items-center">
+          <a href="index.html" class="font-semibold text-brand-spaGold transition-all py-1.5" aria-current="page">Home</a>
           <span class="absolute bottom-0 w-8 h-0.5 bg-brand-spaGold rounded-full"></span>
         </div>
-
-        <!-- Inactive items with hover animations -->
         <div class="relative py-2 group/nav flex flex-col items-center">
           <a href="about.html" class="font-semibold text-stone-300 hover:text-brand-spaGold transition-all py-1.5">About</a>
           <span class="absolute bottom-0 w-0 h-0.5 bg-brand-spaGold rounded-full transition-all group-hover/nav:w-8"></span>
         </div>
-
         <div class="relative py-2 group/nav flex flex-col items-center">
           <a href="services.html" class="font-semibold text-stone-300 hover:text-brand-spaGold transition-all py-1.5">Services</a>
           <span class="absolute bottom-0 w-0 h-0.5 bg-brand-spaGold rounded-full transition-all group-hover/nav:w-8"></span>
         </div>
-<div class="relative py-2 group/nav flex flex-col items-center">
+        <div class="relative py-2 group/nav flex flex-col items-center">
           <a href="pricing.html" class="font-semibold text-stone-300 hover:text-brand-spaGold transition-all py-1.5">Pricing</a>
           <span class="absolute bottom-0 w-0 h-0.5 bg-brand-spaGold rounded-full transition-all group-hover/nav:w-8"></span>
         </div>
-
         <div class="relative py-2 group/nav flex flex-col items-center">
           <a href="blog.html" class="font-semibold text-stone-300 hover:text-brand-spaGold transition-all py-1.5">Blog</a>
           <span class="absolute bottom-0 w-0 h-0.5 bg-brand-spaGold rounded-full transition-all group-hover/nav:w-8"></span>
         </div>
-
+        <div class="relative group py-2 flex flex-col items-center">
+          <button type="button" class="flex items-center gap-1.5 font-semibold text-stone-300 hover:text-brand-spaGold border border-transparent hover:border-brand-spaGold px-3.5 py-1.5 rounded-lg transition-all">
+            Pages <i class="fa-solid fa-chevron-down text-xs transition-transform group-hover:rotate-180"></i>
+          </button>
+          <div class="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-40 bg-[#181818] border border-stone-850 rounded-xl shadow-2xl p-2 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-200 z-50">
+            <a href="404.html" class="block px-4 py-2.5 text-xs font-semibold rounded-lg text-white hover:bg-stone-800 hover:text-brand-spaGold transition-colors">404 Error</a>
+            <a href="coming-soon.html" class="block px-4 py-2.5 text-xs font-semibold rounded-lg text-white hover:bg-stone-800 hover:text-brand-spaGold transition-colors">Coming Soon</a>
+            <a href="maintenance.html" class="block px-4 py-2.5 text-xs font-semibold rounded-lg text-white hover:bg-stone-800 hover:text-brand-spaGold transition-colors">Maintenance</a>
+          </div>
+          <span class="absolute bottom-0 w-0 h-0.5 bg-brand-spaGold rounded-full transition-all group-hover:w-8"></span>
+        </div>
         <div class="relative py-2 group/nav flex flex-col items-center">
           <a href="contact.html" class="font-semibold text-stone-300 hover:text-brand-spaGold transition-all py-1.5">Contact</a>
           <span class="absolute bottom-0 w-0 h-0.5 bg-brand-spaGold rounded-full transition-all group-hover/nav:w-8"></span>
-        </div>
-      </nav>
+        </div>      </nav>
 
       <!-- Right actions -->
       <div class="flex items-center gap-3">
@@ -120,7 +116,7 @@
         </a>
 
         <!-- Book Now Button -->
-        <a href="#quick-booking" class="btn-book-now px-5 py-2.5 bg-brand-spaGold hover:bg-brand-spaGreenDark text-stone-950 rounded-full text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 transition-all">
+        <a href="#booking-modal" data-booking-trigger class="btn-book-now px-5 py-2.5 bg-brand-spaGold hover:bg-brand-spaGreenDark text-stone-950 rounded-full text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 transition-all">
           <i class="fa-regular fa-calendar-check text-xs"></i> BOOK NOW
         </a>
 
@@ -143,53 +139,29 @@
         </button>
       </div>
 
-      <nav class="space-y-4">
-        <div>
-          <button class="mobile-dropdown-btn flex items-center justify-between w-full font-medium hover:text-brand-spaGold py-2 text-left">
-            Home <i class="fa-solid fa-chevron-down text-xs transition-transform dropdown-arrow"></i>
-          </button>
-          <div class="hidden pl-4 space-y-2 mt-2 border-l border-stone-100 dark:border-brand-darkBorder">
-            <a href="index.html" class="block py-1 text-sm text-stone-600 dark:text-stone-400 hover:text-brand-spaGold">Home 1 (NOVA Salon)</a>
-            <a href="home-2.html" class="block py-1 text-sm text-stone-600 dark:text-stone-400 hover:text-brand-spaGold">Home 2 (NOVA Spa)</a>
-          </div>
-        </div>
-
+                  <nav class="space-y-4">
+        <a href="index.html" class="block font-medium text-brand-spaGold py-2" aria-current="page">Home</a>
         <a href="about.html" class="block font-medium hover:text-brand-spaGold py-2">About</a>
         <a href="services.html" class="block font-medium hover:text-brand-spaGold py-2">Services</a>
         <a href="pricing.html" class="block font-medium hover:text-brand-spaGold py-2">Pricing</a>
-
+        <a href="blog.html" class="block font-medium hover:text-brand-spaGold py-2">Blog</a>
         <div>
-          <button class="mobile-dropdown-btn flex items-center justify-between w-full font-medium hover:text-brand-spaGold py-2 text-left">
-            Blog <i class="fa-solid fa-chevron-down text-xs transition-transform dropdown-arrow"></i>
-          </button>
-          <div class="hidden pl-4 space-y-2 mt-2 border-l border-stone-100 dark:border-brand-darkBorder">
-            <a href="blog.html" class="block py-1 text-sm text-stone-600 dark:text-stone-400 hover:text-brand-spaGold">Blog Grid</a>
-            <a href="blog-post.html?post=wellness-habits" class="block py-1 text-sm text-stone-600 dark:text-stone-400 hover:text-brand-spaGold">Blog Details</a>
-          </div>
-        </div>
-
-        <div>
-          <button class="mobile-dropdown-btn flex items-center justify-between w-full font-medium hover:text-brand-spaGold py-2 text-left">
+          <button class="mobile-dropdown-btn flex items-center justify-between w-full font-medium hover:text-brand-spaGold py-2 text-left" aria-expanded="false">
             Pages <i class="fa-solid fa-chevron-down text-xs transition-transform dropdown-arrow"></i>
           </button>
           <div class="hidden pl-4 space-y-2 mt-2 border-l border-stone-100 dark:border-brand-darkBorder">
-            <a href="login.html" class="block py-1 text-sm text-stone-600 dark:text-stone-400 hover:text-brand-spaGold">Login</a>
-            <a href="register.html" class="block py-1 text-sm text-stone-600 dark:text-stone-400 hover:text-brand-spaGold">Register</a>
-            <a href="customer-dashboard.html" class="block py-1 text-sm text-stone-600 dark:text-stone-400 hover:text-brand-spaGold">Customer Dashboard</a>
-            <a href="dashboard.html" class="block py-1 text-sm text-stone-600 dark:text-stone-400 hover:text-brand-spaGold">Admin Dashboard</a>
             <a href="404.html" class="block py-1 text-sm text-stone-600 dark:text-stone-400 hover:text-brand-spaGold">404 Error</a>
             <a href="coming-soon.html" class="block py-1 text-sm text-stone-600 dark:text-stone-400 hover:text-brand-spaGold">Coming Soon</a>
+            <a href="maintenance.html" class="block py-1 text-sm text-stone-600 dark:text-stone-400 hover:text-brand-spaGold">Maintenance</a>
           </div>
         </div>
-
         <a href="contact.html" class="block font-medium hover:text-brand-spaGold py-2">Contact</a>
+        <a href="login.html" class="block font-medium hover:text-brand-spaGold py-2">Login</a>
+        <a href="#booking-modal" data-booking-trigger class="block w-full text-center px-6 py-3 bg-gradient-to-r from-brand-spaGreen to-brand-spaGreenDark text-white text-sm font-semibold rounded-full hover:shadow-lg transition-all">Book Now</a>
       </nav>
     </div>
 
     <div class="border-t border-stone-100 dark:border-brand-darkBorder pt-6 space-y-4">
-      <a href="#quick-booking" class="block w-full text-center px-6 py-3 bg-gradient-to-r from-brand-spaGreen to-brand-spaGreenDark text-white text-sm font-semibold rounded-full hover:shadow-lg transition-all" onclick="closeDrawer()">
-        Book Sanctuary Session
-      </a>
       <div class="flex justify-center gap-4 text-stone-500">
         <a href="#" class="hover:text-brand-spaGold"><i class="fa-brands fa-facebook-f"></i></a>
         <a href="#" class="hover:text-brand-spaGold"><i class="fa-brands fa-instagram"></i></a>
@@ -215,8 +187,8 @@
           Enter an organic ecosystem where physical tension is dissolved, mental fatigue is cured, and your skin is nurtured by earth's natural herbs and active marine collagen.
         </p>
         <div class="flex flex-col sm:flex-row gap-4 pt-4">
-          <a href="#quick-booking" class="px-8 py-4 bg-brand-spaGreen text-white font-semibold rounded-full hover:bg-brand-spaGreenDark shadow-lg hover:scale-105 transition-all text-center">
-            Book Rejuvenation Session
+          <a href="#booking-modal" data-booking-trigger class="px-8 py-4 bg-brand-spaGreen text-white font-semibold rounded-full hover:bg-brand-spaGreenDark shadow-lg hover:scale-105 transition-all text-center">
+            Book Now
           </a>
           <a href="services.html" class="px-8 py-4 bg-white/60 dark:bg-brand-darkCard border border-emerald-900/10 dark:border-brand-darkBorder text-emerald-950 dark:text-white font-semibold rounded-full hover:bg-white/80 dark:hover:bg-brand-darkCard transition-all text-center">
             Explore Rituals
@@ -228,10 +200,10 @@
       <div class="relative flex justify-center items-center" data-aos="fade-left">
         <!-- Floating circular images -->
         <div class="relative w-80 h-80 md:w-96 md:h-96 rounded-full overflow-hidden border-8 border-white dark:border-brand-darkCard shadow-2xl z-10">
-          <img src="./assets/images/img23.jpg" class="w-full h-full object-cover" alt="Spa Therapy">
+          <img src="./assets/images/img28.jpg" class="w-full h-full object-cover" alt="Spa Therapy">
         </div>
         <div class="absolute -bottom-8 -left-8 w-44 h-44 rounded-full overflow-hidden border-4 border-white dark:border-brand-darkCard shadow-lg z-20">
-          <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover" alt="Meditation Yoga">
+          <img src="./assets/images/img23.jpg" class="w-full h-full object-cover" alt="Meditation Yoga">
         </div>
         <!-- Decorative circular gold ring -->
         <div class="absolute w-[450px] h-[450px] border border-brand-spaGold/30 rounded-full animate-pulse-gold hidden md:block"></div>
@@ -341,7 +313,7 @@
         <!-- Card 2: Regular (Hydrotherapy Bath) -->
         <div class="lg:col-span-4 bg-white dark:bg-brand-darkCard rounded-3xl border border-emerald-950/10 dark:border-brand-darkBorder overflow-hidden flex flex-col hover-img-zoom shadow-sm hover:shadow-lg transition-all">
           <div class="h-56">
-            <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover" alt="Hydro Bath">
+            <img src="./assets/images/img27.jpg" class="w-full h-full object-cover" alt="Hydro Bath">
           </div>
           <div class="p-6 flex-1 flex flex-col justify-between">
             <div>
@@ -361,7 +333,7 @@
         <!-- Card 3: Regular (Facials) -->
         <div class="lg:col-span-4 bg-white dark:bg-brand-darkCard rounded-3xl border border-emerald-950/10 dark:border-brand-darkBorder overflow-hidden flex flex-col hover-img-zoom shadow-sm hover:shadow-lg transition-all">
           <div class="h-56">
-            <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover" alt="Mud Facial">
+            <img src="./assets/images/img25.jpg" class="w-full h-full object-cover" alt="Mud Facial">
           </div>
           <div class="p-6 flex-1 flex flex-col justify-between">
             <div>
@@ -394,7 +366,7 @@
             </div>
           </div>
           <div class="w-full md:w-1/2 h-64 md:h-auto">
-            <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover" alt="Ayurvedic Session">
+            <img src="./assets/images/img26.jpg" class="w-full h-full object-cover" alt="Ayurvedic Session">
           </div>
         </div>
       </div>
@@ -425,7 +397,7 @@
             <li class="line-through text-stone-300"><i class="fa-solid fa-xmark mr-2"></i> Free Ayurvedic scope</li>
           </ul>
         </div>
-        <a href="#quick-booking" class="block w-full text-center py-3 bg-brand-spaCream dark:bg-brand-darkBg text-brand-spaGreen dark:text-white font-semibold rounded-xl hover:bg-brand-spaGreen hover:text-white transition-colors">Subscribe Now</a>
+        <a href="#booking-modal" data-booking-trigger class="block w-full text-center py-3 bg-brand-spaCream dark:bg-brand-darkBg text-brand-spaGreen dark:text-white font-semibold rounded-xl hover:bg-brand-spaGreen hover:text-white transition-colors">Book Now</a>
       </div>
 
       <!-- Plan 2 -->
@@ -445,7 +417,7 @@
             <li><i class="fa-solid fa-leaf text-brand-spaGold mr-2"></i> Sound bath lounge entry</li>
           </ul>
         </div>
-        <a href="#quick-booking" class="block w-full text-center py-3 bg-brand-spaGreen text-white font-semibold rounded-xl hover:bg-brand-spaGreenDark transition-all shadow-md">Subscribe Now</a>
+        <a href="#booking-modal" data-booking-trigger class="block w-full text-center py-3 bg-brand-spaGreen text-white font-semibold rounded-xl hover:bg-brand-spaGreenDark transition-all shadow-md">Book Now</a>
       </div>
 
       <!-- Plan 3 -->
@@ -464,7 +436,7 @@
             <li><i class="fa-solid fa-leaf text-brand-spaGold mr-2"></i> Sound bath lounge entry</li>
           </ul>
         </div>
-        <a href="#quick-booking" class="block w-full text-center py-3 bg-brand-spaCream dark:bg-brand-darkBg text-brand-spaGreen dark:text-white font-semibold rounded-xl hover:bg-brand-spaGreen hover:text-white transition-colors">Subscribe Now</a>
+        <a href="#booking-modal" data-booking-trigger class="block w-full text-center py-3 bg-brand-spaCream dark:bg-brand-darkBg text-brand-spaGreen dark:text-white font-semibold rounded-xl hover:bg-brand-spaGreen hover:text-white transition-colors">Book Now</a>
       </div>
     </div>
   </section>
@@ -586,7 +558,7 @@
     <div class="max-w-7xl mx-auto px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
       <div class="space-y-6">
         <a href="index.html" class="flex items-center gap-2">
-          <span class="font-serif text-3xl font-bold tracking-widest text-brand-spaGold">NOVA</span>
+          <span class="font-serif text-3xl font-bold tracking-widest text-brand-spaGold">NOVA Spa</span>
         </a>
         <p class="text-stone-400 text-sm leading-relaxed font-light">
           Experience high-end botanical therapies, aromatherapy massages, and mineral clay facials at NOVA Spa Sanctuary.
@@ -645,5 +617,6 @@
   <!-- JS Dependencies -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/booking.js"></script>
 </body>
 </html>

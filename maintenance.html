@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>404 - Page Not Found | NOVA Salon</title>
-  
+  <title>Maintenance - NOVA Salon & Spa</title>
+
   <!-- CSS Dependencies -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -50,13 +50,14 @@
   <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body class="bg-brand-cream text-stone-850 dark:bg-brand-darkBg dark:text-brand-darkText font-sans transition-colors duration-300 min-h-screen flex items-center justify-center relative px-4 sm:px-6 py-24">
-  
+
   <!-- Background Image Overlay -->
   <div class="absolute inset-0 z-0">
-    <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&q=80&w=1920" class="absolute inset-0 w-full h-full object-cover" alt="404 Background">
+    <img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&q=80&w=1920" class="absolute inset-0 w-full h-full object-cover" alt="Maintenance Background">
     <div class="absolute inset-0 bg-stone-950/70 dark:bg-stone-950/80"></div>
   </div>
 
+  <!-- Redirect Link -->
   <a href="index.html" class="utility-top-link absolute top-8 left-8 flex items-center gap-2 text-white/75 hover:text-white transition-colors z-10 text-sm">
     <i class="fa-solid fa-arrow-left"></i> Back to Home
   </a>
@@ -71,26 +72,24 @@
     </button>
   </div>
 
-  <!-- Card (Glassmorphic) -->
-  <div class="utility-card relative z-10 max-w-md w-full glass-light dark:glass-dark rounded-3xl p-8 md:p-10 shadow-2xl text-center space-y-6" data-aos="fade-up">
-    <!-- Icon/Illustration -->
+  <!-- Maintenance Card (Glassmorphic) -->
+  <div class="utility-card relative z-10 max-w-xl w-full glass-light dark:glass-dark rounded-3xl p-6 sm:p-8 md:p-12 shadow-2xl text-center space-y-8" data-aos="fade-up">
     <div class="w-24 h-24 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mx-auto text-4xl animate-float">
-      <i class="fa-solid fa-scissors"></i>
+      <i class="fa-solid fa-screwdriver-wrench"></i>
     </div>
 
-    <!-- Error Codes -->
-    <div class="space-y-2">
-      <span class="text-xs text-brand-rose uppercase tracking-widest font-bold">Lost In Beauty</span>
-      <h1 class="font-serif text-6xl font-bold text-stone-900 dark:text-white">404</h1>
-      <h2 class="font-serif text-xl font-bold text-stone-850 dark:text-white">Sanctuary Out of Reach</h2>
-      <p class="text-xs text-stone-550 dark:text-stone-400 max-w-xs mx-auto leading-relaxed">
-        The page you are looking for has been styled, colored, or faded away from our servers. Let's redirect you.
+    <div class="space-y-3">
+      <a href="index.html" class="font-serif text-4xl font-bold tracking-widest text-brand-gold">NOVA</a>
+      <span class="text-xs text-brand-rose uppercase tracking-widest font-bold block">Maintenance Mode</span>
+      <h1 class="font-serif text-3xl md:text-4xl font-bold text-stone-900 dark:text-white">Polishing The Experience</h1>
+      <p class="text-xs text-stone-550 dark:text-stone-400 max-w-sm mx-auto leading-relaxed">
+        We are refreshing a few details behind the scenes. Appointment requests are still open while the sanctuary is being refined.
       </p>
     </div>
 
-    <!-- Redirect CTA -->
-    <div class="pt-4">
-      <a href="index.html" class="inline-block px-8 py-3.5 bg-gradient-to-r from-brand-gold to-brand-goldDark text-white font-semibold rounded-full hover:shadow-lg hover:scale-105 transition-all text-xs">Return To Sanctuary</a>
+    <div class="flex flex-col sm:flex-row gap-3 justify-center">
+      <a href="#booking-modal" data-booking-trigger class="w-full sm:w-auto px-8 py-3.5 bg-gradient-to-r from-brand-gold to-brand-goldDark text-white font-semibold rounded-full hover:shadow-lg hover:scale-105 transition-all text-xs">Book Now</a>
+      <a href="index.html" class="w-full sm:w-auto px-8 py-3.5 border border-brand-gold text-brand-gold font-semibold rounded-full hover:bg-brand-gold hover:text-white transition-all text-xs">Return Home</a>
     </div>
   </div>
 

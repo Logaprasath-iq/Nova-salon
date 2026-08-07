@@ -868,7 +868,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <p class="text-sm text-stone-500 dark:text-stone-400 mt-2">Book appointments, manage your profile, track wishlist items, and review notifications.</p>
         </div>
         <a href="#" data-panel="bookings" class="inline-flex items-center justify-center gap-2 px-5 py-3 bg-brand-gold text-white text-xs font-bold uppercase tracking-widest rounded-xl hover:bg-brand-goldDark transition-all">
-          <i class="fa-regular fa-calendar-plus"></i> Book Appointment
+          <i class="fa-regular fa-calendar-plus"></i> Book Now
         </a>
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">

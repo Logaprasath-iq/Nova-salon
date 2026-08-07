@@ -54,15 +54,15 @@
   <!-- Background Image Overlay -->
   <div class="absolute inset-0 z-0">
     <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&q=80&w=1920" class="absolute inset-0 w-full h-full object-cover" alt="Login Background">
-    <div class="absolute inset-0 bg-stone-950/80"></div>
+    <div class="absolute inset-0 bg-stone-950/70 dark:bg-stone-950/80"></div>
   </div>
 
   <!-- Header Home Redirect Link -->
-  <a href="index.html" class="absolute top-8 left-8 flex items-center gap-2 text-white/75 hover:text-white transition-colors z-10 text-sm">
+  <a href="index.html" class="utility-top-link absolute top-8 left-8 flex items-center gap-2 text-white/75 hover:text-white transition-colors z-10 text-sm">
     <i class="fa-solid fa-arrow-left"></i> Back to Home
   </a>
 
-  <div class="absolute top-6 right-4 sm:right-8 z-10 flex items-center gap-2">
+  <div class="utility-controlbar absolute top-6 right-4 sm:right-8 z-10 flex items-center gap-2">
     <button type="button" class="theme-toggle w-10 h-10 rounded-full bg-brand-gold hover:bg-brand-goldDark text-stone-950 flex items-center justify-center transition-all" aria-label="Toggle Theme">
       <i class="fa-solid fa-moon dark:hidden text-sm"></i>
       <i class="fa-solid fa-sun hidden dark:block text-sm"></i>
@@ -138,6 +138,7 @@
   <!-- JS Dependencies -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/booking.js"></script>
   <script src="assets/js/auth.js"></script>
 </body>
 </html>

@@ -49,20 +49,20 @@
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/main.css">
 </head>
-<body class="bg-brand-cream text-stone-850 dark:bg-brand-darkBg dark:text-brand-darkText font-sans transition-colors duration-300 min-h-screen flex items-center justify-center relative p-6">
+<body class="bg-brand-cream text-stone-850 dark:bg-brand-darkBg dark:text-brand-darkText font-sans transition-colors duration-300 min-h-screen flex items-center justify-center relative px-4 sm:px-6 py-24">
   
   <!-- Background Image Overlay -->
   <div class="absolute inset-0 z-0">
     <img src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&q=80&w=1920" class="absolute inset-0 w-full h-full object-cover" alt="Coming Soon Background">
-    <div class="absolute inset-0 bg-stone-950/80"></div>
+    <div class="absolute inset-0 bg-stone-950/70 dark:bg-stone-950/80"></div>
   </div>
 
   <!-- Redirect Link -->
-  <a href="index.html" class="absolute top-8 left-8 flex items-center gap-2 text-white/75 hover:text-white transition-colors z-10 text-sm">
+  <a href="index.html" class="utility-top-link absolute top-8 left-8 flex items-center gap-2 text-white/75 hover:text-white transition-colors z-10 text-sm">
     <i class="fa-solid fa-arrow-left"></i> Back to Home
   </a>
 
-  <div class="absolute top-6 right-4 sm:right-8 z-10 flex items-center gap-2">
+  <div class="utility-controlbar absolute top-6 right-4 sm:right-8 z-10 flex items-center gap-2">
     <button type="button" class="theme-toggle w-10 h-10 rounded-full bg-brand-gold hover:bg-brand-goldDark text-stone-950 flex items-center justify-center transition-all" aria-label="Toggle Theme">
       <i class="fa-solid fa-moon dark:hidden text-sm"></i>
       <i class="fa-solid fa-sun hidden dark:block text-sm"></i>
@@ -73,7 +73,7 @@
   </div>
 
   <!-- Coming Soon Card (Glassmorphic) -->
-  <div class="relative z-10 max-w-xl w-full glass-light dark:glass-dark rounded-3xl p-8 md:p-12 shadow-2xl text-center space-y-8" data-aos="fade-up">
+  <div class="utility-card relative z-10 max-w-xl w-full glass-light dark:glass-dark rounded-3xl p-6 sm:p-8 md:p-12 shadow-2xl text-center space-y-8" data-aos="fade-up">
     <!-- Header -->
     <div class="space-y-3">
       <a href="index.html" class="font-serif text-4xl font-bold tracking-widest text-brand-gold">NOVA</a>
@@ -84,28 +84,28 @@
     </div>
 
     <!-- Countdown Timer Grid -->
-    <div class="grid grid-cols-4 gap-4 max-w-sm mx-auto">
+    <div class="coming-countdown grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 max-w-sm mx-auto">
       <div class="bg-white/50 dark:bg-brand-darkBg/60 border border-stone-200/50 dark:border-brand-darkBorder p-3 rounded-xl">
-        <span id="days" class="font-serif text-3xl font-bold text-brand-gold block">00</span>
+        <span id="days" class="font-serif text-2xl sm:text-3xl font-bold text-brand-gold block">00</span>
         <span class="text-[8px] uppercase tracking-widest text-stone-400">Days</span>
       </div>
       <div class="bg-white/50 dark:bg-brand-darkBg/60 border border-stone-200/50 dark:border-brand-darkBorder p-3 rounded-xl">
-        <span id="hours" class="font-serif text-3xl font-bold text-brand-gold block">00</span>
+        <span id="hours" class="font-serif text-2xl sm:text-3xl font-bold text-brand-gold block">00</span>
         <span class="text-[8px] uppercase tracking-widest text-stone-400">Hours</span>
       </div>
       <div class="bg-white/50 dark:bg-brand-darkBg/60 border border-stone-200/50 dark:border-brand-darkBorder p-3 rounded-xl">
-        <span id="minutes" class="font-serif text-3xl font-bold text-brand-gold block">00</span>
+        <span id="minutes" class="font-serif text-2xl sm:text-3xl font-bold text-brand-gold block">00</span>
         <span class="text-[8px] uppercase tracking-widest text-stone-400">Mins</span>
       </div>
       <div class="bg-white/50 dark:bg-brand-darkBg/60 border border-stone-200/50 dark:border-brand-darkBorder p-3 rounded-xl">
-        <span id="seconds" class="font-serif text-3xl font-bold text-brand-gold block">00</span>
+        <span id="seconds" class="font-serif text-2xl sm:text-3xl font-bold text-brand-gold block">00</span>
         <span class="text-[8px] uppercase tracking-widest text-stone-400">Secs</span>
       </div>
     </div>
 
     <!-- Subscription Form -->
-    <form class="newsletter-form max-w-sm mx-auto flex flex-col sm:flex-row gap-2" data-success-message="Thank you. You have been added to our VIP pre-launch list.">
-      <input type="email" name="email" placeholder="Your email address" required autocomplete="email" maxlength="80" class="flex-1 px-4 py-2.5 bg-white/70 dark:bg-brand-darkBg/60 border border-stone-200 dark:border-brand-darkBorder rounded-xl text-xs focus:border-brand-gold focus:outline-none dark:text-white transition-colors">
+    <form class="newsletter-form max-w-sm mx-auto flex flex-col sm:flex-row gap-3" data-success-message="Thank you. You have been added to our VIP pre-launch list.">
+      <input type="email" name="email" placeholder="Your email address" required autocomplete="email" maxlength="80" class="min-w-0 flex-1 px-4 py-2.5 bg-white/70 dark:bg-brand-darkBg/60 border border-stone-200 dark:border-brand-darkBorder rounded-xl text-xs focus:border-brand-gold focus:outline-none dark:text-white transition-colors">
       <button type="submit" class="px-6 py-2.5 bg-gradient-to-r from-brand-gold to-brand-goldDark text-white font-semibold rounded-xl hover:shadow text-xs transition-all shrink-0">Notify Me</button>
     </form>
 
@@ -117,9 +117,12 @@
     </div>
   </div>
 
+  <p class="utility-footer absolute bottom-6 left-1/2 -translate-x-1/2 z-10 text-[10px] text-white/55 text-center w-full px-6">&copy; 2026 NOVA Salon. All rights reserved.</p>
+
   <!-- JS Dependencies -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/booking.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       // Set target countdown date (30 days from now)

@@ -202,6 +202,161 @@ document.addEventListener('DOMContentLoaded', () => {
     return file;
   };
 
+  const initNavigationStructure = () => {
+    const headerNav = document.querySelector('header nav');
+    const mobileDrawer = document.getElementById('mobile-drawer');
+    if (!headerNav && !mobileDrawer) return;
+
+    const pageKey = getPageKey();
+    const isSpaTheme = Boolean(document.querySelector('[class*="brand-spaGold"], [class*="brand-spaGreen"]'));
+    root.style.setProperty('--nova-accent', isSpaTheme ? '#C5A880' : '#D4AF37');
+    const accentText = isSpaTheme ? 'text-brand-spaGold' : 'text-brand-gold';
+    const accentHover = isSpaTheme ? 'hover:text-brand-spaGold' : 'hover:text-brand-gold';
+    const accentBg = isSpaTheme ? 'bg-brand-spaGold' : 'bg-brand-gold';
+    const accentBorder = isSpaTheme ? 'border-brand-spaGold' : 'border-brand-gold';
+    const accentHoverBorder = isSpaTheme ? 'hover:border-brand-spaGold' : 'hover:border-brand-gold';
+    const activePages = ['404.html', 'coming-soon.html', 'maintenance.html'];
+    const homeActive = pageKey === 'index.html' || pageKey === 'home-2.html';
+
+    const isActive = (href) => {
+      if (href === 'index.html') return pageKey === 'index.html' || pageKey === 'home-2.html';
+      if (href === 'services.html') return pageKey === 'services.html';
+      if (href === 'blog.html') return pageKey === 'blog.html';
+      return pageKey === href;
+    };
+
+    const desktopItem = (label, href) => {
+      const active = isActive(href);
+      const linkClass = active
+        ? `font-semibold ${accentText} transition-all py-1.5`
+        : `font-semibold text-stone-300 ${accentHover} transition-all py-1.5`;
+      const underlineClass = active
+        ? `absolute bottom-0 w-8 h-0.5 ${accentBg} rounded-full`
+        : `absolute bottom-0 w-0 h-0.5 ${accentBg} rounded-full transition-all group-hover/nav:w-8`;
+
+      return `
+        <div class="relative py-2 group/nav flex flex-col items-center">
+          <a href="${href}" class="${linkClass}"${active ? ' aria-current="page"' : ''}>${label}</a>
+          <span class="${underlineClass}"></span>
+        </div>
+      `;
+    };
+
+    const dropdownLink = ({ label, href, active }) => `
+      <a href="${href}" class="nova-dropdown-link block px-4 py-2.5 text-xs font-semibold rounded-lg text-white hover:bg-stone-800 ${accentHover} transition-colors"${active ? ' aria-current="page"' : ''}>${label}</a>
+    `;
+
+    const desktopDropdown = (label, active, items) => {
+      const triggerClass = active
+        ? `nova-dropdown-trigger flex items-center gap-1.5 font-semibold ${accentText} border ${accentBorder} px-3.5 py-1.5 rounded-lg transition-all`
+        : `nova-dropdown-trigger flex items-center gap-1.5 font-semibold text-stone-300 ${accentHover} border border-transparent ${accentHoverBorder} px-3.5 py-1.5 rounded-lg transition-all`;
+      const underlineClass = active
+        ? `absolute bottom-0 w-8 h-0.5 ${accentBg} rounded-full`
+        : `absolute bottom-0 w-0 h-0.5 ${accentBg} rounded-full transition-all group-hover:w-8`;
+
+      return `
+        <div class="nova-dropdown relative group py-2 flex flex-col items-center">
+          <button type="button" class="${triggerClass}">
+            ${label} <i class="fa-solid fa-chevron-down text-xs transition-transform dropdown-arrow group-hover:rotate-180"></i>
+          </button>
+          <div class="nova-dropdown-menu absolute left-1/2 -translate-x-1/2 top-full mt-2 min-w-[11rem] bg-[#181818] border border-stone-850 rounded-xl shadow-2xl p-2 opacity-0 pointer-events-none transition-all duration-200 z-50">
+            ${items.map(dropdownLink).join('')}
+          </div>
+          <span class="${underlineClass}"></span>
+        </div>
+      `;
+    };
+
+    const desktopHomeDropdown = desktopDropdown('Home', homeActive, [
+      { label: 'Home 1', href: 'index.html', active: pageKey === 'index.html' },
+      { label: 'Home 2', href: 'home-2.html', active: pageKey === 'home-2.html' }
+    ]);
+    const pagesActive = activePages.includes(pageKey);
+    const desktopPagesDropdown = desktopDropdown('Pages', pagesActive, [
+      { label: '404 Error', href: '404.html', active: pageKey === '404.html' },
+      { label: 'Coming Soon', href: 'coming-soon.html', active: pageKey === 'coming-soon.html' },
+      { label: 'Maintenance', href: 'maintenance.html', active: pageKey === 'maintenance.html' }
+    ]);
+
+    if (headerNav) {
+      headerNav.innerHTML = `
+        ${desktopHomeDropdown}
+        ${desktopItem('About', 'about.html')}
+        ${desktopItem('Services', 'services.html')}
+        ${desktopItem('Pricing', 'pricing.html')}
+        ${desktopItem('Blog', 'blog.html')}
+        ${desktopPagesDropdown}
+        ${desktopItem('Contact', 'contact.html')}
+      `;
+    }
+
+    const mobileLink = (label, href, extraClass = '', exactActive = null) => {
+      const active = exactActive ?? isActive(href);
+      return `<a href="${href}" class="block font-medium ${active ? accentText : accentHover} py-2 ${extraClass}"${active ? ' aria-current="page"' : ''}>${label}</a>`;
+    };
+
+    const mobileDropdownLink = ({ label, href, active }) =>
+      `<a href="${href}" class="block py-1 text-sm ${active ? accentText : `text-stone-600 dark:text-stone-400 ${accentHover}`}"${active ? ' aria-current="page"' : ''}>${label}</a>`;
+
+    const mobileDropdown = (label, active, items) => `
+      <div>
+        <button class="mobile-dropdown-btn flex items-center justify-between w-full font-medium ${active ? accentText : accentHover} py-2 text-left" aria-expanded="false">
+          ${label} <i class="fa-solid fa-chevron-down text-xs transition-transform dropdown-arrow"></i>
+        </button>
+        <div class="hidden pl-4 space-y-2 mt-2 border-l border-stone-100 dark:border-brand-darkBorder">
+          ${items.map(mobileDropdownLink).join('')}
+        </div>
+      </div>
+    `;
+
+    if (mobileDrawer) {
+      const drawerNav = mobileDrawer.querySelector('nav');
+      if (drawerNav) {
+        drawerNav.innerHTML = `
+          ${mobileDropdown('Home', homeActive, [
+            { label: 'Home 1', href: 'index.html', active: pageKey === 'index.html' },
+            { label: 'Home 2', href: 'home-2.html', active: pageKey === 'home-2.html' }
+          ])}
+          ${mobileLink('About', 'about.html')}
+          ${mobileLink('Services', 'services.html')}
+          ${mobileLink('Pricing', 'pricing.html')}
+          ${mobileLink('Blog', 'blog.html')}
+          ${mobileDropdown('Pages', pagesActive, [
+            { label: '404 Error', href: '404.html', active: pageKey === '404.html' },
+            { label: 'Coming Soon', href: 'coming-soon.html', active: pageKey === 'coming-soon.html' },
+            { label: 'Maintenance', href: 'maintenance.html', active: pageKey === 'maintenance.html' }
+          ])}
+          ${mobileLink('Contact', 'contact.html')}
+          ${mobileLink('Login', 'login.html')}
+          <a href="#booking-modal" data-booking-trigger class="block w-full text-center px-6 py-3 bg-gradient-to-r ${isSpaTheme ? 'from-brand-spaGreen to-brand-spaGreenDark' : 'from-brand-gold to-brand-goldDark'} text-white text-sm font-semibold rounded-full hover:shadow-lg transition-all">Book Now</a>
+        `;
+      }
+
+      const drawerFooter = Array.from(mobileDrawer.children).find((child) => child.classList.contains('border-t'));
+      if (drawerFooter) {
+        drawerFooter.innerHTML = `
+          <div class="flex justify-center gap-4 text-stone-500">
+            <a href="#" class="${accentHover}"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="${accentHover}"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="${accentHover}"><i class="fa-brands fa-twitter"></i></a>
+            <a href="#" class="${accentHover}"><i class="fa-brands fa-pinterest-p"></i></a>
+          </div>
+        `;
+      }
+    }
+
+    document.querySelectorAll('[data-booking-trigger], .btn-book-now').forEach((button) => {
+      button.setAttribute('href', '#booking-modal');
+      button.setAttribute('data-booking-trigger', 'true');
+      button.setAttribute('aria-label', 'Book Now');
+      const icon = button.querySelector('i')?.outerHTML || '<i class="fa-regular fa-calendar-check text-xs"></i>';
+      const label = button.classList.contains('btn-book-now') || /\buppercase\b/.test(button.className)
+        ? 'BOOK NOW'
+        : 'Book Now';
+      button.innerHTML = button.classList.contains('btn-book-now') ? `${icon} ${label}` : label;
+    });
+  };
+
   const initActiveNavigation = () => {
     const pageKey = getPageKey();
     document.querySelectorAll('header nav a[href], #mobile-drawer nav a[href]').forEach((link) => {
@@ -271,6 +426,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     mobileDrawer.querySelectorAll('.mobile-dropdown-btn').forEach((btn) => {
       btn.setAttribute('aria-expanded', 'false');
+      const content = btn.nextElementSibling;
+      if (content) {
+        content.classList.add('overflow-hidden', 'transition-all', 'duration-300', 'ease-in-out');
+        if (content.classList.contains('hidden')) {
+          content.style.maxHeight = '0px';
+          content.style.opacity = '0';
+        }
+      }
+
       btn.addEventListener('click', (event) => {
         event.preventDefault();
         const content = btn.nextElementSibling;
@@ -278,7 +442,24 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!content) return;
 
         const willOpen = content.classList.contains('hidden');
-        content.classList.toggle('hidden', !willOpen);
+        if (willOpen) {
+          content.classList.remove('hidden');
+          content.style.maxHeight = '0px';
+          content.style.opacity = '0';
+          window.requestAnimationFrame(() => {
+            content.style.maxHeight = `${content.scrollHeight}px`;
+            content.style.opacity = '1';
+          });
+        } else {
+          content.style.maxHeight = `${content.scrollHeight}px`;
+          window.requestAnimationFrame(() => {
+            content.style.maxHeight = '0px';
+            content.style.opacity = '0';
+          });
+          content.addEventListener('transitionend', () => {
+            if (btn.getAttribute('aria-expanded') === 'false') content.classList.add('hidden');
+          }, { once: true });
+        }
         btn.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
         if (arrow) arrow.classList.toggle('rotate-180', willOpen);
       });
@@ -294,7 +475,7 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const initDesktopDropdown = () => {
-    const dropdowns = document.querySelectorAll('header nav .relative.group');
+    const dropdowns = document.querySelectorAll('header nav .nova-dropdown');
     if (!dropdowns.length) return;
 
     const closeAll = () => {
@@ -310,7 +491,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const menu = dropdown.querySelector('div.absolute.top-full');
       if (!trigger || !menu) return;
 
-      dropdown.classList.add('nova-home-dropdown');
+      dropdown.classList.add('nova-dropdown');
       trigger.setAttribute('aria-haspopup', 'true');
       trigger.setAttribute('aria-expanded', 'false');
 
@@ -329,7 +510,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     document.addEventListener('click', (event) => {
-      if (!event.target.closest('header nav .nova-home-dropdown')) closeAll();
+      if (!event.target.closest('header nav .nova-dropdown')) closeAll();
     });
 
     document.addEventListener('keydown', (event) => {
@@ -675,8 +856,6 @@ document.addEventListener('DOMContentLoaded', () => {
           confirmButtonColor: '#D4AF37'
         });
 
-        const bookingSection = document.getElementById('appointment');
-        if (bookingSection) bookingSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }, 1200);
     });
 
@@ -756,36 +935,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   };
 
-  const initAppointmentModal = () => {
-    const bookBtns = document.querySelectorAll('.btn-book-now');
-    const bookModal = document.getElementById('appointment-modal');
-    const closeBookModal = document.getElementById('close-appointment-modal');
-    if (!bookModal) return;
-
-    const showModal = (event) => {
-      event.preventDefault();
-      bookModal.classList.remove('hidden');
-      bookModal.classList.add('flex');
-      bookModal.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
-      const firstInput = bookModal.querySelector('input, select, textarea, button');
-      if (firstInput) firstInput.focus();
-    };
-
-    const hideModal = () => hideAppointmentModal(bookModal);
-    window.closeAppointmentModal = hideModal;
-
-    bookModal.setAttribute('aria-hidden', 'true');
-    bookBtns.forEach((btn) => btn.addEventListener('click', showModal));
-    if (closeBookModal) closeBookModal.addEventListener('click', hideModal);
-    bookModal.addEventListener('click', (event) => {
-      if (event.target === bookModal) hideModal();
-    });
-    document.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape' && !bookModal.classList.contains('hidden')) hideModal();
-    });
-  };
-
   const initImages = () => {
     document.querySelectorAll('img').forEach((img) => {
       if (!img.hasAttribute('loading')) img.setAttribute('loading', 'lazy');
@@ -812,11 +961,11 @@ document.addEventListener('DOMContentLoaded', () => {
   initDirection();
   initGlobalControlClicks();
   initHeader();
+  initNavigationStructure();
   initMobileDrawer();
   initDesktopDropdown();
   initActiveNavigation();
   initDynamicLinks();
-  initAppointmentModal();
   initImages();
   initAppointmentForms();
   initFormValidation();

@@ -60,47 +60,43 @@
       <a href="index.html" class="flex items-center gap-2">
         <span class="font-serif text-2xl font-bold tracking-widest text-brand-gold flex items-center gap-2"><i class="fa-solid fa-scissors"></i> NOVA Salon</span>
       </a>
-
       <!-- Desktop Nav Menu -->
-      <nav class="hidden lg:flex items-center gap-6">
-        <!-- Home dropdown -->
-        <div class="relative group py-2 flex flex-col items-center">
-          <a href="index.html" class="flex items-center gap-1.5 font-semibold text-white hover:text-brand-gold border border-brand-gold px-3.5 py-1.5 rounded-lg transition-all">
-            Home <i class="fa-solid fa-chevron-down text-xs transition-transform group-hover:rotate-180"></i>
-          </a>
-          <div class="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-40 bg-[#181818] border border-stone-850 rounded-xl shadow-2xl p-2 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-200 z-50">
-            <a href="index.html" class="block px-4 py-2.5 text-xs font-semibold rounded-lg bg-brand-gold text-stone-950 transition-colors mb-1">Home 1</a>
-            <a href="home-2.html" class="block px-4 py-2.5 text-xs font-semibold rounded-lg text-white hover:bg-stone-800 hover:text-brand-gold transition-colors">Home 2</a>
-          </div>
-          <!-- Active underline bar -->
+            <nav class="hidden lg:flex items-center gap-6">
+        <div class="relative py-2 group/nav flex flex-col items-center">
+          <a href="index.html" class="font-semibold text-brand-gold transition-all py-1.5" aria-current="page">Home</a>
           <span class="absolute bottom-0 w-8 h-0.5 bg-brand-gold rounded-full"></span>
         </div>
-
-        <!-- Inactive items with hover animations -->
         <div class="relative py-2 group/nav flex flex-col items-center">
           <a href="about.html" class="font-semibold text-stone-300 hover:text-brand-gold transition-all py-1.5">About</a>
           <span class="absolute bottom-0 w-0 h-0.5 bg-brand-gold rounded-full transition-all group-hover/nav:w-8"></span>
         </div>
-
         <div class="relative py-2 group/nav flex flex-col items-center">
           <a href="services.html" class="font-semibold text-stone-300 hover:text-brand-gold transition-all py-1.5">Services</a>
           <span class="absolute bottom-0 w-0 h-0.5 bg-brand-gold rounded-full transition-all group-hover/nav:w-8"></span>
         </div>
-<div class="relative py-2 group/nav flex flex-col items-center">
+        <div class="relative py-2 group/nav flex flex-col items-center">
           <a href="pricing.html" class="font-semibold text-stone-300 hover:text-brand-gold transition-all py-1.5">Pricing</a>
           <span class="absolute bottom-0 w-0 h-0.5 bg-brand-gold rounded-full transition-all group-hover/nav:w-8"></span>
         </div>
-
         <div class="relative py-2 group/nav flex flex-col items-center">
           <a href="blog.html" class="font-semibold text-stone-300 hover:text-brand-gold transition-all py-1.5">Blog</a>
           <span class="absolute bottom-0 w-0 h-0.5 bg-brand-gold rounded-full transition-all group-hover/nav:w-8"></span>
         </div>
-
+        <div class="relative group py-2 flex flex-col items-center">
+          <button type="button" class="flex items-center gap-1.5 font-semibold text-stone-300 hover:text-brand-gold border border-transparent hover:border-brand-gold px-3.5 py-1.5 rounded-lg transition-all">
+            Pages <i class="fa-solid fa-chevron-down text-xs transition-transform group-hover:rotate-180"></i>
+          </button>
+          <div class="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-40 bg-[#181818] border border-stone-850 rounded-xl shadow-2xl p-2 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-200 z-50">
+            <a href="404.html" class="block px-4 py-2.5 text-xs font-semibold rounded-lg text-white hover:bg-stone-800 hover:text-brand-gold transition-colors">404 Error</a>
+            <a href="coming-soon.html" class="block px-4 py-2.5 text-xs font-semibold rounded-lg text-white hover:bg-stone-800 hover:text-brand-gold transition-colors">Coming Soon</a>
+            <a href="maintenance.html" class="block px-4 py-2.5 text-xs font-semibold rounded-lg text-white hover:bg-stone-800 hover:text-brand-gold transition-colors">Maintenance</a>
+          </div>
+          <span class="absolute bottom-0 w-0 h-0.5 bg-brand-gold rounded-full transition-all group-hover:w-8"></span>
+        </div>
         <div class="relative py-2 group/nav flex flex-col items-center">
           <a href="contact.html" class="font-semibold text-stone-300 hover:text-brand-gold transition-all py-1.5">Contact</a>
           <span class="absolute bottom-0 w-0 h-0.5 bg-brand-gold rounded-full transition-all group-hover/nav:w-8"></span>
-        </div>
-      </nav>
+        </div>      </nav>
 
       <!-- Right actions -->
       <div class="flex items-center gap-3">
@@ -121,7 +117,7 @@
         </a>
 
         <!-- Book Now Button -->
-        <a href="#appointment" class="btn-book-now px-5 py-2.5 bg-brand-gold hover:bg-brand-goldDark text-stone-950 rounded-full text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 transition-all">
+        <a href="#booking-modal" data-booking-trigger class="btn-book-now px-5 py-2.5 bg-brand-gold hover:bg-brand-goldDark text-stone-950 rounded-full text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 transition-all">
           <i class="fa-regular fa-calendar-check text-xs"></i> BOOK NOW
         </a>
 
@@ -146,54 +142,30 @@
       </div>
 
       <!-- Drawer Links -->
-      <nav class="space-y-4">
-        <div>
-          <button class="mobile-dropdown-btn flex items-center justify-between w-full font-medium hover:text-brand-gold py-2 text-left">
-            Home <i class="fa-solid fa-chevron-down text-xs transition-transform dropdown-arrow"></i>
-          </button>
-          <div class="hidden pl-4 space-y-2 mt-2 border-l border-stone-100 dark:border-brand-darkBorder">
-            <a href="index.html" class="block py-1 text-sm text-stone-600 dark:text-stone-400 hover:text-brand-gold">Home 1 (NOVA Salon)</a>
-            <a href="home-2.html" class="block py-1 text-sm text-stone-600 dark:text-stone-400 hover:text-brand-gold">Home 2 (NOVA Spa)</a>
-          </div>
-        </div>
-
+                  <nav class="space-y-4">
+        <a href="index.html" class="block font-medium text-brand-gold py-2" aria-current="page">Home</a>
         <a href="about.html" class="block font-medium hover:text-brand-gold py-2">About</a>
         <a href="services.html" class="block font-medium hover:text-brand-gold py-2">Services</a>
         <a href="pricing.html" class="block font-medium hover:text-brand-gold py-2">Pricing</a>
-
+        <a href="blog.html" class="block font-medium hover:text-brand-gold py-2">Blog</a>
         <div>
-          <button class="mobile-dropdown-btn flex items-center justify-between w-full font-medium hover:text-brand-gold py-2 text-left">
-            Blog <i class="fa-solid fa-chevron-down text-xs transition-transform dropdown-arrow"></i>
-          </button>
-          <div class="hidden pl-4 space-y-2 mt-2 border-l border-stone-100 dark:border-brand-darkBorder">
-            <a href="blog.html" class="block py-1 text-sm text-stone-600 dark:text-stone-400 hover:text-brand-gold">Blog Grid</a>
-            <a href="blog-post.html?post=summer-skincare-glow" class="block py-1 text-sm text-stone-600 dark:text-stone-400 hover:text-brand-gold">Blog Details</a>
-          </div>
-        </div>
-
-        <div>
-          <button class="mobile-dropdown-btn flex items-center justify-between w-full font-medium hover:text-brand-gold py-2 text-left">
+          <button class="mobile-dropdown-btn flex items-center justify-between w-full font-medium hover:text-brand-gold py-2 text-left" aria-expanded="false">
             Pages <i class="fa-solid fa-chevron-down text-xs transition-transform dropdown-arrow"></i>
           </button>
           <div class="hidden pl-4 space-y-2 mt-2 border-l border-stone-100 dark:border-brand-darkBorder">
-            <a href="login.html" class="block py-1 text-sm text-stone-600 dark:text-stone-400 hover:text-brand-gold">Login</a>
-            <a href="register.html" class="block py-1 text-sm text-stone-600 dark:text-stone-400 hover:text-brand-gold">Register</a>
-            <a href="customer-dashboard.html" class="block py-1 text-sm text-stone-600 dark:text-stone-400 hover:text-brand-gold">Customer Dashboard</a>
-            <a href="dashboard.html" class="block py-1 text-sm text-stone-600 dark:text-stone-400 hover:text-brand-gold">Admin Dashboard</a>
             <a href="404.html" class="block py-1 text-sm text-stone-600 dark:text-stone-400 hover:text-brand-gold">404 Error</a>
             <a href="coming-soon.html" class="block py-1 text-sm text-stone-600 dark:text-stone-400 hover:text-brand-gold">Coming Soon</a>
+            <a href="maintenance.html" class="block py-1 text-sm text-stone-600 dark:text-stone-400 hover:text-brand-gold">Maintenance</a>
           </div>
         </div>
-
         <a href="contact.html" class="block font-medium hover:text-brand-gold py-2">Contact</a>
+        <a href="login.html" class="block font-medium hover:text-brand-gold py-2">Login</a>
+        <a href="#booking-modal" data-booking-trigger class="block w-full text-center px-6 py-3 bg-gradient-to-r from-brand-gold to-brand-goldDark text-white text-sm font-semibold rounded-full hover:shadow-lg transition-all">Book Now</a>
       </nav>
     </div>
 
     <!-- Drawer Footer -->
     <div class="border-t border-stone-100 dark:border-brand-darkBorder pt-6 space-y-4">
-      <a href="#appointment" class="block w-full text-center px-6 py-3 bg-gradient-to-r from-brand-gold to-brand-goldDark text-white text-sm font-semibold rounded-full hover:shadow-lg transition-all" onclick="closeDrawer()">
-        Book Appointment
-      </a>
       <div class="flex justify-center gap-4 text-stone-500">
         <a href="#" class="hover:text-brand-gold"><i class="fa-brands fa-facebook-f"></i></a>
         <a href="#" class="hover:text-brand-gold"><i class="fa-brands fa-instagram"></i></a>
@@ -235,8 +207,8 @@
         A premium Sanctuary of Artistry and Relaxation. Our highly trained master professionals are dedicated to creating bespoke, luxury hair, nail, and skincare experiences.
       </p>
       <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
-        <a href="#appointment" class="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-brand-gold to-brand-goldDark text-white font-semibold rounded-full hover:shadow-2xl hover:scale-105 transition-all">
-          Schedule Appointment
+        <a href="#booking-modal" data-booking-trigger class="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-brand-gold to-brand-goldDark text-white font-semibold rounded-full hover:shadow-2xl hover:scale-105 transition-all">
+          Book Now
         </a>
         <a href="services.html" class="w-full sm:w-auto px-8 py-4 bg-transparent border border-white/40 hover:border-brand-gold text-white font-semibold rounded-full backdrop-blur-sm hover:bg-white/5 transition-all">
           Explore Services
@@ -564,7 +536,7 @@
               <li class="flex items-center gap-3 text-sm text-stone-400 line-through"><i class="fa-solid fa-xmark text-stone-300"></i> 1x Organic Gold Facial</li>
             </ul>
           </div>
-          <a href="#appointment" class="block w-full text-center py-3 bg-stone-100 hover:bg-brand-gold hover:text-white dark:bg-stone-800 dark:hover:bg-brand-gold text-stone-800 dark:text-white font-semibold rounded-full transition-all">Choose Plan</a>
+          <a href="#booking-modal" data-booking-trigger class="block w-full text-center py-3 bg-stone-100 hover:bg-brand-gold hover:text-white dark:bg-stone-800 dark:hover:bg-brand-gold text-stone-800 dark:text-white font-semibold rounded-full transition-all">Book Now</a>
         </div>
 
         <!-- Featured Plan -->
@@ -584,7 +556,7 @@
               <li class="flex items-center gap-3 text-sm text-stone-600 dark:text-stone-400"><i class="fa-solid fa-check text-brand-rose"></i> 1x Collagen Gold Facial</li>
             </ul>
           </div>
-          <a href="#appointment" class="block w-full text-center py-3 bg-gradient-to-r from-brand-gold to-brand-goldDark text-white font-semibold rounded-full hover:shadow-lg transition-all">Choose Plan</a>
+          <a href="#booking-modal" data-booking-trigger class="block w-full text-center py-3 bg-gradient-to-r from-brand-gold to-brand-goldDark text-white font-semibold rounded-full hover:shadow-lg transition-all">Book Now</a>
         </div>
 
         <!-- VIP Plan -->
@@ -603,7 +575,7 @@
               <li class="flex items-center gap-3 text-sm text-stone-600 dark:text-stone-400"><i class="fa-solid fa-check text-brand-rose"></i> 1x Full Body Aromatherapy Massage</li>
             </ul>
           </div>
-          <a href="#appointment" class="block w-full text-center py-3 bg-stone-100 hover:bg-brand-gold hover:text-white dark:bg-stone-800 dark:hover:bg-brand-gold text-stone-800 dark:text-white font-semibold rounded-full transition-all">Choose Plan</a>
+          <a href="#booking-modal" data-booking-trigger class="block w-full text-center py-3 bg-stone-100 hover:bg-brand-gold hover:text-white dark:bg-stone-800 dark:hover:bg-brand-gold text-stone-800 dark:text-white font-semibold rounded-full transition-all">Book Now</a>
         </div>
       </div>
     </div>
@@ -719,7 +691,7 @@
         <!-- Blog Card 3 -->
         <div class="bg-white dark:bg-brand-darkCard rounded-2xl border border-stone-100 dark:border-brand-darkBorder overflow-hidden shadow-sm hover:shadow-md transition-all group" data-aos="fade-up" data-aos-delay="300">
           <div class="relative h-56 overflow-hidden">
-            <img src="./assets/images/img4.jpg" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Lifestyle Blog">
+            <img src="./assets/images/img29.jpg" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Lifestyle Blog">
           </div>
           <div class="p-6">
             <span class="text-xs text-brand-rose uppercase tracking-widest font-bold">Wellness</span>
@@ -858,7 +830,7 @@
       <!-- Col 1: Brand Info -->
       <div class="space-y-6">
         <a href="index.html" class="flex items-center gap-2">
-          <span class="font-serif text-3xl font-bold tracking-widest text-brand-gold">NOVA</span>
+          <span class="font-serif text-3xl font-bold tracking-widest text-brand-gold">NOVA Salon</span>
         </a>
         <p class="text-stone-400 text-sm leading-relaxed font-light">
           A premium Sanctuary of Artistry and Relaxation. Our highly trained master professionals are dedicated to creating bespoke, luxury hair, nail, and skincare experiences.
@@ -891,8 +863,7 @@
           <li><a href="pricing.html" class="hover:text-brand-gold transition-colors">Membership Pricing</a></li>
           <li><a href="blog.html" class="hover:text-brand-gold transition-colors">Latest Styling News</a></li>
           <li><a href="contact.html" class="hover:text-brand-gold transition-colors">Location & Contacts</a></li>
-          <li><a href="customer-dashboard.html" class="hover:text-brand-gold transition-colors">Customer Portal</a></li>
-        </ul>
+</ul>
       </div>
 </div>
 
@@ -911,60 +882,11 @@
     <i class="fa-solid fa-arrow-up"></i>
   </button>
 
-  <!-- ================= APPOINTMENT MODAL (GLOBAL ACTION) ================= -->
-  <div id="appointment-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-60 hidden items-center justify-center p-4">
-    <div class="bg-white dark:bg-brand-darkCard rounded-2xl max-w-xl w-full border border-stone-150 dark:border-brand-darkBorder overflow-hidden relative shadow-2xl animate-fade-in">
-      <button id="close-appointment-modal" class="absolute top-4 right-4 text-stone-400 hover:text-stone-700 dark:hover:text-white z-10">
-        <i class="fa-solid fa-xmark text-xl"></i>
-      </button>
-      <div class="p-8">
-        <h3 class="font-serif text-2xl font-bold mb-2">Book Appointment</h3>
-        <p class="text-stone-500 dark:text-stone-400 text-xs mb-6">Complete the quick form below. Our concierge team will confirm your session shortly.</p>
-        <form class="space-y-4">
-          <div class="grid grid-cols-2 gap-4">
-            <div>
-              <label class="block text-[10px] uppercase tracking-wider font-bold text-stone-500 dark:text-stone-400 mb-1">Name</label>
-              <input type="text" required class="w-full px-3 py-2 text-sm bg-stone-50 dark:bg-brand-darkBg border border-stone-100 dark:border-brand-darkBorder rounded-lg focus:border-brand-gold focus:outline-none dark:text-white">
-            </div>
-            <div>
-              <label class="block text-[10px] uppercase tracking-wider font-bold text-stone-500 dark:text-stone-400 mb-1">Phone</label>
-              <input type="tel" required class="w-full px-3 py-2 text-sm bg-stone-50 dark:bg-brand-darkBg border border-stone-100 dark:border-brand-darkBorder rounded-lg focus:border-brand-gold focus:outline-none dark:text-white">
-            </div>
-          </div>
-          <div>
-            <label class="block text-[10px] uppercase tracking-wider font-bold text-stone-500 dark:text-stone-400 mb-1">Service Category</label>
-            <select class="w-full px-3 py-2 text-sm bg-stone-50 dark:bg-brand-darkBg border border-stone-100 dark:border-brand-darkBorder rounded-lg focus:border-brand-gold focus:outline-none dark:text-white">
-              <option>Hair Styling & Coloring</option>
-              <option>Facials & Skincare</option>
-              <option>Nail Care & Art</option>
-              <option>Spa Aromatherapy Massage</option>
-            </select>
-          </div>
-          <div class="grid grid-cols-2 gap-4">
-            <div>
-              <label class="block text-[10px] uppercase tracking-wider font-bold text-stone-500 dark:text-stone-400 mb-1">Date</label>
-              <input type="date" required class="w-full px-3 py-2 text-sm bg-stone-50 dark:bg-brand-darkBg border border-stone-100 dark:border-brand-darkBorder rounded-lg focus:border-brand-gold focus:outline-none dark:text-white">
-            </div>
-            <div>
-              <label class="block text-[10px] uppercase tracking-wider font-bold text-stone-500 dark:text-stone-400 mb-1">Specialist</label>
-              <select class="w-full px-3 py-2 text-sm bg-stone-50 dark:bg-brand-darkBg border border-stone-100 dark:border-brand-darkBorder rounded-lg focus:border-brand-gold focus:outline-none dark:text-white">
-                <option>Any Available Stylist</option>
-                <option>Sophia Laurent</option>
-                <option>Liam Thorne</option>
-                <option>Emma Watson</option>
-              </select>
-            </div>
-          </div>
-          <button type="submit" class="w-full py-3 bg-gradient-to-r from-brand-gold to-brand-goldDark text-white font-semibold rounded-lg text-sm hover:shadow transition-all mt-4">Confirm Appointment Slot</button>
-        </form>
-      </div>
-    </div>
-  </div>
-
   <!-- JS Dependencies -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/booking.js"></script>
 
   <!-- Slider Initializations -->
   <script>
