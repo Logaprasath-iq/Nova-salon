@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - NOVA Salon & Spa</title>
+  
+  <!-- CSS Dependencies -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            stone: {
+              150: '#E7E5E4',
+              350: '#A8A29E',
+              450: '#78716C',
+              455: '#78716C',
+              550: '#57534E',
+              850: '#1C1917',
+              855: '#1C1917'
+            },
+            brand: {
+              gold: '#D4AF37',
+              goldDark: '#AA8C2C',
+              rose: '#D9A38F',
+              roseDark: '#B76E79',
+              cream: '#FDFBF7',
+              creamDark: '#F5EFE6',
+              darkBg: '#0F0F11',
+              darkCard: '#1A1A1F',
+              darkBorder: 'rgba(255,255,255,.08)',
+              darkText: '#A1A1AA'
+            }
+          },
+          screens: { lg: '992px' },
+          zIndex: { 60: '60' },
+          fontFamily: {
+            serif: ['Playfair Display', 'serif'],
+            sans: ['Poppins', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body data-auth-required="admin" class="bg-stone-50 text-stone-800 dark:bg-brand-darkBg dark:text-brand-darkText font-sans transition-colors duration-300 min-h-screen flex overflow-hidden">
+
+  <!-- ================= SIDEBAR ================= -->
+  <aside id="sidebar" class="fixed inset-y-0 left-0 w-64 bg-white dark:bg-brand-darkCard border-r border-stone-150 dark:border-brand-darkBorder z-40 transform -translate-x-full lg:translate-x-0 transition-transform duration-300 flex flex-col justify-between">
+    <div>
+      <!-- Sidebar Header -->
+      <div class="p-6 border-b border-stone-150 dark:border-brand-darkBorder flex justify-between items-center">
+        <a href="index.html" class="flex items-center gap-2">
+          <span class="font-serif text-2xl font-bold tracking-widest text-brand-gold">NOVA</span>
+          <span class="text-[10px] uppercase tracking-widest text-stone-400">Admin</span>
+        </a>
+        <button id="sidebar-close" class="lg:hidden text-stone-400 hover:text-stone-700 dark:hover:text-white">
+          <i class="fa-solid fa-xmark text-lg"></i>
+        </button>
+      </div>
+
+      <!-- Navigation links -->
+      <nav class="p-4 space-y-1">
+        <a href="#" data-panel="dashboard" class="sidebar-link flex items-center gap-3 px-4 py-3 bg-brand-gold/10 text-brand-gold border-l-4 border-brand-gold rounded-r-lg font-semibold transition-all">
+          <i class="fa-solid fa-chart-line w-5"></i> Dashboard
+        </a>
+        <a href="#" data-panel="appointments" class="sidebar-link flex items-center gap-3 px-4 py-3 text-stone-500 border-l-4 border-transparent hover:text-brand-gold rounded-r-lg transition-all">
+          <i class="fa-regular fa-calendar-check w-5"></i> Appointments
+        </a>
+        <a href="#" data-panel="customers" class="sidebar-link flex items-center gap-3 px-4 py-3 text-stone-500 border-l-4 border-transparent hover:text-brand-gold rounded-r-lg transition-all">
+          <i class="fa-regular fa-user w-5"></i> Users
+        </a>
+        <a href="#" data-panel="orders" class="sidebar-link flex items-center gap-3 px-4 py-3 text-stone-500 border-l-4 border-transparent hover:text-brand-gold rounded-r-lg transition-all">
+          <i class="fa-solid fa-bag-shopping w-5"></i> Orders
+        </a>
+        <a href="#" data-panel="payments" class="sidebar-link flex items-center gap-3 px-4 py-3 text-stone-500 border-l-4 border-transparent hover:text-brand-gold rounded-r-lg transition-all">
+          <i class="fa-solid fa-credit-card w-5"></i> Payments
+        </a>
+        <a href="#" data-panel="messages" class="sidebar-link flex items-center gap-3 px-4 py-3 text-stone-500 border-l-4 border-transparent hover:text-brand-gold rounded-r-lg transition-all">
+          <i class="fa-regular fa-comment w-5"></i> Messages
+        </a>
+        <a href="#" data-panel="reviews" class="sidebar-link flex items-center gap-3 px-4 py-3 text-stone-500 border-l-4 border-transparent hover:text-brand-gold rounded-r-lg transition-all">
+          <i class="fa-regular fa-star w-5"></i> Reviews
+        </a>
+        <a href="#" data-panel="settings" class="sidebar-link flex items-center gap-3 px-4 py-3 text-stone-500 border-l-4 border-transparent hover:text-brand-gold rounded-r-lg transition-all">
+          <i class="fa-solid fa-sliders w-5"></i> Settings
+        </a>
+      </nav>
+    </div>
+
+    <!-- Sidebar Footer (User info & logout) -->
+    <div class="p-4 border-t border-stone-150 dark:border-brand-darkBorder space-y-4">
+      <div class="flex items-center gap-3 px-2">
+        <img data-current-user-avatar src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=80" class="w-10 h-10 rounded-full object-cover shadow" alt="Admin profile">
+        <div>
+          <h5 data-current-user-name class="font-bold text-xs text-stone-850 dark:text-white">Sophia Laurent</h5>
+          <span class="text-[9px] text-stone-400">Salon Director</span>
+        </div>
+      </div>
+      <a href="login.html" data-logout class="flex items-center gap-3 px-4 py-2.5 text-red-500 hover:bg-red-50 dark:hover:bg-red-950/20 rounded-lg text-sm transition-colors">
+        <i class="fa-solid fa-right-from-bracket"></i> Log Out
+      </a>
+    </div>
+  </aside>
+
+  <!-- ================= MAIN WRAPPER ================= -->
+  <div class="flex-1 lg:ml-64 flex flex-col h-screen overflow-hidden">
+    
+    <!-- Top Nav bar -->
+    <header class="bg-white dark:bg-brand-darkCard border-b border-stone-150 dark:border-brand-darkBorder h-16 shrink-0 flex justify-between items-center px-6">
+      <div class="flex items-center gap-4">
+        <!-- Hamburger Menu Toggle -->
+        <button id="sidebar-toggle" class="lg:hidden text-stone-500 p-2" aria-label="Open Sidebar">
+          <i class="fa-solid fa-bars text-xl"></i>
+        </button>
+        <!-- Search bar -->
+        <div class="relative hidden sm:block">
+          <input type="text" placeholder="Search data..." class="pl-9 pr-4 py-1.5 bg-stone-50 dark:bg-brand-darkBg border border-stone-150 dark:border-brand-darkBorder rounded-lg focus:outline-none focus:border-brand-gold text-xs dark:text-white transition-colors">
+          <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 transform -translate-y-1/2 text-stone-400 text-xs"></i>
+        </div>
+      </div>
+
+      <!-- Actions -->
+      <div class="flex items-center gap-4">
+        <!-- Theme Toggle -->
+        <button class="theme-toggle p-2 text-stone-550 dark:text-stone-300 hover:text-brand-gold transition-colors" aria-label="Toggle Theme">
+          <i class="fa-solid fa-moon dark:hidden text-md"></i>
+          <i class="fa-solid fa-sun hidden dark:block text-md"></i>
+        </button>
+
+        <!-- Notifications Dropdown -->
+        <div class="relative">
+          <button id="bell-btn" class="p-2 text-stone-550 dark:text-stone-300 hover:text-brand-gold transition-colors relative" aria-label="Notifications">
+            <i class="fa-regular fa-bell text-md"></i>
+            <span class="absolute top-1.5 right-1.5 w-2 h-2 bg-brand-rose rounded-full"></span>
+          </button>
+          <!-- Dropdown items -->
+          <div id="notif-dropdown" class="absolute right-0 top-full mt-2 w-72 bg-white dark:bg-brand-darkCard border border-stone-150 dark:border-brand-darkBorder rounded-xl shadow-lg p-4 space-y-3 hidden z-50">
+            <h5 class="font-bold text-xs pb-2 border-b border-stone-100 dark:border-brand-darkBorder text-stone-900 dark:text-white">Notifications</h5>
+            <div class="space-y-2 max-h-60 overflow-y-auto">
+              <div class="text-[11px] p-2 hover:bg-stone-50 dark:hover:bg-stone-850 rounded transition-colors">
+                <span class="font-semibold block">New Appointment Booked</span>
+                <span class="text-stone-400">Victoria Sterling - 3:00 PM Today</span>
+              </div>
+              <div class="text-[11px] p-2 hover:bg-stone-50 dark:hover:bg-stone-850 rounded transition-colors">
+                <span class="font-semibold block">Order #1284 Pending</span>
+                <span class="text-stone-400">Gel Polish Supply - Low Stock</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <a href="index.html" class="text-xs uppercase tracking-wider font-bold text-brand-gold border border-brand-gold/30 px-3 py-1 rounded hover:bg-brand-gold hover:text-white transition-all">Live Site</a>
+      </div>
+    </header>
+
+    <!-- Main Content Panels (Scrollable) -->
+    <main class="flex-grow p-6 overflow-y-auto bg-stone-50 dark:bg-brand-darkBg space-y-6">
+
+      <!-- ================= PANEL 1: DASHBOARD ================= -->
+      <div id="dashboard-panel" class="dashboard-panel space-y-6">
+        
+        <!-- Widgets Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Widget 1 -->
+          <div class="bg-white dark:bg-brand-darkCard border border-stone-150 dark:border-brand-darkBorder p-6 rounded-2xl flex items-center justify-between shadow-sm">
+            <div>
+              <span class="text-[10px] uppercase font-bold tracking-widest text-stone-400">Total Revenue</span>
+              <h4 class="font-serif text-3xl font-bold mt-1 text-stone-900 dark:text-white">$16,500</h4>
+              <span class="text-[10px] text-emerald-500 font-bold block mt-1"><i class="fa-solid fa-arrow-trend-up"></i> +12.4% vs last month</span>
+            </div>
+            <span class="w-12 h-12 rounded-full bg-brand-gold/10 text-brand-gold flex items-center justify-center text-xl shrink-0"><i class="fa-solid fa-dollar-sign"></i></span>
+          </div>
+
+          <!-- Widget 2 -->
+          <div class="bg-white dark:bg-brand-darkCard border border-stone-150 dark:border-brand-darkBorder p-6 rounded-2xl flex items-center justify-between shadow-sm">
+            <div>
+              <span class="text-[10px] uppercase font-bold tracking-widest text-stone-400">Total Guests</span>
+              <h4 class="font-serif text-3xl font-bold mt-1 text-stone-900 dark:text-white">1,240</h4>
+              <span class="text-[10px] text-emerald-500 font-bold block mt-1"><i class="fa-solid fa-arrow-trend-up"></i> +4.8% vs last month</span>
+            </div>
+            <span class="w-12 h-12 rounded-full bg-brand-rose/10 text-brand-roseDark flex items-center justify-center text-xl shrink-0"><i class="fa-regular fa-user"></i></span>
+          </div>
+
+          <!-- Widget 3 -->
+          <div class="bg-white dark:bg-brand-darkCard border border-stone-150 dark:border-brand-darkBorder p-6 rounded-2xl flex items-center justify-between shadow-sm">
+            <div>
+              <span class="text-[10px] uppercase font-bold tracking-widest text-stone-400">Appointments</span>
+              <h4 class="font-serif text-3xl font-bold mt-1 text-stone-900 dark:text-white">42</h4>
+              <span class="text-[10px] text-red-500 font-bold block mt-1"><i class="fa-solid fa-clock"></i> 8 pending validation</span>
+            </div>
+            <span class="w-12 h-12 rounded-full bg-brand-gold/10 text-brand-gold flex items-center justify-center text-xl shrink-0"><i class="fa-regular fa-calendar-check"></i></span>
+          </div>
+
+          <!-- Widget 4 -->
+          <div class="bg-white dark:bg-brand-darkCard border border-stone-150 dark:border-brand-darkBorder p-6 rounded-2xl flex items-center justify-between shadow-sm">
+            <div>
+              <span class="text-[10px] uppercase font-bold tracking-widest text-stone-400">Pending Orders</span>
+              <h4 class="font-serif text-3xl font-bold mt-1 text-stone-900 dark:text-white">18</h4>
+              <span class="text-[10px] text-stone-400 block mt-1">Product stock supply orders</span>
+            </div>
+            <span class="w-12 h-12 rounded-full bg-stone-100 dark:bg-stone-850 text-stone-500 flex items-center justify-center text-xl shrink-0"><i class="fa-solid fa-bag-shopping"></i></span>
+          </div>
+        </div>
+
+        <!-- Charts Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+          <!-- Revenue Line Chart -->
+          <div class="lg:col-span-8 bg-white dark:bg-brand-darkCard border border-stone-150 dark:border-brand-darkBorder p-6 rounded-2xl shadow-sm space-y-4">
+            <h4 class="font-serif text-lg font-bold text-stone-900 dark:text-white">Monthly Revenue Trends</h4>
+            <div class="h-80 w-full relative">
+              <canvas id="revenueChart"></canvas>
+            </div>
+          </div>
+
+          <!-- Treatment Popularity Doughnut -->
+          <div class="lg:col-span-4 bg-white dark:bg-brand-darkCard border border-stone-150 dark:border-brand-darkBorder p-6 rounded-2xl shadow-sm space-y-4">
+            <h4 class="font-serif text-lg font-bold text-stone-900 dark:text-white">Treatment Popularity</h4>
+            <div class="h-80 w-full relative">
+              <canvas id="categoryChart"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- Table Row -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+          <!-- Table -->
+          <div class="lg:col-span-8 bg-white dark:bg-brand-darkCard border border-stone-150 dark:border-brand-darkBorder rounded-2xl shadow-sm overflow-hidden flex flex-col justify-between">
+            <div class="p-6 border-b border-stone-150 dark:border-brand-darkBorder">
+              <h4 class="font-serif text-lg font-bold text-stone-900 dark:text-white">Recent Appointment Bookings</h4>
+            </div>
+            <div class="overflow-x-auto">
+              <table class="w-full text-xs text-left">
+                <thead class="bg-stone-50 dark:bg-brand-darkBg/60 text-stone-400 border-b border-stone-150 dark:border-brand-darkBorder">
+                  <tr>
+                    <th class="p-4">Guest</th>
+                    <th class="p-4">Service</th>
+                    <th class="p-4">Date / Time</th>
+                    <th class="p-4">Status</th>
+                    <th class="p-4 text-right">Actions</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-stone-100 dark:divide-brand-darkBorder">
+                  <tr>
+                    <td class="p-4 font-bold">Victoria Sterling</td>
+                    <td class="p-4">Luxury Haircut & blowout</td>
+                    <td class="p-4">Aug 6, 2026 - 3:00 PM</td>
+                    <td class="p-4"><span class="px-2 py-0.5 bg-emerald-100 text-emerald-800 dark:bg-emerald-950/20 dark:text-emerald-400 rounded-full font-bold">Approved</span></td>
+                    <td class="p-4 text-right">
+                      <button class="text-stone-400 hover:text-brand-gold mr-2" title="Edit"><i class="fa-regular fa-edit"></i></button>
+                      <button class="text-red-500 hover:text-red-700" title="Cancel"><i class="fa-regular fa-circle-xmark"></i></button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="p-4 font-bold">Alexandra Dubois</td>
+                    <td class="p-4">Collagen Gold Facial</td>
+                    <td class="p-4">Aug 7, 2026 - 11:30 AM</td>
+                    <td class="p-4"><span class="px-2 py-0.5 bg-yellow-100 text-yellow-800 dark:bg-yellow-950/20 dark:text-yellow-400 rounded-full font-bold">Pending</span></td>
+                    <td class="p-4 text-right">
+                      <button class="text-emerald-500 hover:text-emerald-700 mr-2" title="Approve"><i class="fa-solid fa-check"></i></button>
+                      <button class="text-red-500 hover:text-red-700" title="Cancel"><i class="fa-regular fa-circle-xmark"></i></button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="p-4 border-t border-stone-100 dark:border-brand-darkBorder text-center">
+              <a href="#" class="text-xs text-brand-gold font-bold hover:underline">View All Appointments</a>
+            </div>
+          </div>
+
+          <!-- Recent Customers + Calendar List -->
+          <div class="lg:col-span-4 bg-white dark:bg-brand-darkCard border border-stone-150 dark:border-brand-darkBorder p-6 rounded-2xl shadow-sm space-y-6">
+            <div>
+              <h4 class="font-serif text-lg font-bold text-stone-900 dark:text-white mb-4">Recent Customers</h4>
+              <div class="space-y-4">
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center gap-3">
+                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=80" class="w-8 h-8 rounded-full object-cover shadow" alt="Recent 1">
+                    <div>
+                      <h5 class="font-bold text-xs">Alexandra Dubois</h5>
+                      <span class="text-[9px] text-stone-400">Joined 2 days ago</span>
+                    </div>
+                  </div>
+                  <span class="text-xs text-brand-gold font-bold">$120</span>
+                </div>
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center gap-3">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=80" class="w-8 h-8 rounded-full object-cover shadow" alt="Recent 2">
+                    <div>
+                      <h5 class="font-bold text-xs">Mark Thorne</h5>
+                      <span class="text-[9px] text-stone-400">Joined 5 days ago</span>
+                    </div>
+                  </div>
+                  <span class="text-xs text-brand-gold font-bold">$95</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Mini Calendar Widget -->
+            <div class="border-t border-stone-100 dark:border-brand-darkBorder pt-6">
+              <h4 class="font-serif text-lg font-bold text-stone-900 dark:text-white mb-4">Calendar Agenda</h4>
+              <div class="space-y-3">
+                <div class="flex items-center gap-4 p-3 bg-stone-50 dark:bg-brand-darkBg/60 rounded-xl border border-stone-100 dark:border-brand-darkBorder">
+                  <div class="text-center bg-brand-gold text-white px-2 py-1 rounded font-bold text-xs shrink-0">
+                    <span class="block text-[8px] uppercase">Aug</span>
+                    <span>06</span>
+                  </div>
+                  <div>
+                    <h6 class="font-bold text-xs">Victoria Sterling Visit</h6>
+                    <span class="text-[9px] text-stone-400">3:00 PM - 4:00 PM</span>
+                  </div>
+                </div>
+                <div class="flex items-center gap-4 p-3 bg-stone-50 dark:bg-brand-darkBg/60 rounded-xl border border-stone-100 dark:border-brand-darkBorder">
+                  <div class="text-center bg-brand-rose text-white px-2 py-1 rounded font-bold text-xs shrink-0">
+                    <span class="block text-[8px] uppercase">Aug</span>
+                    <span>07</span>
+                  </div>
+                  <div>
+                    <h6 class="font-bold text-xs">Alexandra Gold Facial</h6>
+                    <span class="text-[9px] text-stone-400">11:30 AM - 12:45 PM</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ================= PANEL 2: APPOINTMENTS ================= -->
+      <div id="appointments-panel" class="dashboard-panel space-y-6 hidden">
+        <div class="bg-white dark:bg-brand-darkCard border border-stone-150 dark:border-brand-darkBorder rounded-2xl shadow-sm p-6 space-y-6">
+          <div class="flex justify-between items-center pb-4 border-b border-stone-150 dark:border-brand-darkBorder">
+            <h3 class="font-serif text-2xl font-bold text-stone-900 dark:text-white">Active Appointments</h3>
+            <button class="px-4 py-2 bg-brand-gold text-white text-xs font-semibold rounded-lg hover:shadow transition-all">Add Appointment</button>
+          </div>
+          
+          <div class="overflow-x-auto">
+            <table class="w-full text-xs text-left">
+              <thead class="bg-stone-50 dark:bg-brand-darkBg/60 text-stone-400 border-b border-stone-150 dark:border-brand-darkBorder">
+                <tr>
+                  <th class="p-4">Guest</th>
+                  <th class="p-4">Service</th>
+                  <th class="p-4">Date / Time</th>
+                  <th class="p-4">Specialist</th>
+                  <th class="p-4">Status</th>
+                  <th class="p-4 text-right">Actions</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-stone-100 dark:divide-brand-darkBorder">
+                <tr>
+                  <td class="p-4 font-bold">Victoria Sterling</td>
+                  <td class="p-4">Luxury Haircut & Blowout</td>
+                  <td class="p-4">Aug 6, 2026 - 3:00 PM</td>
+                  <td class="p-4">Sophia Laurent</td>
+                  <td class="p-4"><span class="px-2 py-0.5 bg-emerald-100 text-emerald-800 dark:bg-emerald-950/20 dark:text-emerald-400 rounded-full font-bold">Approved</span></td>
+                  <td class="p-4 text-right">
+                    <button class="text-stone-400 hover:text-brand-gold mr-2"><i class="fa-regular fa-edit"></i></button>
+                    <button class="text-red-500 hover:text-red-700"><i class="fa-regular fa-circle-xmark"></i></button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= PANEL 3: USERS ================= -->
+      <div id="customers-panel" class="dashboard-panel space-y-6 hidden">
+        <div class="bg-white dark:bg-brand-darkCard border border-stone-150 dark:border-brand-darkBorder rounded-2xl shadow-sm p-6 space-y-6">
+          <div class="flex justify-between items-center pb-4 border-b border-stone-150 dark:border-brand-darkBorder">
+            <h3 class="font-serif text-2xl font-bold text-stone-900 dark:text-white">Customer Users</h3>
+            <button class="px-4 py-2 bg-brand-gold text-white text-xs font-semibold rounded-lg hover:shadow transition-all">Add Guest</button>
+          </div>
+          
+          <div class="overflow-x-auto">
+            <table class="w-full text-xs text-left">
+              <thead class="bg-stone-50 dark:bg-brand-darkBg/60 text-stone-400 border-b border-stone-150 dark:border-brand-darkBorder">
+                <tr>
+                  <th class="p-4">Name</th>
+                  <th class="p-4">Email</th>
+                  <th class="p-4">Phone</th>
+                  <th class="p-4">Join Date</th>
+                  <th class="p-4 text-right">Actions</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-stone-100 dark:divide-brand-darkBorder">
+                <tr>
+                  <td class="p-4 font-bold flex items-center gap-3">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=80" class="w-8 h-8 rounded-full object-cover" alt="Victoria">
+                    <span>Victoria Sterling</span>
+                  </td>
+                  <td class="p-4">victoria@sterling.com</td>
+                  <td class="p-4">+1 (555) 000-1111</td>
+                  <td class="p-4">Dec 12, 2024</td>
+                  <td class="p-4 text-right">
+                    <button class="text-stone-400 hover:text-brand-gold mr-2"><i class="fa-regular fa-eye"></i></button>
+                    <button class="text-red-500 hover:text-red-700"><i class="fa-regular fa-trash-can"></i></button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= PANEL 4: ORDERS ================= -->
+      <div id="orders-panel" class="dashboard-panel space-y-6 hidden">
+        <div class="bg-white dark:bg-brand-darkCard border border-stone-150 dark:border-brand-darkBorder rounded-2xl shadow-sm p-6 space-y-6">
+          <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 pb-4 border-b border-stone-150 dark:border-brand-darkBorder">
+            <div>
+              <h3 class="font-serif text-2xl font-bold text-stone-900 dark:text-white">Orders</h3>
+              <p class="text-xs text-stone-400 mt-1">Track product stock requests, package purchases, and service deposits.</p>
+            </div>
+            <button class="px-4 py-2 bg-brand-gold text-white text-xs font-semibold rounded-lg hover:shadow transition-all">Create Order</button>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="w-full text-xs text-left">
+              <thead class="bg-stone-50 dark:bg-brand-darkBg/60 text-stone-400 border-b border-stone-150 dark:border-brand-darkBorder">
+                <tr>
+                  <th class="p-4">Order ID</th>
+                  <th class="p-4">Customer / Vendor</th>
+                  <th class="p-4">Item</th>
+                  <th class="p-4">Amount</th>
+                  <th class="p-4">Status</th>
+                  <th class="p-4 text-right">Actions</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-stone-100 dark:divide-brand-darkBorder">
+                <tr>
+                  <td class="p-4 font-bold">#AUR-1284</td>
+                  <td class="p-4">Nail Atelier Supply</td>
+                  <td class="p-4">Gel Polish Restock</td>
+                  <td class="p-4">$420.00</td>
+                  <td class="p-4"><span class="px-2 py-0.5 bg-yellow-100 text-yellow-800 dark:bg-yellow-950/20 dark:text-yellow-400 rounded-full font-bold">Pending</span></td>
+                  <td class="p-4 text-right">
+                    <button class="text-stone-400 hover:text-brand-gold mr-2" title="View"><i class="fa-regular fa-eye"></i></button>
+                    <button class="text-emerald-500 hover:text-emerald-700" title="Approve"><i class="fa-solid fa-check"></i></button>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="p-4 font-bold">#AUR-1283</td>
+                  <td class="p-4">Victoria Sterling</td>
+                  <td class="p-4">Glow Membership Renewal</td>
+                  <td class="p-4">$149.00</td>
+                  <td class="p-4"><span class="px-2 py-0.5 bg-emerald-100 text-emerald-800 dark:bg-emerald-950/20 dark:text-emerald-400 rounded-full font-bold">Paid</span></td>
+                  <td class="p-4 text-right">
+                    <button class="text-stone-400 hover:text-brand-gold mr-2" title="View"><i class="fa-regular fa-eye"></i></button>
+                    <button class="text-stone-400 hover:text-brand-gold" title="Invoice"><i class="fa-regular fa-file-lines"></i></button>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="p-4 font-bold">#AUR-1282</td>
+                  <td class="p-4">Alexandra Dubois</td>
+                  <td class="p-4">Bridal Package Deposit</td>
+                  <td class="p-4">$350.00</td>
+                  <td class="p-4"><span class="px-2 py-0.5 bg-stone-100 text-stone-600 dark:bg-stone-850 dark:text-stone-300 rounded-full font-bold">Processing</span></td>
+                  <td class="p-4 text-right">
+                    <button class="text-stone-400 hover:text-brand-gold mr-2" title="View"><i class="fa-regular fa-eye"></i></button>
+                    <button class="text-red-500 hover:text-red-700" title="Cancel"><i class="fa-regular fa-circle-xmark"></i></button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= PANEL 5: PAYMENTS ================= -->
+      <div id="payments-panel" class="dashboard-panel space-y-6 hidden">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+          <div class="bg-white dark:bg-brand-darkCard border border-stone-150 dark:border-brand-darkBorder p-6 rounded-2xl shadow-sm">
+            <span class="text-[10px] uppercase font-bold tracking-widest text-stone-400">Collected Today</span>
+            <h4 class="font-serif text-3xl font-bold mt-2 text-stone-900 dark:text-white">$2,180</h4>
+            <p class="text-[10px] text-emerald-500 mt-1 font-bold">12 successful payments</p>
+          </div>
+          <div class="bg-white dark:bg-brand-darkCard border border-stone-150 dark:border-brand-darkBorder p-6 rounded-2xl shadow-sm">
+            <span class="text-[10px] uppercase font-bold tracking-widest text-stone-400">Outstanding</span>
+            <h4 class="font-serif text-3xl font-bold mt-2 text-stone-900 dark:text-white">$640</h4>
+            <p class="text-[10px] text-yellow-500 mt-1 font-bold">4 pending invoices</p>
+          </div>
+          <div class="bg-white dark:bg-brand-darkCard border border-stone-150 dark:border-brand-darkBorder p-6 rounded-2xl shadow-sm">
+            <span class="text-[10px] uppercase font-bold tracking-widest text-stone-400">Refund Requests</span>
+            <h4 class="font-serif text-3xl font-bold mt-2 text-stone-900 dark:text-white">2</h4>
+            <p class="text-[10px] text-stone-400 mt-1">Awaiting manager review</p>
+          </div>
+        </div>
+
+        <div class="bg-white dark:bg-brand-darkCard border border-stone-150 dark:border-brand-darkBorder rounded-2xl shadow-sm p-6 space-y-6">
+          <h3 class="font-serif text-2xl font-bold text-stone-900 dark:text-white pb-4 border-b border-stone-150 dark:border-brand-darkBorder">Payment Activity</h3>
+          <div class="overflow-x-auto">
+            <table class="w-full text-xs text-left">
+              <thead class="bg-stone-50 dark:bg-brand-darkBg/60 text-stone-400 border-b border-stone-150 dark:border-brand-darkBorder">
+                <tr>
+                  <th class="p-4">Customer</th>
+                  <th class="p-4">Service</th>
+                  <th class="p-4">Method</th>
+                  <th class="p-4">Amount</th>
+                  <th class="p-4">Status</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-stone-100 dark:divide-brand-darkBorder">
+                <tr>
+                  <td class="p-4 font-bold">Victoria Sterling</td>
+                  <td class="p-4">Luxury Haircut & Blowout</td>
+                  <td class="p-4">Card</td>
+                  <td class="p-4">$85.00</td>
+                  <td class="p-4"><span class="px-2 py-0.5 bg-emerald-100 text-emerald-800 dark:bg-emerald-950/20 dark:text-emerald-400 rounded-full font-bold">Captured</span></td>
+                </tr>
+                <tr>
+                  <td class="p-4 font-bold">Mark Thorne</td>
+                  <td class="p-4">Aromatherapy Massage</td>
+                  <td class="p-4">Cash</td>
+                  <td class="p-4">$95.00</td>
+                  <td class="p-4"><span class="px-2 py-0.5 bg-emerald-100 text-emerald-800 dark:bg-emerald-950/20 dark:text-emerald-400 rounded-full font-bold">Received</span></td>
+                </tr>
+                <tr>
+                  <td class="p-4 font-bold">Alexandra Dubois</td>
+                  <td class="p-4">Collagen Gold Facial</td>
+                  <td class="p-4">Wallet</td>
+                  <td class="p-4">$120.00</td>
+                  <td class="p-4"><span class="px-2 py-0.5 bg-yellow-100 text-yellow-800 dark:bg-yellow-950/20 dark:text-yellow-400 rounded-full font-bold">Pending</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= PANEL 6: MESSAGES ================= -->
+      <div id="messages-panel" class="dashboard-panel space-y-6 hidden">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+          <div class="lg:col-span-4 bg-white dark:bg-brand-darkCard border border-stone-150 dark:border-brand-darkBorder rounded-2xl shadow-sm p-6 space-y-4">
+            <h3 class="font-serif text-2xl font-bold text-stone-900 dark:text-white">Messages</h3>
+            <div class="space-y-3">
+              <button class="w-full text-left p-4 rounded-xl bg-brand-gold/10 border border-brand-gold/20">
+                <span class="block text-xs font-bold text-stone-900 dark:text-white">Victoria Sterling</span>
+                <span class="block text-[10px] text-stone-400 mt-1">Can I move my appointment to 4 PM?</span>
+              </button>
+              <button class="w-full text-left p-4 rounded-xl bg-stone-50 dark:bg-brand-darkBg/60 border border-stone-100 dark:border-brand-darkBorder">
+                <span class="block text-xs font-bold text-stone-900 dark:text-white">Alexandra Dubois</span>
+                <span class="block text-[10px] text-stone-400 mt-1">Please add eye treatment to my facial.</span>
+              </button>
+              <button class="w-full text-left p-4 rounded-xl bg-stone-50 dark:bg-brand-darkBg/60 border border-stone-100 dark:border-brand-darkBorder">
+                <span class="block text-xs font-bold text-stone-900 dark:text-white">Mark Thorne</span>
+                <span class="block text-[10px] text-stone-400 mt-1">Do you have a couples spa package?</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="lg:col-span-8 bg-white dark:bg-brand-darkCard border border-stone-150 dark:border-brand-darkBorder rounded-2xl shadow-sm p-6 space-y-5">
+            <div class="flex items-center justify-between pb-4 border-b border-stone-150 dark:border-brand-darkBorder">
+              <div>
+                <h4 class="font-serif text-xl font-bold text-stone-900 dark:text-white">Victoria Sterling</h4>
+                <span class="text-[10px] text-stone-400">Appointment conversation</span>
+              </div>
+              <span class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-700 dark:bg-emerald-950/20 dark:text-emerald-400 text-[10px] font-bold">Open</span>
+            </div>
+
+            <div class="space-y-4">
+              <div class="max-w-md p-4 rounded-2xl bg-stone-50 dark:bg-brand-darkBg/60 border border-stone-100 dark:border-brand-darkBorder text-xs text-stone-500 dark:text-stone-300">
+                Can I move my haircut appointment from 3 PM to 4 PM today?
+              </div>
+              <div class="max-w-md ml-auto p-4 rounded-2xl bg-brand-gold text-white text-xs">
+                Yes, 4 PM is available with Sophia. I have updated your booking.
+              </div>
+            </div>
+
+            <form class="flex flex-col sm:flex-row gap-3 pt-4">
+              <input type="text" placeholder="Write a reply..." class="flex-1 px-4 py-3 bg-stone-50 dark:bg-brand-darkBg border border-stone-150 dark:border-brand-darkBorder rounded-xl focus:border-brand-gold focus:outline-none dark:text-white text-xs">
+              <button class="px-5 py-3 bg-brand-gold text-white text-xs font-semibold rounded-xl hover:shadow transition-all">Send Reply</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= PANEL 7: REVIEWS ================= -->
+      <div id="reviews-panel" class="dashboard-panel space-y-6 hidden">
+        <div class="bg-white dark:bg-brand-darkCard border border-stone-150 dark:border-brand-darkBorder rounded-2xl shadow-sm p-6 space-y-6">
+          <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pb-4 border-b border-stone-150 dark:border-brand-darkBorder">
+            <div>
+              <h3 class="font-serif text-2xl font-bold text-stone-900 dark:text-white">Reviews</h3>
+              <p class="text-xs text-stone-400 mt-1">Moderate guest feedback and feature testimonials.</p>
+            </div>
+            <span class="text-brand-gold text-sm font-bold"><i class="fa-solid fa-star"></i> 4.9 Average Rating</span>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <div class="p-5 rounded-2xl bg-stone-50 dark:bg-brand-darkBg/60 border border-stone-100 dark:border-brand-darkBorder space-y-3">
+              <div class="flex justify-between items-center">
+                <h4 class="font-bold text-xs text-stone-900 dark:text-white">Victoria Sterling</h4>
+                <span class="text-brand-gold text-xs">5.0</span>
+              </div>
+              <p class="text-xs text-stone-500 dark:text-stone-400 leading-relaxed">Sophia gave me the best blowout before my event. The booking reminders were perfect.</p>
+              <button class="text-[10px] uppercase tracking-widest font-bold text-brand-gold">Feature Review</button>
+            </div>
+            <div class="p-5 rounded-2xl bg-stone-50 dark:bg-brand-darkBg/60 border border-stone-100 dark:border-brand-darkBorder space-y-3">
+              <div class="flex justify-between items-center">
+                <h4 class="font-bold text-xs text-stone-900 dark:text-white">Alexandra Dubois</h4>
+                <span class="text-brand-gold text-xs">4.8</span>
+              </div>
+              <p class="text-xs text-stone-500 dark:text-stone-400 leading-relaxed">The gold facial left my skin hydrated for days. I already booked next month.</p>
+              <button class="text-[10px] uppercase tracking-widest font-bold text-brand-gold">Feature Review</button>
+            </div>
+            <div class="p-5 rounded-2xl bg-stone-50 dark:bg-brand-darkBg/60 border border-stone-100 dark:border-brand-darkBorder space-y-3">
+              <div class="flex justify-between items-center">
+                <h4 class="font-bold text-xs text-stone-900 dark:text-white">Mark Thorne</h4>
+                <span class="text-brand-gold text-xs">4.7</span>
+              </div>
+              <p class="text-xs text-stone-500 dark:text-stone-400 leading-relaxed">Aromatherapy massage was calm, professional, and exactly on time.</p>
+              <button class="text-[10px] uppercase tracking-widest font-bold text-brand-gold">Feature Review</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= PANEL 8: SETTINGS ================= -->
+      <div id="settings-panel" class="dashboard-panel space-y-6 hidden">
+        <div class="bg-white dark:bg-brand-darkCard border border-stone-150 dark:border-brand-darkBorder rounded-2xl shadow-sm p-8 max-w-2xl">
+          <h3 class="font-serif text-2xl font-bold text-stone-900 dark:text-white pb-4 border-b border-stone-150 dark:border-brand-darkBorder mb-6">Salon Settings</h3>
+          
+          <form class="space-y-6">
+            <div class="grid grid-cols-2 gap-6">
+              <div>
+                <label class="block text-[10px] uppercase tracking-wider font-semibold text-stone-500 mb-2">Salon Name</label>
+                <input type="text" value="NOVA Salon & Spa" required class="w-full px-4 py-3 bg-stone-50 dark:bg-brand-darkBg border border-stone-150 dark:border-brand-darkBorder rounded-xl focus:border-brand-gold focus:outline-none dark:text-white text-xs">
+              </div>
+              <div>
+                <label class="block text-[10px] uppercase tracking-wider font-semibold text-stone-500 mb-2">Concierge Email</label>
+                <input type="email" value="concierge@nova-salon.com" required class="w-full px-4 py-3 bg-stone-50 dark:bg-brand-darkBg border border-stone-150 dark:border-brand-darkBorder rounded-xl focus:border-brand-gold focus:outline-none dark:text-white text-xs">
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-[10px] uppercase tracking-wider font-semibold text-stone-500 mb-2">Physical Location</label>
+              <input type="text" value="742 Evergreen Terrace, Luxury District" required class="w-full px-4 py-3 bg-stone-50 dark:bg-brand-darkBg border border-stone-150 dark:border-brand-darkBorder rounded-xl focus:border-brand-gold focus:outline-none dark:text-white text-xs">
+            </div>
+
+            <button type="submit" class="px-6 py-3 bg-brand-gold text-white text-xs font-semibold rounded-xl hover:shadow transition-all">Save General Settings</button>
+          </form>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- JS Dependencies -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/dashboard.js"></script>
+</body>
+</html>

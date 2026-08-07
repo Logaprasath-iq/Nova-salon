@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pricing Plans - NOVA Salon & Spa</title>
+  <meta name="description" content="Choose your perfect NOVA membership tier. View classic, luxury, and VIP packages with monthly/yearly pricing toggles and feature comparisons.">
+  
+  <!-- CSS Dependencies -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            stone: {
+              150: '#E7E5E4',
+              350: '#A8A29E',
+              450: '#78716C',
+              455: '#78716C',
+              550: '#57534E',
+              850: '#1C1917',
+              855: '#1C1917'
+            },
+            brand: {
+              gold: '#D4AF37',
+              goldDark: '#AA8C2C',
+              rose: '#D9A38F',
+              roseDark: '#B76E79',
+              cream: '#FDFBF7',
+              creamDark: '#F5EFE6',
+              darkBg: '#0F0F11',
+              darkCard: '#1A1A1F',
+              darkBorder: 'rgba(255,255,255,.08)',
+              darkText: '#A1A1AA'
+            }
+          },
+          screens: { lg: '992px' },
+          zIndex: { 60: '60' },
+          fontFamily: {
+            serif: ['Playfair Display', 'serif'],
+            sans: ['Poppins', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body class="bg-brand-cream text-stone-800 dark:bg-brand-darkBg dark:text-brand-darkText font-sans transition-colors duration-300">
+
+  <!-- ================= HEADER / NAVBAR ================= -->
+  <header id="header" class="fixed top-0 left-0 w-full z-50 py-5 transition-all duration-300 bg-stone-950/50 text-white">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 flex justify-between items-center">
+      <!-- Logo -->
+      <a href="index.html" class="flex items-center gap-2">
+        <span class="font-serif text-2xl font-bold tracking-widest text-brand-gold flex items-center gap-2"><i class="fa-solid fa-scissors"></i> NOVA Salon</span>
+      </a>
+
+      <!-- Desktop Nav Menu -->
+      <nav class="hidden lg:flex items-center gap-6">
+        <!-- Home dropdown -->
+        <div class="relative group py-2 flex flex-col items-center">
+          <a href="index.html" class="flex items-center gap-1.5 font-semibold text-stone-300 hover:text-brand-gold border border-transparent hover:border-brand-gold px-3.5 py-1.5 rounded-lg transition-all">
+            Home <i class="fa-solid fa-chevron-down text-xs transition-transform group-hover:rotate-180"></i>
+          </a>
+          <div class="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-40 bg-[#181818] border border-stone-850 rounded-xl shadow-2xl p-2 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-200 z-50">
+            <a href="index.html" class="block px-4 py-2.5 text-xs font-semibold rounded-lg text-white hover:bg-stone-800 hover:text-brand-gold transition-colors mb-1">Home 1</a>
+            <a href="home-2.html" class="block px-4 py-2.5 text-xs font-semibold rounded-lg text-white hover:bg-stone-800 hover:text-brand-gold transition-colors">Home 2</a>
+          </div>
+          <!-- Underline anim for inactive -->
+          <span class="absolute bottom-0 w-0 h-0.5 bg-brand-gold rounded-full transition-all group-hover:w-8"></span>
+        </div>
+
+        <div class="relative py-2 group/nav flex flex-col items-center">
+          <a href="about.html" class="font-semibold text-stone-300 hover:text-brand-gold transition-all py-1.5">About</a>
+          <span class="absolute bottom-0 w-0 h-0.5 bg-brand-gold rounded-full transition-all group-hover/nav:w-8"></span>
+        </div>
+
+        <div class="relative py-2 group/nav flex flex-col items-center">
+          <a href="services.html" class="font-semibold text-stone-300 hover:text-brand-gold transition-all py-1.5">Services</a>
+          <span class="absolute bottom-0 w-0 h-0.5 bg-brand-gold rounded-full transition-all group-hover/nav:w-8"></span>
+        </div>
+<!-- Active Pricing Link -->
+        <div class="relative py-2 group/nav flex flex-col items-center">
+          <a href="pricing.html" class="font-semibold text-brand-gold transition-all py-1.5">Pricing</a>
+          <span class="absolute bottom-0 w-8 h-0.5 bg-brand-gold rounded-full"></span>
+        </div>
+
+        <div class="relative py-2 group/nav flex flex-col items-center">
+          <a href="blog.html" class="font-semibold text-stone-300 hover:text-brand-gold transition-all py-1.5">Blog</a>
+          <span class="absolute bottom-0 w-0 h-0.5 bg-brand-gold rounded-full transition-all group-hover/nav:w-8"></span>
+        </div>
+
+        <div class="relative py-2 group/nav flex flex-col items-center">
+          <a href="contact.html" class="font-semibold text-stone-300 hover:text-brand-gold transition-all py-1.5">Contact</a>
+          <span class="absolute bottom-0 w-0 h-0.5 bg-brand-gold rounded-full transition-all group-hover/nav:w-8"></span>
+        </div>
+      </nav>
+
+      <!-- Right actions -->
+      <div class="flex items-center gap-3">
+        <!-- Theme Toggle (Gold Circle) -->
+        <button class="theme-toggle w-10 h-10 rounded-full bg-brand-gold hover:bg-brand-goldDark text-stone-950 flex items-center justify-center transition-all" aria-label="Toggle Theme">
+          <i class="fa-solid fa-moon dark:hidden text-sm"></i>
+          <i class="fa-solid fa-sun hidden dark:block text-sm"></i>
+        </button>
+
+        <!-- LTR/RTL Layout Toggle Button -->
+        <button class="rtl-ltr-toggle px-4 py-2 border border-stone-850 text-stone-300 hover:border-brand-gold hover:text-brand-gold rounded-full text-xs font-semibold uppercase tracking-wider flex items-center gap-1.5 transition-all" aria-label="Toggle Direction">
+          <i class="fa-solid fa-globe text-xs"></i> <span class="dir-text">LTR</span>
+        </button>
+
+        <!-- Login Outline Button -->
+        <a href="login.html" class="px-5 py-2 border border-brand-gold text-brand-gold hover:bg-brand-gold hover:text-stone-950 rounded-full text-xs font-semibold uppercase tracking-wider flex items-center gap-1.5 transition-all">
+          <i class="fa-solid fa-user text-xs"></i> LOGIN
+        </a>
+
+        <!-- Book Now Button -->
+        <a href="contact.html#appointment" class="btn-book-now px-5 py-2.5 bg-brand-gold hover:bg-brand-goldDark text-stone-950 rounded-full text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 transition-all">
+          <i class="fa-regular fa-calendar-check text-xs"></i> BOOK NOW
+        </a>
+
+        <!-- Hamburger Icon (Mobile) -->
+        <button id="mobile-menu-btn" class="lg:hidden text-white p-2" aria-label="Open Menu">
+          <i class="fa-solid fa-bars-staggered text-2xl"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= MOBILE DRAWER ================= -->
+  <div id="drawer-overlay" class="fixed inset-0 bg-black/50 z-50 opacity-0 pointer-events-none transition-opacity duration-300"></div>
+  <div id="mobile-drawer" class="fixed top-0 right-0 h-full w-80 max-w-full bg-white dark:bg-brand-darkBg border-l border-stone-100 dark:border-brand-darkBorder z-50 transform translate-x-full transition-transform duration-300 ease-in-out px-6 py-8 flex flex-col justify-between">
+    <div>
+      <div class="flex justify-between items-center border-b border-stone-100 dark:border-brand-darkBorder pb-4 mb-6">
+        <a href="index.html" class="font-serif text-2xl font-bold tracking-widest text-brand-gold">NOVA</a>
+        <button id="close-drawer-btn" class="text-stone-500 hover:text-stone-800 dark:hover:text-white">
+          <i class="fa-solid fa-xmark text-2xl"></i>
+        </button>
+      </div>
+
+      <nav class="space-y-4">
+        <div>
+          <button class="mobile-dropdown-btn flex items-center justify-between w-full font-medium hover:text-brand-gold py-2 text-left">
+            Home <i class="fa-solid fa-chevron-down text-xs transition-transform dropdown-arrow"></i>
+          </button>
+          <div class="hidden pl-4 space-y-2 mt-2 border-l border-stone-100 dark:border-brand-darkBorder">
+            <a href="index.html" class="block py-1 text-sm text-stone-600 dark:text-stone-400 hover:text-brand-gold">Home 1 (NOVA Salon)</a>
+            <a href="home-2.html" class="block py-1 text-sm text-stone-600 dark:text-stone-400 hover:text-brand-gold">Home 2 (NOVA Spa)</a>
+          </div>
+        </div>
+
+        <a href="about.html" class="block font-medium hover:text-brand-gold py-2">About</a>
+        <a href="services.html" class="block font-medium hover:text-brand-gold py-2">Services</a>
+        <a href="pricing.html" class="block font-medium hover:text-brand-gold py-2 text-brand-gold">Pricing</a>
+
+        <div>
+          <button class="mobile-dropdown-btn flex items-center justify-between w-full font-medium hover:text-brand-gold py-2 text-left">
+            Blog <i class="fa-solid fa-chevron-down text-xs transition-transform dropdown-arrow"></i>
+          </button>
+          <div class="hidden pl-4 space-y-2 mt-2 border-l border-stone-100 dark:border-brand-darkBorder">
+            <a href="blog.html" class="block py-1 text-sm text-stone-600 dark:text-stone-400 hover:text-brand-gold">Blog Grid</a>
+            <a href="blog-post.html?post=summer-skincare-glow" class="block py-1 text-sm text-stone-600 dark:text-stone-400 hover:text-brand-gold">Blog Details</a>
+          </div>
+        </div>
+
+        <div>
+          <button class="mobile-dropdown-btn flex items-center justify-between w-full font-medium hover:text-brand-gold py-2 text-left">
+            Pages <i class="fa-solid fa-chevron-down text-xs transition-transform dropdown-arrow"></i>
+          </button>
+          <div class="hidden pl-4 space-y-2 mt-2 border-l border-stone-100 dark:border-brand-darkBorder">
+            <a href="login.html" class="block py-1 text-sm text-stone-600 dark:text-stone-400 hover:text-brand-gold">Login</a>
+            <a href="register.html" class="block py-1 text-sm text-stone-600 dark:text-stone-400 hover:text-brand-gold">Register</a>
+            <a href="customer-dashboard.html" class="block py-1 text-sm text-stone-600 dark:text-stone-400 hover:text-brand-gold">Customer Dashboard</a>
+            <a href="dashboard.html" class="block py-1 text-sm text-stone-600 dark:text-stone-400 hover:text-brand-gold">Admin Dashboard</a>
+            <a href="404.html" class="block py-1 text-sm text-stone-600 dark:text-stone-400 hover:text-brand-gold">404 Error</a>
+            <a href="coming-soon.html" class="block py-1 text-sm text-stone-600 dark:text-stone-400 hover:text-brand-gold">Coming Soon</a>
+          </div>
+        </div>
+
+        <a href="contact.html" class="block font-medium hover:text-brand-gold py-2">Contact</a>
+      </nav>
+    </div>
+
+    <div class="border-t border-stone-100 dark:border-brand-darkBorder pt-6 space-y-4">
+      <a href="contact.html#appointment" class="block w-full text-center px-6 py-3 bg-gradient-to-r from-brand-gold to-brand-goldDark text-white text-sm font-semibold rounded-full hover:shadow-lg transition-all" onclick="closeDrawer()">
+        Book Appointment
+      </a>
+    </div>
+  </div>
+
+  <!-- ================= BANNER HERO ================= -->
+  <section class="relative bg-stone-900 text-white py-32 flex items-center justify-center overflow-hidden">
+    <img src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&q=80&w=1920" class="absolute inset-0 w-full h-full object-cover opacity-30" alt="Pricing Banner">
+    <div class="absolute inset-0 bg-stone-950/60"></div>
+    
+    <div class="relative text-center z-10 space-y-4" data-aos="fade-up">
+      <span class="text-brand-rose font-serif text-lg italic tracking-wider block">Memberships</span>
+      <h1 class="font-serif text-4xl md:text-6xl font-bold tracking-wide">Luxury Packages</h1>
+      <div class="flex justify-center items-center gap-2 text-stone-400 text-sm">
+        <a href="index.html" class="hover:text-white transition-colors">Home</a>
+        <i class="fa-solid fa-chevron-right text-[10px]"></i>
+        <span class="text-white">Pricing</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TOGGLE SWITCH ================= -->
+  <section class="py-16 max-w-7xl mx-auto px-6 lg:px-8 text-center" data-aos="fade-up">
+    <div class="flex justify-center items-center gap-4 mb-16">
+      <span class="font-medium text-stone-600 dark:text-stone-300">Monthly Billing</span>
+      <label class="relative inline-flex items-center cursor-pointer">
+        <input type="checkbox" id="billing-toggle" class="sr-only peer">
+        <div class="w-14 h-8 bg-stone-200 dark:bg-stone-850 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[4px] after:left-[4px] after:bg-brand-gold after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-stone-300 dark:peer-checked:bg-stone-800"></div>
+      </label>
+      <span class="font-medium text-stone-600 dark:text-stone-300">Yearly Billing <span class="bg-brand-rose text-white text-[10px] px-2 py-0.5 rounded-full uppercase ml-1">Save 20%</span></span>
+    </div>
+
+    <!-- Pricing Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch mb-24">
+      
+      <!-- Basic Plan -->
+      <div class="bg-white dark:bg-brand-darkCard border border-stone-150 dark:border-brand-darkBorder rounded-2xl p-8 flex flex-col justify-between hover-gold-glow transition-all" data-aos="fade-up" data-aos-delay="100">
+        <div>
+          <span class="text-stone-450 text-xs uppercase tracking-widest font-bold block mb-2 text-stone-400">Essential</span>
+          <h3 class="font-serif text-2xl font-bold mb-4">Classic Care</h3>
+          <div class="flex items-baseline gap-1 mb-6 border-b border-stone-100 dark:border-brand-darkBorder pb-6 justify-center">
+            <span class="text-stone-400 text-2xl">$</span>
+            <span class="price-val text-5xl font-bold text-brand-gold transition-all duration-300" data-monthly="79" data-yearly="63">79</span>
+            <span class="price-period text-stone-400 text-xs pl-1">/ month</span>
+          </div>
+          <ul class="space-y-4 mb-8 text-left text-sm text-stone-500 dark:text-stone-400">
+            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-rose"></i> 1x Haircut & Styling Session</li>
+            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-rose"></i> 1x Classic Gel Manicure</li>
+            <li class="flex items-center gap-3 text-stone-350 line-through"><i class="fa-solid fa-xmark text-stone-200"></i> Premium Skin Assessment</li>
+            <li class="flex items-center gap-3 text-stone-350 line-through"><i class="fa-solid fa-xmark text-stone-200"></i> 1x Organic Gold Facial</li>
+          </ul>
+        </div>
+        <a href="contact.html#appointment" class="block w-full text-center py-3 bg-stone-100 dark:bg-stone-850 hover:bg-brand-gold hover:text-white text-stone-850 dark:text-white font-semibold rounded-full transition-colors">Choose Plan</a>
+      </div>
+
+      <!-- Featured Plan -->
+      <div class="bg-white dark:bg-brand-darkCard border-2 border-brand-gold rounded-2xl p-8 flex flex-col justify-between hover-gold-glow relative shadow-md transition-all" data-aos="fade-up" data-aos-delay="200">
+        <span class="absolute top-0 right-8 transform -translate-y-1/2 bg-brand-gold text-white text-xs uppercase tracking-widest font-bold px-4 py-1 rounded-full">Popular</span>
+        <div>
+          <span class="text-brand-rose text-xs uppercase tracking-widest font-bold block mb-2">Recommended</span>
+          <h3 class="font-serif text-2xl font-bold mb-4">Luxe Indulgence</h3>
+          <div class="flex items-baseline gap-1 mb-6 border-b border-stone-100 dark:border-brand-darkBorder pb-6 justify-center">
+            <span class="text-stone-400 text-2xl">$</span>
+            <span class="price-val text-5xl font-bold text-brand-gold transition-all duration-300" data-monthly="149" data-yearly="119">149</span>
+            <span class="price-period text-stone-400 text-xs pl-1">/ month</span>
+          </div>
+          <ul class="space-y-4 mb-8 text-left text-sm text-stone-500 dark:text-stone-400">
+            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-rose"></i> 1x Haircut & Styling Session</li>
+            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-rose"></i> 1x Luxury Gel Pedicure/Manicure</li>
+            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-rose"></i> Premium Skin Assessment</li>
+            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-rose"></i> 1x Collagen Gold Facial</li>
+          </ul>
+        </div>
+        <a href="contact.html#appointment" class="block w-full text-center py-3 bg-gradient-to-r from-brand-gold to-brand-goldDark text-white font-semibold rounded-full hover:shadow-lg transition-colors">Choose Plan</a>
+      </div>
+
+      <!-- VIP Plan -->
+      <div class="bg-white dark:bg-brand-darkCard border border-stone-150 dark:border-brand-darkBorder rounded-2xl p-8 flex flex-col justify-between hover-gold-glow transition-all" data-aos="fade-up" data-aos-delay="300">
+        <div>
+          <span class="text-stone-450 text-xs uppercase tracking-widest font-bold block mb-2 text-stone-400">Ultra Luxe</span>
+          <h3 class="font-serif text-2xl font-bold mb-4">Elite Sanctuary</h3>
+          <div class="flex items-baseline gap-1 mb-6 border-b border-stone-100 dark:border-brand-darkBorder pb-6 justify-center">
+            <span class="text-stone-400 text-2xl">$</span>
+            <span class="price-val text-5xl font-bold text-brand-gold transition-all duration-300" data-monthly="299" data-yearly="239">299</span>
+            <span class="price-period text-stone-400 text-xs pl-1">/ month</span>
+          </div>
+          <ul class="space-y-4 mb-8 text-left text-sm text-stone-500 dark:text-stone-400">
+            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-rose"></i> Unlimited Haircut & blowout services</li>
+            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-rose"></i> Unlimited Nail Art Gel Manicures</li>
+            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-rose"></i> Custom Skincare and Facials</li>
+            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-rose"></i> 1x Full Body Aromatherapy Massage</li>
+          </ul>
+        </div>
+        <a href="contact.html#appointment" class="block w-full text-center py-3 bg-stone-100 dark:bg-stone-855 hover:bg-brand-gold hover:text-white text-stone-850 dark:text-white font-semibold rounded-full transition-colors">Choose Plan</a>
+      </div>
+
+    </div>
+
+    <!-- Feature Comparison Table -->
+    <div class="space-y-6 text-left" data-aos="fade-up">
+      <h3 class="font-serif text-3xl font-bold text-stone-900 dark:text-white text-center mb-8">Compare Plan Features</h3>
+      
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm border border-stone-150 dark:border-brand-darkBorder rounded-2xl overflow-hidden shadow-sm">
+          <thead>
+            <tr class="bg-stone-50 dark:bg-brand-darkCard border-b border-stone-150 dark:border-brand-darkBorder text-left">
+              <th class="p-6 font-bold">Treatment / Access</th>
+              <th class="p-6 font-bold text-center">Classic Care</th>
+              <th class="p-6 font-bold text-center text-brand-gold">Luxe Indulgence</th>
+              <th class="p-6 font-bold text-center">Elite Sanctuary</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-stone-100 dark:divide-brand-darkBorder">
+            <tr>
+              <td class="p-6 font-medium">Haircut & Blowouts</td>
+              <td class="p-6 text-center text-stone-500">1 / month</td>
+              <td class="p-6 text-center text-brand-gold font-bold">1 / month</td>
+              <td class="p-6 text-center text-stone-500">Unlimited</td>
+            </tr>
+            <tr>
+              <td class="p-6 font-medium">Nail Gel Manicures</td>
+              <td class="p-6 text-center text-stone-500">1 / month</td>
+              <td class="p-6 text-center text-brand-gold font-bold">1 / month</td>
+              <td class="p-6 text-center text-stone-500">Unlimited</td>
+            </tr>
+            <tr>
+              <td class="p-6 font-medium">Diagnostic Hair Scopes</td>
+              <td class="p-6 text-center text-stone-300"><i class="fa-solid fa-xmark"></i></td>
+              <td class="p-6 text-center text-brand-gold font-bold"><i class="fa-solid fa-check"></i></td>
+              <td class="p-6 text-center text-stone-500"><i class="fa-solid fa-check"></i></td>
+            </tr>
+            <tr>
+              <td class="p-6 font-medium">Collagen Gold Facials</td>
+              <td class="p-6 text-center text-stone-300"><i class="fa-solid fa-xmark"></i></td>
+              <td class="p-6 text-center text-brand-gold font-bold">1 / month</td>
+              <td class="p-6 text-center text-stone-500">Unlimited</td>
+            </tr>
+            <tr>
+              <td class="p-6 font-medium">Aromatherapy Spa Massages</td>
+              <td class="p-6 text-center text-stone-300"><i class="fa-solid fa-xmark"></i></td>
+              <td class="p-6 text-center text-stone-300"><i class="fa-solid fa-xmark"></i></td>
+              <td class="p-6 text-center text-stone-500">1 / month</td>
+            </tr>
+            <tr>
+              <td class="p-6 font-medium">Complimentary Drinks Bar</td>
+              <td class="p-6 text-center text-stone-500">Soft drinks & Coffee</td>
+              <td class="p-6 text-center text-brand-gold font-bold">Full Bar Access</td>
+              <td class="p-6 text-center text-stone-500">Full Premium Reserve Bar</td>
+            </tr>
+            <tr>
+              <td class="p-6 font-medium">VIP Sound bath Plunge lounge</td>
+              <td class="p-6 text-center text-stone-300"><i class="fa-solid fa-xmark"></i></td>
+              <td class="p-6 text-center text-stone-300"><i class="fa-solid fa-xmark"></i></td>
+              <td class="p-6 text-center text-stone-500"><i class="fa-solid fa-check"></i></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="bg-stone-900 text-stone-400 dark:bg-brand-darkBg border-t border-stone-850 dark:border-brand-darkBorder pt-20 pb-10">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+      <div class="space-y-6">
+        <a href="index.html" class="flex items-center gap-2">
+          <span class="font-serif text-3xl font-bold tracking-widest text-brand-gold">NOVA</span>
+        </a>
+        <p class="text-stone-400 text-sm leading-relaxed font-light">
+          A premium Sanctuary of Artistry and Relaxation. Our highly trained master professionals are dedicated to creating bespoke, luxury hair, nail, and skincare experiences.
+        </p>
+      </div>
+
+      <div class="space-y-6">
+        <h4 class="font-serif text-white text-lg font-bold">Services</h4>
+        <ul class="space-y-3 text-sm">
+          <li><a href="services.html" class="hover:text-brand-gold transition-colors">Luxury Haircut & Color</a></li>
+          <li><a href="services.html" class="hover:text-brand-gold transition-colors">Collagen Gold Facials</a></li>
+          <li><a href="services.html" class="hover:text-brand-gold transition-colors">Signature Nail Artistry</a></li>
+          <li><a href="services.html" class="hover:text-brand-gold transition-colors">Aromatherapy Spa Massages</a></li>
+        </ul>
+      </div>
+
+      <div class="space-y-6">
+        <h4 class="font-serif text-white text-lg font-bold">Quick Links</h4>
+        <ul class="space-y-3 text-sm">
+          <li><a href="about.html" class="hover:text-brand-gold transition-colors">Our Company Story</a></li>
+          <li><a href="pricing.html" class="hover:text-brand-gold transition-colors">Membership Pricing</a></li>
+          <li><a href="blog.html" class="hover:text-brand-gold transition-colors">Latest Styling News</a></li>
+          <li><a href="contact.html" class="hover:text-brand-gold transition-colors">Location & Contacts</a></li>
+        </ul>
+      </div>
+
+      <div class="space-y-6">
+        <h4 class="font-serif text-white text-lg font-bold">Location</h4>
+        <p class="text-stone-400 text-sm font-light">742 Evergreen Terrace, Luxury District</p>
+        <span class="text-brand-gold text-sm">+1 (555) 789-1234</span>
+      </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 border-t border-stone-800 pt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-stone-500">
+      <span>&copy; 2026 NOVA Salon. All rights reserved.</span>
+    </div>
+  </footer>
+
+  <!-- JS Dependencies -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="assets/js/main.js"></script>
+
+  <!-- Pricing Toggle Switch script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggle = document.getElementById('billing-toggle');
+      const prices = document.querySelectorAll('.price-val');
+      const periods = document.querySelectorAll('.price-period');
+
+      toggle.addEventListener('change', () => {
+        const isYearly = toggle.checked;
+
+        prices.forEach(price => {
+          const monthly = price.getAttribute('data-monthly');
+          const yearly = price.getAttribute('data-yearly');
+
+          price.style.opacity = 0;
+          setTimeout(() => {
+            price.innerText = isYearly ? yearly : monthly;
+            price.style.opacity = 1;
+          }, 150);
+        });
+
+        periods.forEach(period => {
+          period.innerText = isYearly ? '/ month (billed yearly)' : '/ month';
+        });
+      });
+    });
+  </script>
+</body>
+</html>

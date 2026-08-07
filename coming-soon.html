@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coming Soon - NOVA Salon & Spa</title>
+  
+  <!-- CSS Dependencies -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            stone: {
+              150: '#E7E5E4',
+              350: '#A8A29E',
+              450: '#78716C',
+              455: '#78716C',
+              550: '#57534E',
+              850: '#1C1917',
+              855: '#1C1917'
+            },
+            brand: {
+              gold: '#D4AF37',
+              goldDark: '#AA8C2C',
+              rose: '#D9A38F',
+              roseDark: '#B76E79',
+              cream: '#FDFBF7',
+              creamDark: '#F5EFE6',
+              darkBg: '#0F0F11',
+              darkCard: '#1A1A1F',
+              darkBorder: 'rgba(255,255,255,.08)',
+              darkText: '#A1A1AA'
+            }
+          },
+          screens: { lg: '992px' },
+          zIndex: { 60: '60' },
+          fontFamily: {
+            serif: ['Playfair Display', 'serif'],
+            sans: ['Poppins', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body class="bg-brand-cream text-stone-850 dark:bg-brand-darkBg dark:text-brand-darkText font-sans transition-colors duration-300 min-h-screen flex items-center justify-center relative p-6">
+  
+  <!-- Background Image Overlay -->
+  <div class="absolute inset-0 z-0">
+    <img src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&q=80&w=1920" class="absolute inset-0 w-full h-full object-cover" alt="Coming Soon Background">
+    <div class="absolute inset-0 bg-stone-950/80"></div>
+  </div>
+
+  <!-- Redirect Link -->
+  <a href="index.html" class="absolute top-8 left-8 flex items-center gap-2 text-white/75 hover:text-white transition-colors z-10 text-sm">
+    <i class="fa-solid fa-arrow-left"></i> Back to Home
+  </a>
+
+  <div class="absolute top-6 right-4 sm:right-8 z-10 flex items-center gap-2">
+    <button type="button" class="theme-toggle w-10 h-10 rounded-full bg-brand-gold hover:bg-brand-goldDark text-stone-950 flex items-center justify-center transition-all" aria-label="Toggle Theme">
+      <i class="fa-solid fa-moon dark:hidden text-sm"></i>
+      <i class="fa-solid fa-sun hidden dark:block text-sm"></i>
+    </button>
+    <button type="button" class="rtl-ltr-toggle h-10 px-3 border border-white/20 text-white hover:border-brand-gold hover:text-brand-gold rounded-full text-[10px] font-semibold uppercase tracking-wider flex items-center gap-1.5 transition-all" aria-label="Toggle Direction">
+      <i class="fa-solid fa-globe text-xs"></i> <span class="dir-text">LTR</span>
+    </button>
+  </div>
+
+  <!-- Coming Soon Card (Glassmorphic) -->
+  <div class="relative z-10 max-w-xl w-full glass-light dark:glass-dark rounded-3xl p-8 md:p-12 shadow-2xl text-center space-y-8" data-aos="fade-up">
+    <!-- Header -->
+    <div class="space-y-3">
+      <a href="index.html" class="font-serif text-4xl font-bold tracking-widest text-brand-gold">NOVA</a>
+      <span class="text-xs text-brand-rose uppercase tracking-widest font-bold block">Grand Opening Coming Soon</span>
+      <p class="text-xs text-stone-550 dark:text-stone-400 max-w-sm mx-auto leading-relaxed">
+        We are crafting a premium sanctuary of wellness, high-end hair design, and aesthetic skincare. Subscribe to receive launch invites.
+      </p>
+    </div>
+
+    <!-- Countdown Timer Grid -->
+    <div class="grid grid-cols-4 gap-4 max-w-sm mx-auto">
+      <div class="bg-white/50 dark:bg-brand-darkBg/60 border border-stone-200/50 dark:border-brand-darkBorder p-3 rounded-xl">
+        <span id="days" class="font-serif text-3xl font-bold text-brand-gold block">00</span>
+        <span class="text-[8px] uppercase tracking-widest text-stone-400">Days</span>
+      </div>
+      <div class="bg-white/50 dark:bg-brand-darkBg/60 border border-stone-200/50 dark:border-brand-darkBorder p-3 rounded-xl">
+        <span id="hours" class="font-serif text-3xl font-bold text-brand-gold block">00</span>
+        <span class="text-[8px] uppercase tracking-widest text-stone-400">Hours</span>
+      </div>
+      <div class="bg-white/50 dark:bg-brand-darkBg/60 border border-stone-200/50 dark:border-brand-darkBorder p-3 rounded-xl">
+        <span id="minutes" class="font-serif text-3xl font-bold text-brand-gold block">00</span>
+        <span class="text-[8px] uppercase tracking-widest text-stone-400">Mins</span>
+      </div>
+      <div class="bg-white/50 dark:bg-brand-darkBg/60 border border-stone-200/50 dark:border-brand-darkBorder p-3 rounded-xl">
+        <span id="seconds" class="font-serif text-3xl font-bold text-brand-gold block">00</span>
+        <span class="text-[8px] uppercase tracking-widest text-stone-400">Secs</span>
+      </div>
+    </div>
+
+    <!-- Subscription Form -->
+    <form class="newsletter-form max-w-sm mx-auto flex flex-col sm:flex-row gap-2" data-success-message="Thank you. You have been added to our VIP pre-launch list.">
+      <input type="email" name="email" placeholder="Your email address" required autocomplete="email" maxlength="80" class="flex-1 px-4 py-2.5 bg-white/70 dark:bg-brand-darkBg/60 border border-stone-200 dark:border-brand-darkBorder rounded-xl text-xs focus:border-brand-gold focus:outline-none dark:text-white transition-colors">
+      <button type="submit" class="px-6 py-2.5 bg-gradient-to-r from-brand-gold to-brand-goldDark text-white font-semibold rounded-xl hover:shadow text-xs transition-all shrink-0">Notify Me</button>
+    </form>
+
+    <!-- Social Links -->
+    <div class="flex gap-4 justify-center text-stone-400">
+      <a href="#" class="hover:text-brand-gold transition-colors"><i class="fa-brands fa-facebook-f text-sm"></i></a>
+      <a href="#" class="hover:text-brand-gold transition-colors"><i class="fa-brands fa-instagram text-sm"></i></a>
+      <a href="#" class="hover:text-brand-gold transition-colors"><i class="fa-brands fa-twitter text-sm"></i></a>
+    </div>
+  </div>
+
+  <!-- JS Dependencies -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Set target countdown date (30 days from now)
+      const targetDate = new Date();
+      targetDate.setDate(targetDate.getDate() + 30);
+
+      const updateCountdown = () => {
+        const now = new Date().getTime();
+        const distance = targetDate.getTime() - now;
+
+        if (distance < 0) {
+          clearInterval(interval);
+          return;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById('days').innerText = String(days).padStart(2, '0');
+        document.getElementById('hours').innerText = String(hours).padStart(2, '0');
+        document.getElementById('minutes').innerText = String(minutes).padStart(2, '0');
+        document.getElementById('seconds').innerText = String(seconds).padStart(2, '0');
+      };
+
+      const interval = setInterval(updateCountdown, 1000);
+      updateCountdown();
+
+    });
+  </script>
+</body>
+</html>

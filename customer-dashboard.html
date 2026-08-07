@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Dashboard - NOVA Salon & Spa</title>
+  <meta name="description" content="Customer dashboard for booking NOVA salon appointments, viewing upcoming bookings, checking visit history, and tracking loyalty rewards.">
+
+  <!-- CSS Dependencies -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            stone: {
+              150: '#E7E5E4',
+              350: '#A8A29E',
+              450: '#78716C',
+              455: '#78716C',
+              550: '#57534E',
+              850: '#1C1917',
+              855: '#1C1917'
+            },
+            brand: {
+              gold: '#D4AF37',
+              goldDark: '#AA8C2C',
+              rose: '#D9A38F',
+              roseDark: '#B76E79',
+              cream: '#FDFBF7',
+              creamDark: '#F5EFE6',
+              darkBg: '#0F0F11',
+              darkCard: '#1A1A1F',
+              darkBorder: 'rgba(255,255,255,.08)',
+              darkText: '#A1A1AA'
+            }
+          },
+          screens: { lg: '992px' },
+          zIndex: { 60: '60' },
+          fontFamily: {
+            serif: ['Playfair Display', 'serif'],
+            sans: ['Poppins', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body data-auth-required="customer" class="bg-stone-50 text-stone-800 dark:bg-brand-darkBg dark:text-brand-darkText font-sans transition-colors duration-300 min-h-screen flex overflow-hidden">
+
+  <!-- ================= CUSTOMER SIDEBAR ================= -->
+  <aside id="sidebar" class="fixed inset-y-0 left-0 w-64 bg-white dark:bg-brand-darkCard border-r border-stone-150 dark:border-brand-darkBorder z-40 transform -translate-x-full lg:translate-x-0 transition-transform duration-300 flex flex-col justify-between">
+    <div>
+      <div class="p-6 border-b border-stone-150 dark:border-brand-darkBorder flex justify-between items-center">
+        <a href="index.html" class="flex items-center gap-2">
+          <span class="font-serif text-2xl font-bold tracking-widest text-brand-gold">NOVA</span>
+          <span class="text-[10px] uppercase tracking-widest text-stone-400">Customer</span>
+        </a>
+        <button id="sidebar-close" class="lg:hidden text-stone-400 hover:text-stone-700 dark:hover:text-white" aria-label="Close Sidebar">
+          <i class="fa-solid fa-xmark text-lg"></i>
+        </button>
+      </div>
+
+      <nav class="p-4 space-y-1">
+        <a href="#" data-panel="overview" class="sidebar-link flex items-center gap-3 px-4 py-3 bg-brand-gold/10 text-brand-gold border-l-4 border-brand-gold rounded-r-lg font-semibold transition-all">
+          <i class="fa-solid fa-chart-pie w-5"></i> Overview
+        </a>
+        <a href="#" data-panel="booking" class="sidebar-link flex items-center gap-3 px-4 py-3 text-stone-500 border-l-4 border-transparent hover:text-brand-gold rounded-r-lg transition-all">
+          <i class="fa-regular fa-calendar-plus w-5"></i> Book Service
+        </a>
+        <a href="#" data-panel="appointments" class="sidebar-link flex items-center gap-3 px-4 py-3 text-stone-500 border-l-4 border-transparent hover:text-brand-gold rounded-r-lg transition-all">
+          <i class="fa-regular fa-calendar-check w-5"></i> Upcoming Bookings
+        </a>
+        <a href="#" data-panel="loyalty" class="sidebar-link flex items-center gap-3 px-4 py-3 text-stone-500 border-l-4 border-transparent hover:text-brand-gold rounded-r-lg transition-all">
+          <i class="fa-solid fa-gem w-5"></i> Loyalty Points
+        </a>
+        <a href="#" data-panel="history" class="sidebar-link flex items-center gap-3 px-4 py-3 text-stone-500 border-l-4 border-transparent hover:text-brand-gold rounded-r-lg transition-all">
+          <i class="fa-solid fa-clock-rotate-left w-5"></i> Visit History
+        </a>
+        <a href="#" data-panel="messages" class="sidebar-link flex items-center gap-3 px-4 py-3 text-stone-500 border-l-4 border-transparent hover:text-brand-gold rounded-r-lg transition-all">
+          <i class="fa-regular fa-comment w-5"></i> Messages
+        </a>
+        <a href="#" data-panel="profile" class="sidebar-link flex items-center gap-3 px-4 py-3 text-stone-500 border-l-4 border-transparent hover:text-brand-gold rounded-r-lg transition-all">
+          <i class="fa-regular fa-user w-5"></i> Profile
+        </a>
+      </nav>
+    </div>
+
+    <div class="p-4 border-t border-stone-150 dark:border-brand-darkBorder space-y-4">
+      <div class="flex items-center gap-3 px-2">
+        <img data-current-user-avatar src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=80" class="w-10 h-10 rounded-full object-cover shadow" alt="Customer profile">
+        <div>
+          <h5 data-current-user-name class="font-bold text-xs text-stone-850 dark:text-white">Victoria Sterling</h5>
+          <span class="text-[9px] text-stone-400">Gold Loyalty Member</span>
+        </div>
+      </div>
+      <a href="login.html" data-logout class="flex items-center gap-3 px-4 py-2.5 text-red-500 hover:bg-red-50 dark:hover:bg-red-950/20 rounded-lg text-sm transition-colors">
+        <i class="fa-solid fa-right-from-bracket"></i> Log Out
+      </a>
+    </div>
+  </aside>
+
+  <!-- ================= MAIN WRAPPER ================= -->
+  <div class="flex-1 lg:ml-64 flex flex-col h-screen overflow-hidden">
+    <header class="bg-white dark:bg-brand-darkCard border-b border-stone-150 dark:border-brand-darkBorder h-16 shrink-0 flex justify-between items-center px-6">
+      <div class="flex items-center gap-4">
+        <button id="sidebar-toggle" class="lg:hidden text-stone-500 p-2" aria-label="Open Sidebar">
+          <i class="fa-solid fa-bars text-xl"></i>
+        </button>
+        <div class="relative hidden sm:block">
+          <input type="text" placeholder="Search services..." class="pl-9 pr-4 py-1.5 bg-stone-50 dark:bg-brand-darkBg border border-stone-150 dark:border-brand-darkBorder rounded-lg focus:outline-none focus:border-brand-gold text-xs dark:text-white transition-colors">
+          <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 transform -translate-y-1/2 text-stone-400 text-xs"></i>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <button class="theme-toggle p-2 text-stone-550 dark:text-stone-300 hover:text-brand-gold transition-colors" aria-label="Toggle Theme">
+          <i class="fa-solid fa-moon dark:hidden text-md"></i>
+          <i class="fa-solid fa-sun hidden dark:block text-md"></i>
+        </button>
+        <button class="rtl-ltr-toggle px-3 py-1.5 border border-stone-150 dark:border-brand-darkBorder text-stone-500 dark:text-stone-300 hover:border-brand-gold hover:text-brand-gold rounded-full text-[10px] font-semibold uppercase tracking-wider flex items-center gap-1.5 transition-all" aria-label="Toggle Direction">
+          <i class="fa-solid fa-globe text-xs"></i> <span class="dir-text">LTR</span>
+        </button>
+        <a href="index.html" class="hidden sm:inline-flex text-xs uppercase tracking-wider font-bold text-brand-gold border border-brand-gold/30 px-3 py-1 rounded hover:bg-brand-gold hover:text-white transition-all">Live Site</a>
+      </div>
+    </header>
+
+    <main class="flex-grow p-6 overflow-y-auto bg-stone-50 dark:bg-brand-darkBg space-y-6">
+
+      <!-- ================= PANEL 1: OVERVIEW ================= -->
+      <div id="overview-panel" class="dashboard-panel space-y-6">
+        <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4">
+          <div>
+            <span class="text-[10px] uppercase tracking-widest font-bold text-brand-gold">Customer Dashboard</span>
+            <h1 class="font-serif text-3xl font-bold text-stone-900 dark:text-white mt-1">Welcome back, <span data-current-user-name>Victoria</span></h1>
+            <p class="text-sm text-stone-500 dark:text-stone-400 mt-2">Book your next service, review upcoming appointments, and track loyalty rewards.</p>
+          </div>
+          <a href="#" data-panel="booking" class="dashboard-panel-link inline-flex items-center justify-center gap-2 px-5 py-3 bg-brand-gold text-white text-xs font-bold uppercase tracking-widest rounded-xl hover:bg-brand-goldDark transition-all">
+            <i class="fa-regular fa-calendar-plus"></i> Book Appointment
+          </a>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
+          <div class="bg-white dark:bg-brand-darkCard border border-stone-150 dark:border-brand-darkBorder p-6 rounded-2xl flex items-center justify-between shadow-sm">
+            <div>
+              <span class="text-[10px] uppercase font-bold tracking-widest text-stone-400">Next Booking</span>
+              <h4 class="font-serif text-2xl font-bold mt-1 text-stone-900 dark:text-white">Today</h4>
+              <span class="text-[10px] text-brand-gold font-bold block mt-1">3:00 PM with Sophia</span>
+            </div>
+            <span class="w-12 h-12 rounded-full bg-brand-gold/10 text-brand-gold flex items-center justify-center text-xl shrink-0"><i class="fa-regular fa-calendar-check"></i></span>
+          </div>
+          <div class="bg-white dark:bg-brand-darkCard border border-stone-150 dark:border-brand-darkBorder p-6 rounded-2xl flex items-center justify-between shadow-sm">
+            <div>
+              <span class="text-[10px] uppercase font-bold tracking-widest text-stone-400">Loyalty Points</span>
+              <h4 class="font-serif text-2xl font-bold mt-1 text-stone-900 dark:text-white">1,840</h4>
+              <span class="text-[10px] text-emerald-500 font-bold block mt-1">160 points to Platinum</span>
+            </div>
+            <span class="w-12 h-12 rounded-full bg-brand-rose/10 text-brand-roseDark flex items-center justify-center text-xl shrink-0"><i class="fa-solid fa-gem"></i></span>
+          </div>
+          <div class="bg-white dark:bg-brand-darkCard border border-stone-150 dark:border-brand-darkBorder p-6 rounded-2xl flex items-center justify-between shadow-sm">
+            <div>
+              <span class="text-[10px] uppercase font-bold tracking-widest text-stone-400">Completed Visits</span>
+              <h4 class="font-serif text-2xl font-bold mt-1 text-stone-900 dark:text-white">18</h4>
+              <span class="text-[10px] text-stone-400 block mt-1">Hair, skin, and nails</span>
+            </div>
+            <span class="w-12 h-12 rounded-full bg-brand-gold/10 text-brand-gold flex items-center justify-center text-xl shrink-0"><i class="fa-solid fa-spa"></i></span>
+          </div>
+          <div class="bg-white dark:bg-brand-darkCard border border-stone-150 dark:border-brand-darkBorder p-6 rounded-2xl flex items-center justify-between shadow-sm">
+            <div>
+              <span class="text-[10px] uppercase font-bold tracking-widest text-stone-400">Favorite Stylist</span>
+              <h4 class="font-serif text-2xl font-bold mt-1 text-stone-900 dark:text-white">Sophia</h4>
+              <span class="text-[10px] text-stone-400 block mt-1">8 bookings together</span>
+            </div>
+            <span class="w-12 h-12 rounded-full bg-stone-100 dark:bg-stone-850 text-stone-500 flex items-center justify-center text-xl shrink-0"><i class="fa-regular fa-star"></i></span>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+          <section class="lg:col-span-8 bg-white dark:bg-brand-darkCard border border-stone-150 dark:border-brand-darkBorder rounded-2xl shadow-sm overflow-hidden">
+            <div class="p-6 border-b border-stone-150 dark:border-brand-darkBorder flex items-center justify-between">
+              <h2 class="font-serif text-lg font-bold text-stone-900 dark:text-white">Upcoming Bookings</h2>
+              <a href="#" data-panel="appointments" class="dashboard-panel-link text-xs text-brand-gold font-bold hover:underline">View All</a>
+            </div>
+            <div class="overflow-x-auto">
+              <table class="w-full text-xs text-left">
+                <thead class="bg-stone-50 dark:bg-brand-darkBg/60 text-stone-400 border-b border-stone-150 dark:border-brand-darkBorder">
+                  <tr>
+                    <th class="p-4">Service</th>
+                    <th class="p-4">Stylist</th>
+                    <th class="p-4">Date / Time</th>
+                    <th class="p-4">Status</th>
+                    <th class="p-4 text-right">Actions</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-stone-100 dark:divide-brand-darkBorder">
+                  <tr>
+                    <td class="p-4 font-bold">Luxury Haircut & Blowout</td>
+                    <td class="p-4">Sophia Laurent</td>
+                    <td class="p-4">Aug 6, 2026 - 3:00 PM</td>
+                    <td class="p-4"><span class="px-2 py-0.5 bg-emerald-100 text-emerald-800 dark:bg-emerald-950/20 dark:text-emerald-400 rounded-full font-bold">Confirmed</span></td>
+                    <td class="p-4 text-right">
+                      <button class="text-stone-400 hover:text-brand-gold mr-2" title="Reschedule"><i class="fa-regular fa-calendar"></i></button>
+                      <button class="text-red-500 hover:text-red-700" title="Cancel"><i class="fa-regular fa-circle-xmark"></i></button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="p-4 font-bold">Signature Gel Manicure</td>
+                    <td class="p-4">Mia Chen</td>
+                    <td class="p-4">Aug 12, 2026 - 10:30 AM</td>
+                    <td class="p-4"><span class="px-2 py-0.5 bg-yellow-100 text-yellow-800 dark:bg-yellow-950/20 dark:text-yellow-400 rounded-full font-bold">Reminder Sent</span></td>
+                    <td class="p-4 text-right">
+                      <button class="text-stone-400 hover:text-brand-gold mr-2" title="Reschedule"><i class="fa-regular fa-calendar"></i></button>
+                      <button class="text-red-500 hover:text-red-700" title="Cancel"><i class="fa-regular fa-circle-xmark"></i></button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="lg:col-span-4 bg-white dark:bg-brand-darkCard border border-stone-150 dark:border-brand-darkBorder rounded-2xl shadow-sm p-6 space-y-5">
+            <div class="flex items-center justify-between">
+              <h2 class="font-serif text-lg font-bold text-stone-900 dark:text-white">Loyalty Progress</h2>
+              <span class="text-brand-gold text-sm"><i class="fa-solid fa-gem"></i></span>
+            </div>
+            <div>
+              <div class="flex justify-between text-[10px] uppercase tracking-widest font-bold text-stone-400 mb-2">
+                <span>Gold</span>
+                <span>Platinum</span>
+              </div>
+              <div class="h-3 rounded-full bg-stone-100 dark:bg-brand-darkBg overflow-hidden">
+                <div class="h-full w-[92%] bg-gradient-to-r from-brand-gold to-brand-rose"></div>
+              </div>
+              <p class="text-xs text-stone-500 dark:text-stone-400 mt-3">Earn 160 more points to unlock free glossing and priority weekend booking.</p>
+            </div>
+            <div class="grid grid-cols-2 gap-3">
+              <div class="p-4 rounded-xl bg-stone-50 dark:bg-brand-darkBg/60 border border-stone-100 dark:border-brand-darkBorder">
+                <span class="block text-[10px] text-stone-400 uppercase tracking-widest font-bold">Available</span>
+                <strong class="font-serif text-xl text-stone-900 dark:text-white">$25 Off</strong>
+              </div>
+              <div class="p-4 rounded-xl bg-stone-50 dark:bg-brand-darkBg/60 border border-stone-100 dark:border-brand-darkBorder">
+                <span class="block text-[10px] text-stone-400 uppercase tracking-widest font-bold">Birthday</span>
+                <strong class="font-serif text-xl text-stone-900 dark:text-white">Facial Add-on</strong>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <!-- ================= PANEL 2: BOOK SERVICE ================= -->
+      <div id="booking-panel" class="dashboard-panel space-y-6 hidden">
+        <div class="bg-white dark:bg-brand-darkCard border border-stone-150 dark:border-brand-darkBorder rounded-2xl shadow-sm p-6 space-y-6">
+          <div class="pb-4 border-b border-stone-150 dark:border-brand-darkBorder">
+            <h2 class="font-serif text-2xl font-bold text-stone-900 dark:text-white">Book A Service</h2>
+            <p class="text-xs text-stone-400 mt-1">Choose a salon service, stylist, and preferred time.</p>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <label class="relative block cursor-pointer">
+              <input type="radio" name="service" class="peer sr-only" checked>
+              <div class="rounded-2xl border border-brand-gold bg-brand-gold/10 overflow-hidden peer-checked:ring-2 peer-checked:ring-brand-gold">
+                <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&q=80&w=600" class="w-full h-40 object-cover" alt="Luxury haircut">
+                <div class="p-5">
+                  <h3 class="font-serif text-lg font-bold text-stone-900 dark:text-white">Luxury Haircut & Styling</h3>
+                  <p class="text-xs text-stone-500 dark:text-stone-400 mt-2">60 mins with wash, blowout, and styling.</p>
+                  <span class="block text-brand-gold font-bold text-sm mt-3">$85.00</span>
+                </div>
+              </div>
+            </label>
+            <label class="relative block cursor-pointer">
+              <input type="radio" name="service" class="peer sr-only">
+              <div class="rounded-2xl border border-stone-150 dark:border-brand-darkBorder bg-stone-50 dark:bg-brand-darkBg/60 overflow-hidden peer-checked:ring-2 peer-checked:ring-brand-gold">
+                <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&q=80&w=600" class="w-full h-40 object-cover" alt="Gold facial">
+                <div class="p-5">
+                  <h3 class="font-serif text-lg font-bold text-stone-900 dark:text-white">Collagen Gold Facial</h3>
+                  <p class="text-xs text-stone-500 dark:text-stone-400 mt-2">75 mins of firming and glow support.</p>
+                  <span class="block text-brand-gold font-bold text-sm mt-3">$120.00</span>
+                </div>
+              </div>
+            </label>
+            <label class="relative block cursor-pointer">
+              <input type="radio" name="service" class="peer sr-only">
+              <div class="rounded-2xl border border-stone-150 dark:border-brand-darkBorder bg-stone-50 dark:bg-brand-darkBg/60 overflow-hidden peer-checked:ring-2 peer-checked:ring-brand-gold">
+                <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&q=80&w=600" class="w-full h-40 object-cover" alt="Gel manicure">
+                <div class="p-5">
+                  <h3 class="font-serif text-lg font-bold text-stone-900 dark:text-white">Signature Gel Manicure</h3>
+                  <p class="text-xs text-stone-500 dark:text-stone-400 mt-2">45 mins with shaping and gel polish.</p>
+                  <span class="block text-brand-gold font-bold text-sm mt-3">$55.00</span>
+                </div>
+              </div>
+            </label>
+          </div>
+
+          <form class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
+            <div>
+              <label class="block text-[10px] uppercase tracking-wider font-semibold text-stone-500 mb-2">Preferred Stylist</label>
+              <select class="w-full px-4 py-3 bg-stone-50 dark:bg-brand-darkBg border border-stone-150 dark:border-brand-darkBorder rounded-xl focus:border-brand-gold focus:outline-none dark:text-white text-xs">
+                <option>Sophia Laurent</option>
+                <option>Mia Chen</option>
+                <option>Emma Watson</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-[10px] uppercase tracking-wider font-semibold text-stone-500 mb-2">Date</label>
+              <input type="date" value="2026-08-12" class="w-full px-4 py-3 bg-stone-50 dark:bg-brand-darkBg border border-stone-150 dark:border-brand-darkBorder rounded-xl focus:border-brand-gold focus:outline-none dark:text-white text-xs">
+            </div>
+            <div>
+              <label class="block text-[10px] uppercase tracking-wider font-semibold text-stone-500 mb-2">Time</label>
+              <select class="w-full px-4 py-3 bg-stone-50 dark:bg-brand-darkBg border border-stone-150 dark:border-brand-darkBorder rounded-xl focus:border-brand-gold focus:outline-none dark:text-white text-xs">
+                <option>10:30 AM</option>
+                <option>1:00 PM</option>
+                <option>4:00 PM</option>
+              </select>
+            </div>
+            <div class="flex items-end">
+              <button type="submit" class="w-full px-5 py-3 bg-brand-gold text-white text-xs font-bold uppercase tracking-widest rounded-xl hover:bg-brand-goldDark transition-all">Confirm Booking</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- ================= PANEL 3: UPCOMING BOOKINGS ================= -->
+      <div id="appointments-panel" class="dashboard-panel space-y-6 hidden">
+        <div class="bg-white dark:bg-brand-darkCard border border-stone-150 dark:border-brand-darkBorder rounded-2xl shadow-sm p-6 space-y-6">
+          <h2 class="font-serif text-2xl font-bold text-stone-900 dark:text-white pb-4 border-b border-stone-150 dark:border-brand-darkBorder">Upcoming Bookings</h2>
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div class="p-5 rounded-2xl bg-stone-50 dark:bg-brand-darkBg/60 border border-stone-100 dark:border-brand-darkBorder space-y-4">
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <h3 class="font-serif text-xl font-bold text-stone-900 dark:text-white">Luxury Haircut & Blowout</h3>
+                  <p class="text-xs text-stone-400 mt-1">Aug 6, 2026 - 3:00 PM with Sophia Laurent</p>
+                </div>
+                <span class="px-2 py-0.5 bg-emerald-100 text-emerald-800 dark:bg-emerald-950/20 dark:text-emerald-400 rounded-full text-[10px] font-bold">Confirmed</span>
+              </div>
+              <div class="flex flex-wrap gap-2">
+                <button class="px-4 py-2 rounded-lg border border-brand-gold text-brand-gold text-xs font-bold hover:bg-brand-gold hover:text-white transition-all">Reschedule</button>
+                <button class="px-4 py-2 rounded-lg border border-red-200 text-red-500 text-xs font-bold hover:bg-red-500 hover:text-white transition-all">Cancel</button>
+              </div>
+            </div>
+            <div class="p-5 rounded-2xl bg-stone-50 dark:bg-brand-darkBg/60 border border-stone-100 dark:border-brand-darkBorder space-y-4">
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <h3 class="font-serif text-xl font-bold text-stone-900 dark:text-white">Signature Gel Manicure</h3>
+                  <p class="text-xs text-stone-400 mt-1">Aug 12, 2026 - 10:30 AM with Mia Chen</p>
+                </div>
+                <span class="px-2 py-0.5 bg-yellow-100 text-yellow-800 dark:bg-yellow-950/20 dark:text-yellow-400 rounded-full text-[10px] font-bold">Reminder Sent</span>
+              </div>
+              <div class="flex flex-wrap gap-2">
+                <button class="px-4 py-2 rounded-lg border border-brand-gold text-brand-gold text-xs font-bold hover:bg-brand-gold hover:text-white transition-all">Reschedule</button>
+                <button class="px-4 py-2 rounded-lg border border-red-200 text-red-500 text-xs font-bold hover:bg-red-500 hover:text-white transition-all">Cancel</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= PANEL 4: LOYALTY POINTS ================= -->
+      <div id="loyalty-panel" class="dashboard-panel space-y-6 hidden">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+          <section class="lg:col-span-5 bg-white dark:bg-brand-darkCard border border-stone-150 dark:border-brand-darkBorder rounded-2xl shadow-sm p-8 space-y-5">
+            <span class="text-[10px] uppercase tracking-widest font-bold text-brand-gold">NOVA Rewards</span>
+            <h2 class="font-serif text-4xl font-bold text-stone-900 dark:text-white">1,840 Points</h2>
+            <p class="text-sm text-stone-500 dark:text-stone-400">Gold tier member. Redeem points for discounts, add-ons, and priority booking perks.</p>
+            <div class="h-3 rounded-full bg-stone-100 dark:bg-brand-darkBg overflow-hidden">
+              <div class="h-full w-[92%] bg-gradient-to-r from-brand-gold to-brand-rose"></div>
+            </div>
+            <p class="text-xs text-stone-400">160 points away from Platinum tier.</p>
+          </section>
+
+          <section class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div class="bg-white dark:bg-brand-darkCard border border-stone-150 dark:border-brand-darkBorder rounded-2xl shadow-sm p-6 space-y-4">
+              <span class="w-10 h-10 rounded-full bg-brand-gold/10 text-brand-gold flex items-center justify-center"><i class="fa-solid fa-ticket"></i></span>
+              <h3 class="font-serif text-xl font-bold text-stone-900 dark:text-white">$25 Service Credit</h3>
+              <p class="text-xs text-stone-500 dark:text-stone-400">Redeem 1,000 points on any hair, skin, or nail appointment.</p>
+              <button class="text-xs font-bold text-brand-gold hover:underline">Redeem Reward</button>
+            </div>
+            <div class="bg-white dark:bg-brand-darkCard border border-stone-150 dark:border-brand-darkBorder rounded-2xl shadow-sm p-6 space-y-4">
+              <span class="w-10 h-10 rounded-full bg-brand-rose/10 text-brand-roseDark flex items-center justify-center"><i class="fa-solid fa-wand-magic-sparkles"></i></span>
+              <h3 class="font-serif text-xl font-bold text-stone-900 dark:text-white">Free Facial Add-on</h3>
+              <p class="text-xs text-stone-500 dark:text-stone-400">Birthday reward available for your next skincare visit.</p>
+              <button class="text-xs font-bold text-brand-gold hover:underline">Apply To Booking</button>
+            </div>
+          </section>
+        </div>
+
+        <section class="bg-white dark:bg-brand-darkCard border border-stone-150 dark:border-brand-darkBorder rounded-2xl shadow-sm p-6 space-y-4">
+          <h2 class="font-serif text-xl font-bold text-stone-900 dark:text-white">Points History</h2>
+          <div class="space-y-3">
+            <div class="flex justify-between items-center p-4 rounded-xl bg-stone-50 dark:bg-brand-darkBg/60 border border-stone-100 dark:border-brand-darkBorder">
+              <span class="text-xs font-bold">Luxury Haircut & Blowout completed</span>
+              <span class="text-xs text-emerald-500 font-bold">+85 pts</span>
+            </div>
+            <div class="flex justify-between items-center p-4 rounded-xl bg-stone-50 dark:bg-brand-darkBg/60 border border-stone-100 dark:border-brand-darkBorder">
+              <span class="text-xs font-bold">$25 reward redeemed</span>
+              <span class="text-xs text-red-500 font-bold">-1000 pts</span>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- ================= PANEL 5: VISIT HISTORY ================= -->
+      <div id="history-panel" class="dashboard-panel space-y-6 hidden">
+        <div class="bg-white dark:bg-brand-darkCard border border-stone-150 dark:border-brand-darkBorder rounded-2xl shadow-sm p-6 space-y-6">
+          <h2 class="font-serif text-2xl font-bold text-stone-900 dark:text-white pb-4 border-b border-stone-150 dark:border-brand-darkBorder">Past Visits</h2>
+          <div class="overflow-x-auto">
+            <table class="w-full text-xs text-left">
+              <thead class="bg-stone-50 dark:bg-brand-darkBg/60 text-stone-400 border-b border-stone-150 dark:border-brand-darkBorder">
+                <tr>
+                  <th class="p-4">Date</th>
+                  <th class="p-4">Service</th>
+                  <th class="p-4">Specialist</th>
+                  <th class="p-4">Spent</th>
+                  <th class="p-4">Points</th>
+                  <th class="p-4 text-right">Action</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-stone-100 dark:divide-brand-darkBorder">
+                <tr>
+                  <td class="p-4">Jul 18, 2026</td>
+                  <td class="p-4 font-bold">Collagen Gold Facial</td>
+                  <td class="p-4">Emma Watson</td>
+                  <td class="p-4">$120.00</td>
+                  <td class="p-4 text-emerald-500 font-bold">+120</td>
+                  <td class="p-4 text-right"><button class="text-brand-gold font-bold hover:underline">Book Again</button></td>
+                </tr>
+                <tr>
+                  <td class="p-4">Jun 28, 2026</td>
+                  <td class="p-4 font-bold">Balayage Highlight & Color</td>
+                  <td class="p-4">Sophia Laurent</td>
+                  <td class="p-4">$180.00</td>
+                  <td class="p-4 text-emerald-500 font-bold">+180</td>
+                  <td class="p-4 text-right"><button class="text-brand-gold font-bold hover:underline">Book Again</button></td>
+                </tr>
+                <tr>
+                  <td class="p-4">May 30, 2026</td>
+                  <td class="p-4 font-bold">Signature Gel Manicure</td>
+                  <td class="p-4">Mia Chen</td>
+                  <td class="p-4">$55.00</td>
+                  <td class="p-4 text-emerald-500 font-bold">+55</td>
+                  <td class="p-4 text-right"><button class="text-brand-gold font-bold hover:underline">Book Again</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= PANEL 6: MESSAGES ================= -->
+      <div id="messages-panel" class="dashboard-panel space-y-6 hidden">
+        <div class="bg-white dark:bg-brand-darkCard border border-stone-150 dark:border-brand-darkBorder rounded-2xl shadow-sm p-6 space-y-5">
+          <div class="pb-4 border-b border-stone-150 dark:border-brand-darkBorder">
+            <h2 class="font-serif text-2xl font-bold text-stone-900 dark:text-white">Salon Messages</h2>
+            <p class="text-xs text-stone-400 mt-1">Appointment reminders and concierge replies.</p>
+          </div>
+          <div class="space-y-4">
+            <div class="p-4 rounded-2xl bg-stone-50 dark:bg-brand-darkBg/60 border border-stone-100 dark:border-brand-darkBorder">
+              <div class="flex justify-between gap-4">
+                <h3 class="font-bold text-xs text-stone-900 dark:text-white">Appointment Confirmed</h3>
+                <span class="text-[10px] text-stone-400">Today</span>
+              </div>
+              <p class="text-xs text-stone-500 dark:text-stone-400 mt-2">Your Luxury Haircut & Blowout is confirmed for Aug 6, 2026 at 3:00 PM.</p>
+            </div>
+            <div class="p-4 rounded-2xl bg-stone-50 dark:bg-brand-darkBg/60 border border-stone-100 dark:border-brand-darkBorder">
+              <div class="flex justify-between gap-4">
+                <h3 class="font-bold text-xs text-stone-900 dark:text-white">Reward Available</h3>
+                <span class="text-[10px] text-stone-400">Aug 1</span>
+              </div>
+              <p class="text-xs text-stone-500 dark:text-stone-400 mt-2">You have a $25 service credit ready to redeem on your next booking.</p>
+            </div>
+          </div>
+          <form class="flex flex-col sm:flex-row gap-3 pt-3">
+            <input type="text" placeholder="Ask the concierge..." class="flex-1 px-4 py-3 bg-stone-50 dark:bg-brand-darkBg border border-stone-150 dark:border-brand-darkBorder rounded-xl focus:border-brand-gold focus:outline-none dark:text-white text-xs">
+            <button class="px-5 py-3 bg-brand-gold text-white text-xs font-semibold rounded-xl hover:shadow transition-all">Send</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- ================= PANEL 7: PROFILE ================= -->
+      <div id="profile-panel" class="dashboard-panel space-y-6 hidden">
+        <div class="bg-white dark:bg-brand-darkCard border border-stone-150 dark:border-brand-darkBorder rounded-2xl shadow-sm p-8 max-w-3xl">
+          <h2 class="font-serif text-2xl font-bold text-stone-900 dark:text-white pb-4 border-b border-stone-150 dark:border-brand-darkBorder mb-6">Profile Preferences</h2>
+          <form class="space-y-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label class="block text-[10px] uppercase tracking-wider font-semibold text-stone-500 mb-2">Full Name</label>
+                <input type="text" value="Victoria Sterling" class="w-full px-4 py-3 bg-stone-50 dark:bg-brand-darkBg border border-stone-150 dark:border-brand-darkBorder rounded-xl focus:border-brand-gold focus:outline-none dark:text-white text-xs">
+              </div>
+              <div>
+                <label class="block text-[10px] uppercase tracking-wider font-semibold text-stone-500 mb-2">Email</label>
+                <input type="email" value="victoria@sterling.com" class="w-full px-4 py-3 bg-stone-50 dark:bg-brand-darkBg border border-stone-150 dark:border-brand-darkBorder rounded-xl focus:border-brand-gold focus:outline-none dark:text-white text-xs">
+              </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label class="block text-[10px] uppercase tracking-wider font-semibold text-stone-500 mb-2">Preferred Stylist</label>
+                <select class="w-full px-4 py-3 bg-stone-50 dark:bg-brand-darkBg border border-stone-150 dark:border-brand-darkBorder rounded-xl focus:border-brand-gold focus:outline-none dark:text-white text-xs">
+                  <option>Sophia Laurent</option>
+                  <option>Mia Chen</option>
+                  <option>Emma Watson</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-[10px] uppercase tracking-wider font-semibold text-stone-500 mb-2">Reminder Preference</label>
+                <select class="w-full px-4 py-3 bg-stone-50 dark:bg-brand-darkBg border border-stone-150 dark:border-brand-darkBorder rounded-xl focus:border-brand-gold focus:outline-none dark:text-white text-xs">
+                  <option>Email and SMS</option>
+                  <option>Email only</option>
+                  <option>SMS only</option>
+                </select>
+              </div>
+            </div>
+            <div>
+              <label class="block text-[10px] uppercase tracking-wider font-semibold text-stone-500 mb-2">Beauty Notes</label>
+              <textarea rows="4" class="w-full px-4 py-3 bg-stone-50 dark:bg-brand-darkBg border border-stone-150 dark:border-brand-darkBorder rounded-xl focus:border-brand-gold focus:outline-none dark:text-white text-xs">Sensitive skin. Prefers sulfate-free hair products and soft rose nail palettes.</textarea>
+            </div>
+            <button type="submit" class="px-6 py-3 bg-brand-gold text-white text-xs font-semibold rounded-xl hover:shadow transition-all">Save Preferences</button>
+          </form>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- JS Dependencies -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/dashboard.js"></script>
+</body>
+</html>

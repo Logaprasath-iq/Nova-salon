@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - NOVA Salon & Spa</title>
+  
+  <!-- CSS Dependencies -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            stone: {
+              150: '#E7E5E4',
+              350: '#A8A29E',
+              450: '#78716C',
+              455: '#78716C',
+              550: '#57534E',
+              850: '#1C1917',
+              855: '#1C1917'
+            },
+            brand: {
+              gold: '#D4AF37',
+              goldDark: '#AA8C2C',
+              rose: '#D9A38F',
+              roseDark: '#B76E79',
+              cream: '#FDFBF7',
+              creamDark: '#F5EFE6',
+              darkBg: '#0F0F11',
+              darkCard: '#1A1A1F',
+              darkBorder: 'rgba(255,255,255,.08)',
+              darkText: '#A1A1AA'
+            }
+          },
+          screens: { lg: '992px' },
+          zIndex: { 60: '60' },
+          fontFamily: {
+            serif: ['Playfair Display', 'serif'],
+            sans: ['Poppins', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body class="bg-brand-cream text-stone-850 dark:bg-brand-darkBg dark:text-brand-darkText font-sans transition-colors duration-300 min-h-screen flex items-center justify-center relative px-4 sm:px-6 py-24">
+  
+  <!-- Background Image Overlay -->
+  <div class="absolute inset-0 z-0">
+    <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&q=80&w=1920" class="absolute inset-0 w-full h-full object-cover" alt="Login Background">
+    <div class="absolute inset-0 bg-stone-950/80"></div>
+  </div>
+
+  <!-- Header Home Redirect Link -->
+  <a href="index.html" class="absolute top-8 left-8 flex items-center gap-2 text-white/75 hover:text-white transition-colors z-10 text-sm">
+    <i class="fa-solid fa-arrow-left"></i> Back to Home
+  </a>
+
+  <div class="absolute top-6 right-4 sm:right-8 z-10 flex items-center gap-2">
+    <button type="button" class="theme-toggle w-10 h-10 rounded-full bg-brand-gold hover:bg-brand-goldDark text-stone-950 flex items-center justify-center transition-all" aria-label="Toggle Theme">
+      <i class="fa-solid fa-moon dark:hidden text-sm"></i>
+      <i class="fa-solid fa-sun hidden dark:block text-sm"></i>
+    </button>
+    <button type="button" class="rtl-ltr-toggle h-10 px-3 border border-white/20 text-white hover:border-brand-gold hover:text-brand-gold rounded-full text-[10px] font-semibold uppercase tracking-wider flex items-center gap-1.5 transition-all" aria-label="Toggle Direction">
+      <i class="fa-solid fa-globe text-xs"></i> <span class="dir-text">LTR</span>
+    </button>
+  </div>
+
+  <!-- Login Card (Glassmorphic) -->
+  <div class="auth-card relative z-10 max-w-md w-full glass-light dark:glass-dark rounded-3xl p-8 md:p-10 shadow-2xl space-y-6 text-stone-800 dark:text-brand-darkText" data-aos="fade-up">
+    <!-- Header -->
+    <div class="text-center space-y-2">
+      <a href="index.html" class="font-serif text-3xl font-bold tracking-widest text-brand-gold">NOVA</a>
+      <h2 class="font-serif text-xl font-bold text-stone-900 dark:text-white">Welcome Back</h2>
+      <p class="text-xs text-stone-500 dark:text-stone-400">Log in to book services, manage appointments, and view loyalty rewards.</p>
+    </div>
+
+    <!-- Form -->
+    <form id="login-form" class="space-y-4">
+      <div>
+        <label for="login-email" class="block text-[10px] uppercase tracking-wider font-semibold text-stone-500 mb-1.5">Email Address</label>
+        <div class="relative">
+          <input id="login-email" name="email" type="email" placeholder="email@example.com" required autocomplete="email" maxlength="80" class="w-full pl-10 pr-4 py-3 bg-white/70 dark:bg-brand-darkBg/60 border border-stone-200 dark:border-brand-darkBorder rounded-xl focus:border-brand-gold focus:outline-none dark:text-white text-xs">
+          <i class="fa-regular fa-envelope absolute left-4 top-1/2 transform -translate-y-1/2 text-stone-400"></i>
+        </div>
+      </div>
+
+      <div>
+        <label for="login-password" class="block text-[10px] uppercase tracking-wider font-semibold text-stone-500 mb-1.5">Password</label>
+        <div class="relative">
+          <input id="login-password" name="password" type="password" placeholder="Password" required autocomplete="current-password" minlength="8" maxlength="72" class="w-full pl-10 pr-4 py-3 bg-white/70 dark:bg-brand-darkBg/60 border border-stone-200 dark:border-brand-darkBorder rounded-xl focus:border-brand-gold focus:outline-none dark:text-white text-xs">
+          <i class="fa-solid fa-lock absolute left-4 top-1/2 transform -translate-y-1/2 text-stone-400"></i>
+        </div>
+      </div>
+
+      <div class="flex justify-between items-center text-xs">
+        <label class="flex items-center gap-2 cursor-pointer" for="remember-me">
+          <input id="remember-me" name="remember" type="checkbox" class="w-4 h-4 rounded text-brand-gold focus:ring-brand-gold border-stone-300 dark:border-brand-darkBorder dark:bg-brand-darkBg/80">
+          <span class="text-stone-500">Remember Me</span>
+        </label>
+        <a href="#" data-forgot-password class="text-brand-gold hover:underline">Forgot Password?</a>
+      </div>
+
+      <button type="submit" class="w-full py-3.5 bg-gradient-to-r from-brand-gold to-brand-goldDark text-white font-semibold rounded-xl hover:shadow-lg transition-all text-xs">Log In</button>
+      <div class="grid grid-cols-2 gap-2 pt-1">
+        <a href="customer-dashboard.html" data-demo-login="customer" class="text-center py-2.5 border border-brand-gold/40 text-brand-gold rounded-xl text-[10px] font-bold uppercase tracking-widest hover:bg-brand-gold hover:text-white transition-all">Customer Demo</a>
+        <a href="dashboard.html" data-demo-login="admin" class="text-center py-2.5 border border-stone-200 dark:border-brand-darkBorder text-stone-500 dark:text-stone-300 rounded-xl text-[10px] font-bold uppercase tracking-widest hover:border-brand-gold hover:text-brand-gold transition-all">Admin Demo</a>
+      </div>
+    </form>
+
+    <!-- Social Logins Divider -->
+    <div class="relative flex py-2 items-center">
+      <div class="flex-grow border-t border-stone-200 dark:border-brand-darkBorder"></div>
+      <span class="flex-shrink mx-4 text-[10px] text-stone-400 uppercase tracking-widest font-bold">Or Connect With</span>
+      <div class="flex-grow border-t border-stone-200 dark:border-brand-darkBorder"></div>
+    </div>
+
+    <!-- Social Buttons -->
+    <div class="grid grid-cols-3 gap-3">
+      <button class="py-2 px-3 border border-stone-200 dark:border-brand-darkBorder rounded-xl hover:bg-stone-50 dark:hover:bg-stone-850 flex items-center justify-center text-stone-500 transition-colors"><i class="fa-brands fa-google text-lg"></i></button>
+      <button class="py-2 px-3 border border-stone-200 dark:border-brand-darkBorder rounded-xl hover:bg-stone-50 dark:hover:bg-stone-850 flex items-center justify-center text-stone-500 transition-colors"><i class="fa-brands fa-facebook-f text-lg"></i></button>
+      <button class="py-2 px-3 border border-stone-200 dark:border-brand-darkBorder rounded-xl hover:bg-stone-50 dark:hover:bg-stone-850 flex items-center justify-center text-stone-500 transition-colors"><i class="fa-brands fa-apple text-lg"></i></button>
+    </div>
+
+    <!-- Sign up Link -->
+    <div class="text-center text-xs">
+      <span class="text-stone-500">Don't have an account?</span>
+      <a href="register.html" class="text-brand-gold font-bold hover:underline ml-1">Register Now</a>
+    </div>
+  </div>
+
+  <!-- JS Dependencies -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/auth.js"></script>
+</body>
+</html>

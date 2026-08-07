@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services - NOVA Salon & Spa</title>
+  <meta name="description" content="Explore our high-end hair design, organic skincare facials, signature nails, makeup art, and luxury spa treatments.">
+  
+  <!-- CSS Dependencies -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            stone: {
+              150: '#E7E5E4',
+              350: '#A8A29E',
+              450: '#78716C',
+              455: '#78716C',
+              550: '#57534E',
+              850: '#1C1917',
+              855: '#1C1917'
+            },
+            brand: {
+              gold: '#D4AF37',
+              goldDark: '#AA8C2C',
+              rose: '#D9A38F',
+              roseDark: '#B76E79',
+              cream: '#FDFBF7',
+              creamDark: '#F5EFE6',
+              darkBg: '#0F0F11',
+              darkCard: '#1A1A1F',
+              darkBorder: 'rgba(255,255,255,.08)',
+              darkText: '#A1A1AA'
+            }
+          },
+          screens: { lg: '992px' },
+          zIndex: { 60: '60' },
+          fontFamily: {
+            serif: ['Playfair Display', 'serif'],
+            sans: ['Poppins', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body class="bg-brand-cream text-stone-800 dark:bg-brand-darkBg dark:text-brand-darkText font-sans transition-colors duration-300">
+
+  <!-- ================= HEADER / NAVBAR ================= -->
+  <header id="header" class="fixed top-0 left-0 w-full z-50 py-5 transition-all duration-300 bg-stone-950/50 text-white">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 flex justify-between items-center">
+      <!-- Logo -->
+      <a href="index.html" class="flex items-center gap-2">
+        <span class="font-serif text-2xl font-bold tracking-widest text-brand-gold flex items-center gap-2"><i class="fa-solid fa-scissors"></i> NOVA Salon</span>
+      </a>
+
+      <!-- Desktop Nav Menu -->
+      <nav class="hidden lg:flex items-center gap-6">
+        <!-- Home dropdown -->
+        <div class="relative group py-2 flex flex-col items-center">
+          <a href="index.html" class="flex items-center gap-1.5 font-semibold text-stone-300 hover:text-brand-gold border border-transparent hover:border-brand-gold px-3.5 py-1.5 rounded-lg transition-all">
+            Home <i class="fa-solid fa-chevron-down text-xs transition-transform group-hover:rotate-180"></i>
+          </a>
+          <div class="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-40 bg-[#181818] border border-stone-850 rounded-xl shadow-2xl p-2 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-200 z-50">
+            <a href="index.html" class="block px-4 py-2.5 text-xs font-semibold rounded-lg text-white hover:bg-stone-800 hover:text-brand-gold transition-colors mb-1">Home 1</a>
+            <a href="home-2.html" class="block px-4 py-2.5 text-xs font-semibold rounded-lg text-white hover:bg-stone-800 hover:text-brand-gold transition-colors">Home 2</a>
+          </div>
+          <!-- Underline anim for inactive -->
+          <span class="absolute bottom-0 w-0 h-0.5 bg-brand-gold rounded-full transition-all group-hover:w-8"></span>
+        </div>
+
+        <div class="relative py-2 group/nav flex flex-col items-center">
+          <a href="about.html" class="font-semibold text-stone-300 hover:text-brand-gold transition-all py-1.5">About</a>
+          <span class="absolute bottom-0 w-0 h-0.5 bg-brand-gold rounded-full transition-all group-hover/nav:w-8"></span>
+        </div>
+
+        <!-- Active Services Link -->
+        <div class="relative py-2 group/nav flex flex-col items-center">
+          <a href="services.html" class="font-semibold text-brand-gold transition-all py-1.5">Services</a>
+          <span class="absolute bottom-0 w-8 h-0.5 bg-brand-gold rounded-full"></span>
+        </div>
+<div class="relative py-2 group/nav flex flex-col items-center">
+          <a href="pricing.html" class="font-semibold text-stone-300 hover:text-brand-gold transition-all py-1.5">Pricing</a>
+          <span class="absolute bottom-0 w-0 h-0.5 bg-brand-gold rounded-full transition-all group-hover/nav:w-8"></span>
+        </div>
+
+        <div class="relative py-2 group/nav flex flex-col items-center">
+          <a href="blog.html" class="font-semibold text-stone-300 hover:text-brand-gold transition-all py-1.5">Blog</a>
+          <span class="absolute bottom-0 w-0 h-0.5 bg-brand-gold rounded-full transition-all group-hover/nav:w-8"></span>
+        </div>
+
+        <div class="relative py-2 group/nav flex flex-col items-center">
+          <a href="contact.html" class="font-semibold text-stone-300 hover:text-brand-gold transition-all py-1.5">Contact</a>
+          <span class="absolute bottom-0 w-0 h-0.5 bg-brand-gold rounded-full transition-all group-hover/nav:w-8"></span>
+        </div>
+      </nav>
+
+      <!-- Right actions -->
+      <div class="flex items-center gap-3">
+        <!-- Theme Toggle (Gold Circle) -->
+        <button class="theme-toggle w-10 h-10 rounded-full bg-brand-gold hover:bg-brand-goldDark text-stone-950 flex items-center justify-center transition-all" aria-label="Toggle Theme">
+          <i class="fa-solid fa-moon dark:hidden text-sm"></i>
+          <i class="fa-solid fa-sun hidden dark:block text-sm"></i>
+        </button>
+
+        <!-- LTR/RTL Layout Toggle Button -->
+        <button class="rtl-ltr-toggle px-4 py-2 border border-stone-850 text-stone-300 hover:border-brand-gold hover:text-brand-gold rounded-full text-xs font-semibold uppercase tracking-wider flex items-center gap-1.5 transition-all" aria-label="Toggle Direction">
+          <i class="fa-solid fa-globe text-xs"></i> <span class="dir-text">LTR</span>
+        </button>
+
+        <!-- Login Outline Button -->
+        <a href="login.html" class="px-5 py-2 border border-brand-gold text-brand-gold hover:bg-brand-gold hover:text-stone-950 rounded-full text-xs font-semibold uppercase tracking-wider flex items-center gap-1.5 transition-all">
+          <i class="fa-solid fa-user text-xs"></i> LOGIN
+        </a>
+
+        <!-- Book Now Button -->
+        <a href="contact.html#appointment" class="btn-book-now px-5 py-2.5 bg-brand-gold hover:bg-brand-goldDark text-stone-950 rounded-full text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 transition-all">
+          <i class="fa-regular fa-calendar-check text-xs"></i> BOOK NOW
+        </a>
+
+        <!-- Hamburger Icon (Mobile) -->
+        <button id="mobile-menu-btn" class="lg:hidden text-white p-2" aria-label="Open Menu">
+          <i class="fa-solid fa-bars-staggered text-2xl"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= MOBILE DRAWER ================= -->
+  <div id="drawer-overlay" class="fixed inset-0 bg-black/50 z-50 opacity-0 pointer-events-none transition-opacity duration-300"></div>
+  <div id="mobile-drawer" class="fixed top-0 right-0 h-full w-80 max-w-full bg-white dark:bg-brand-darkBg border-l border-stone-100 dark:border-brand-darkBorder z-50 transform translate-x-full transition-transform duration-300 ease-in-out px-6 py-8 flex flex-col justify-between">
+    <div>
+      <div class="flex justify-between items-center border-b border-stone-100 dark:border-brand-darkBorder pb-4 mb-6">
+        <a href="index.html" class="font-serif text-2xl font-bold tracking-widest text-brand-gold">NOVA</a>
+        <button id="close-drawer-btn" class="text-stone-500 hover:text-stone-800 dark:hover:text-white">
+          <i class="fa-solid fa-xmark text-2xl"></i>
+        </button>
+      </div>
+
+      <nav class="space-y-4">
+        <div>
+          <button class="mobile-dropdown-btn flex items-center justify-between w-full font-medium hover:text-brand-gold py-2 text-left">
+            Home <i class="fa-solid fa-chevron-down text-xs transition-transform dropdown-arrow"></i>
+          </button>
+          <div class="hidden pl-4 space-y-2 mt-2 border-l border-stone-100 dark:border-brand-darkBorder">
+            <a href="index.html" class="block py-1 text-sm text-stone-600 dark:text-stone-400 hover:text-brand-gold">Home 1 (NOVA Salon)</a>
+            <a href="home-2.html" class="block py-1 text-sm text-stone-600 dark:text-stone-400 hover:text-brand-gold">Home 2 (NOVA Spa)</a>
+          </div>
+        </div>
+
+        <a href="about.html" class="block font-medium hover:text-brand-gold py-2">About</a>
+        <a href="services.html" class="block font-medium hover:text-brand-gold py-2 text-brand-gold">Services</a>
+        <a href="pricing.html" class="block font-medium hover:text-brand-gold py-2">Pricing</a>
+
+        <div>
+          <button class="mobile-dropdown-btn flex items-center justify-between w-full font-medium hover:text-brand-gold py-2 text-left">
+            Blog <i class="fa-solid fa-chevron-down text-xs transition-transform dropdown-arrow"></i>
+          </button>
+          <div class="hidden pl-4 space-y-2 mt-2 border-l border-stone-100 dark:border-brand-darkBorder">
+            <a href="blog.html" class="block py-1 text-sm text-stone-600 dark:text-stone-400 hover:text-brand-gold">Blog Grid</a>
+            <a href="blog-post.html?post=summer-skincare-glow" class="block py-1 text-sm text-stone-600 dark:text-stone-400 hover:text-brand-gold">Blog Details</a>
+          </div>
+        </div>
+
+        <div>
+          <button class="mobile-dropdown-btn flex items-center justify-between w-full font-medium hover:text-brand-gold py-2 text-left">
+            Pages <i class="fa-solid fa-chevron-down text-xs transition-transform dropdown-arrow"></i>
+          </button>
+          <div class="hidden pl-4 space-y-2 mt-2 border-l border-stone-100 dark:border-brand-darkBorder">
+            <a href="login.html" class="block py-1 text-sm text-stone-600 dark:text-stone-400 hover:text-brand-gold">Login</a>
+            <a href="register.html" class="block py-1 text-sm text-stone-600 dark:text-stone-400 hover:text-brand-gold">Register</a>
+            <a href="customer-dashboard.html" class="block py-1 text-sm text-stone-600 dark:text-stone-400 hover:text-brand-gold">Customer Dashboard</a>
+            <a href="dashboard.html" class="block py-1 text-sm text-stone-600 dark:text-stone-400 hover:text-brand-gold">Admin Dashboard</a>
+            <a href="404.html" class="block py-1 text-sm text-stone-600 dark:text-stone-400 hover:text-brand-gold">404 Error</a>
+            <a href="coming-soon.html" class="block py-1 text-sm text-stone-600 dark:text-stone-400 hover:text-brand-gold">Coming Soon</a>
+          </div>
+        </div>
+
+        <a href="contact.html" class="block font-medium hover:text-brand-gold py-2">Contact</a>
+      </nav>
+    </div>
+
+    <div class="border-t border-stone-100 dark:border-brand-darkBorder pt-6 space-y-4">
+      <a href="contact.html#appointment" class="block w-full text-center px-6 py-3 bg-gradient-to-r from-brand-gold to-brand-goldDark text-white text-sm font-semibold rounded-full hover:shadow-lg transition-all" onclick="closeDrawer()">
+        Book Appointment
+      </a>
+    </div>
+  </div>
+
+  <!-- ================= BANNER HERO ================= -->
+  <section class="relative bg-stone-900 text-white py-32 flex items-center justify-center overflow-hidden">
+    <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&q=80&w=1920" class="absolute inset-0 w-full h-full object-cover opacity-30" alt="Services Banner">
+    <div class="absolute inset-0 bg-stone-950/60"></div>
+    
+    <div class="relative text-center z-10 space-y-4" data-aos="fade-up">
+      <span class="text-brand-rose font-serif text-lg italic tracking-wider block">Treatments Menu</span>
+      <h1 class="font-serif text-4xl md:text-6xl font-bold tracking-wide">Signature Experiences</h1>
+      <div class="flex justify-center items-center gap-2 text-stone-400 text-sm">
+        <a href="index.html" class="hover:text-white transition-colors">Home</a>
+        <i class="fa-solid fa-chevron-right text-[10px]"></i>
+        <span class="text-white">Services</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SERVICES SEARCH & FILTER SECTION ================= -->
+  <section class="py-12 max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="flex flex-col lg:flex-row gap-6 justify-between items-center border-b border-stone-100 dark:border-brand-darkBorder pb-8 mb-12">
+      <!-- Search Input -->
+      <div class="relative w-full lg:max-w-md">
+        <input type="text" id="search-input" placeholder="Search treatments (e.g. Balayage, Massage)..." class="w-full pl-12 pr-4 py-3 bg-white dark:bg-brand-darkCard border border-stone-150 dark:border-brand-darkBorder rounded-xl focus:border-brand-gold focus:outline-none dark:text-white transition-colors shadow-sm text-sm">
+        <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 transform -translate-y-1/2 text-stone-400"></i>
+      </div>
+
+      <!-- Filter buttons -->
+      <div id="filter-buttons" class="flex flex-wrap gap-2 justify-center">
+        <button data-filter="all" class="filter-btn active px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-widest border border-brand-gold bg-brand-gold text-white transition-all shadow-sm">All</button>
+        <button data-filter="hair" class="filter-btn px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-widest border border-stone-150 dark:border-brand-darkBorder text-stone-500 hover:border-brand-gold dark:text-stone-400 transition-all">Hair Care</button>
+        <button data-filter="skincare" class="filter-btn px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-widest border border-stone-150 dark:border-brand-darkBorder text-stone-500 hover:border-brand-gold dark:text-stone-400 transition-all">Skincare</button>
+        <button data-filter="nails" class="filter-btn px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-widest border border-stone-150 dark:border-brand-darkBorder text-stone-500 hover:border-brand-gold dark:text-stone-400 transition-all">Nail Art</button>
+        <button data-filter="makeup" class="filter-btn px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-widest border border-stone-150 dark:border-brand-darkBorder text-stone-500 hover:border-brand-gold dark:text-stone-400 transition-all">Makeup</button>
+        <button data-filter="spa" class="filter-btn px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-widest border border-stone-150 dark:border-brand-darkBorder text-stone-500 hover:border-brand-gold dark:text-stone-400 transition-all">Spa Rituals</button>
+      </div>
+    </div>
+
+    <!-- Services Grid -->
+    <div id="services-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      
+      <!-- Card 1 (Hair) -->
+      <div data-category="hair" class="service-card bg-white dark:bg-brand-darkCard rounded-2xl border border-stone-100 dark:border-brand-darkBorder overflow-hidden hover-img-zoom shadow-sm hover:shadow-md transition-all">
+        <div class="relative h-64">
+          <img src="./assets/images/img9.jpg" class="w-full h-full object-cover" alt="Haircut">
+          <span class="absolute top-4 right-4 bg-white/90 dark:bg-brand-darkBg/95 backdrop-blur-sm text-brand-gold text-lg font-bold px-4 py-1.5 rounded-full border border-brand-gold/20">$85.00</span>
+        </div>
+        <div class="p-8">
+          <span class="text-xs uppercase tracking-widest text-brand-rose font-semibold block mb-2">Hair Care</span>
+          <h3 class="font-serif text-2xl font-bold mb-3 hover:text-brand-gold transition-colors"><a href="service-details.html">Luxury Haircut & Styling</a></h3>
+          <p class="text-stone-500 dark:text-stone-400 text-sm leading-relaxed mb-6">
+            Premium haircut, wash, blowout, and personalized styling recommendations from our master stylists.
+          </p>
+          <div class="flex justify-between items-center border-t border-stone-100 dark:border-brand-darkBorder pt-6">
+            <span class="text-stone-400 text-sm"><i class="fa-regular fa-clock mr-2"></i>60 mins</span>
+            <a href="service-details.html" class="text-brand-gold font-semibold hover:text-brand-goldDark transition-colors">Detail <i class="fa-solid fa-arrow-right text-xs"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 (Hair Color) -->
+      <div data-category="hair" class="service-card bg-white dark:bg-brand-darkCard rounded-2xl border border-stone-100 dark:border-brand-darkBorder overflow-hidden hover-img-zoom shadow-sm hover:shadow-md transition-all">
+        <div class="relative h-64">
+          <img src="./assets/images/img10.jpg" class="w-full h-full object-cover" alt="Balayage">
+          <span class="absolute top-4 right-4 bg-white/90 dark:bg-brand-darkBg/95 backdrop-blur-sm text-brand-gold text-lg font-bold px-4 py-1.5 rounded-full border border-brand-gold/20">$180.00</span>
+        </div>
+        <div class="p-8">
+          <span class="text-xs uppercase tracking-widest text-brand-rose font-semibold block mb-2">Hair Care</span>
+          <h3 class="font-serif text-2xl font-bold mb-3 hover:text-brand-gold transition-colors"><a href="service-details.html">Balayage Highlight & Color</a></h3>
+          <p class="text-stone-500 dark:text-stone-400 text-sm leading-relaxed mb-6">
+            Hand-painted color transition for a sun-kissed, natural look. Includes custom conditioning treatment and finish blowdry.
+          </p>
+          <div class="flex justify-between items-center border-t border-stone-100 dark:border-brand-darkBorder pt-6">
+            <span class="text-stone-400 text-sm"><i class="fa-regular fa-clock mr-2"></i>180 mins</span>
+            <a href="service-details.html" class="text-brand-gold font-semibold hover:text-brand-goldDark transition-colors">Detail <i class="fa-solid fa-arrow-right text-xs"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 (Skincare) -->
+      <div data-category="skincare" class="service-card bg-white dark:bg-brand-darkCard rounded-2xl border border-stone-100 dark:border-brand-darkBorder overflow-hidden hover-img-zoom shadow-sm hover:shadow-md transition-all">
+        <div class="relative h-64">
+          <img src="./assets/images/img11.jpg" class="w-full h-full object-cover" alt="Facial">
+          <span class="absolute top-4 right-4 bg-white/90 dark:bg-brand-darkBg/95 backdrop-blur-sm text-brand-gold text-lg font-bold px-4 py-1.5 rounded-full border border-brand-gold/20">$120.00</span>
+        </div>
+        <div class="p-8">
+          <span class="text-xs uppercase tracking-widest text-brand-rose font-semibold block mb-2">Skincare</span>
+          <h3 class="font-serif text-2xl font-bold mb-3 hover:text-brand-gold transition-colors"><a href="service-details.html">Collagen Gold Facial</a></h3>
+          <p class="text-stone-500 dark:text-stone-400 text-sm leading-relaxed mb-6">
+            Anti-aging facial utilizing real 24k gold leaf and marine collagen to tighten, brighten, and hydrate.
+          </p>
+          <div class="flex justify-between items-center border-t border-stone-100 dark:border-brand-darkBorder pt-6">
+            <span class="text-stone-400 text-sm"><i class="fa-regular fa-clock mr-2"></i>75 mins</span>
+            <a href="service-details.html" class="text-brand-gold font-semibold hover:text-brand-goldDark transition-colors">Detail <i class="fa-solid fa-arrow-right text-xs"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4 (Nails) -->
+      <div data-category="nails" class="service-card bg-white dark:bg-brand-darkCard rounded-2xl border border-stone-100 dark:border-brand-darkBorder overflow-hidden hover-img-zoom shadow-sm hover:shadow-md transition-all">
+        <div class="relative h-64">
+          <img src="./assets/images/img12.jpg" class="w-full h-full object-cover" alt="Manicure">
+          <span class="absolute top-4 right-4 bg-white/90 dark:bg-brand-darkBg/95 backdrop-blur-sm text-brand-gold text-lg font-bold px-4 py-1.5 rounded-full border border-brand-gold/20">$55.00</span>
+        </div>
+        <div class="p-8">
+          <span class="text-xs uppercase tracking-widest text-brand-rose font-semibold block mb-2">Nail Art</span>
+          <h3 class="font-serif text-2xl font-bold mb-3 hover:text-brand-gold transition-colors"><a href="service-details.html">Signature Gel Manicure</a></h3>
+          <p class="text-stone-500 dark:text-stone-400 text-sm leading-relaxed mb-6">
+            Nail shaping, cuticle care, hand scrub, and premium long-lasting gel polish with luxury oil treatment.
+          </p>
+          <div class="flex justify-between items-center border-t border-stone-100 dark:border-brand-darkBorder pt-6">
+            <span class="text-stone-400 text-sm"><i class="fa-regular fa-clock mr-2"></i>45 mins</span>
+            <a href="service-details.html" class="text-brand-gold font-semibold hover:text-brand-goldDark transition-colors">Detail <i class="fa-solid fa-arrow-right text-xs"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 5 (Makeup) -->
+      <div data-category="makeup" class="service-card bg-white dark:bg-brand-darkCard rounded-2xl border border-stone-100 dark:border-brand-darkBorder overflow-hidden hover-img-zoom shadow-sm hover:shadow-md transition-all">
+        <div class="relative h-64">
+          <img src="./assets/images/img13.jpg" class="w-full h-full object-cover" alt="Makeup Session">
+          <span class="absolute top-4 right-4 bg-white/90 dark:bg-brand-darkBg/95 backdrop-blur-sm text-brand-gold text-lg font-bold px-4 py-1.5 rounded-full border border-brand-gold/20">$250.00</span>
+        </div>
+        <div class="p-8">
+          <span class="text-xs uppercase tracking-widest text-brand-rose font-semibold block mb-2">Makeup</span>
+          <h3 class="font-serif text-2xl font-bold mb-3 hover:text-brand-gold transition-colors"><a href="service-details.html">Bridal Makeup & Styling</a></h3>
+          <p class="text-stone-500 dark:text-stone-400 text-sm leading-relaxed mb-6">
+            High-definition bridal makeup look custom-designed for photography, including premium false lashes.
+          </p>
+          <div class="flex justify-between items-center border-t border-stone-100 dark:border-brand-darkBorder pt-6">
+            <span class="text-stone-400 text-sm"><i class="fa-regular fa-clock mr-2"></i>120 mins</span>
+            <a href="service-details.html" class="text-brand-gold font-semibold hover:text-brand-goldDark transition-colors">Detail <i class="fa-solid fa-arrow-right text-xs"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 6 (Spa) -->
+      <div data-category="spa" class="service-card bg-white dark:bg-brand-darkCard rounded-2xl border border-stone-100 dark:border-brand-darkBorder overflow-hidden hover-img-zoom shadow-sm hover:shadow-md transition-all">
+        <div class="relative h-64">
+          <img src="./assets/images/img14.jpg" class="w-full h-full object-cover" alt="Spa therapy">
+          <span class="absolute top-4 right-4 bg-white/90 dark:bg-brand-darkBg/95 backdrop-blur-sm text-brand-gold text-lg font-bold px-4 py-1.5 rounded-full border border-brand-gold/20">$95.00</span>
+        </div>
+        <div class="p-8">
+          <span class="text-xs uppercase tracking-widest text-brand-rose font-semibold block mb-2">Spa Rituals</span>
+          <h3 class="font-serif text-2xl font-bold mb-3 hover:text-brand-gold transition-colors"><a href="service-details.html">Aromatherapy Massage</a></h3>
+          <p class="text-stone-500 dark:text-stone-400 text-sm leading-relaxed mb-6">
+            Relaxing full-body massage using custom organic essential oils to release physical and mental tension.
+          </p>
+          <div class="flex justify-between items-center border-t border-stone-100 dark:border-brand-darkBorder pt-6">
+            <span class="text-stone-400 text-sm"><i class="fa-regular fa-clock mr-2"></i>90 mins</span>
+            <a href="service-details.html" class="text-brand-gold font-semibold hover:text-brand-goldDark transition-colors">Detail <i class="fa-solid fa-arrow-right text-xs"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="bg-stone-900 text-stone-400 dark:bg-brand-darkBg border-t border-stone-850 dark:border-brand-darkBorder pt-20 pb-10">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+      <div class="space-y-6">
+        <a href="index.html" class="flex items-center gap-2">
+          <span class="font-serif text-3xl font-bold tracking-widest text-brand-gold">NOVA</span>
+        </a>
+        <p class="text-stone-400 text-sm leading-relaxed font-light">
+          A premium Sanctuary of Artistry and Relaxation. Our highly trained master professionals are dedicated to creating bespoke, luxury hair, nail, and skincare experiences.
+        </p>
+      </div>
+
+      <div class="space-y-6">
+        <h4 class="font-serif text-white text-lg font-bold">Services</h4>
+        <ul class="space-y-3 text-sm">
+          <li><a href="services.html" class="hover:text-brand-gold transition-colors">Luxury Haircut & Color</a></li>
+          <li><a href="services.html" class="hover:text-brand-gold transition-colors">Collagen Gold Facials</a></li>
+          <li><a href="services.html" class="hover:text-brand-gold transition-colors">Signature Nail Artistry</a></li>
+          <li><a href="services.html" class="hover:text-brand-gold transition-colors">Aromatherapy Spa Massages</a></li>
+        </ul>
+      </div>
+
+      <div class="space-y-6">
+        <h4 class="font-serif text-white text-lg font-bold">Quick Links</h4>
+        <ul class="space-y-3 text-sm">
+          <li><a href="about.html" class="hover:text-brand-gold transition-colors">Our Company Story</a></li>
+          <li><a href="pricing.html" class="hover:text-brand-gold transition-colors">Membership Pricing</a></li>
+          <li><a href="blog.html" class="hover:text-brand-gold transition-colors">Latest Styling News</a></li>
+          <li><a href="contact.html" class="hover:text-brand-gold transition-colors">Location & Contacts</a></li>
+        </ul>
+      </div>
+
+      <div class="space-y-6">
+        <h4 class="font-serif text-white text-lg font-bold">Location</h4>
+        <p class="text-stone-400 text-sm font-light">742 Evergreen Terrace, Luxury District</p>
+        <span class="text-brand-gold text-sm">+1 (555) 789-1234</span>
+      </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 border-t border-stone-800 pt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-stone-500">
+      <span>&copy; 2026 NOVA Salon. All rights reserved.</span>
+    </div>
+  </footer>
+
+  <!-- JS Dependencies -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="assets/js/main.js"></script>
+
+  <!-- Filter & Search Logic -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const searchInput = document.getElementById('search-input');
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const cards = document.querySelectorAll('.service-card');
+
+      let activeCategory = 'all';
+
+      const filterServices = () => {
+        const searchText = searchInput.value.toLowerCase().trim();
+
+        cards.forEach(card => {
+          const title = card.querySelector('h3').innerText.toLowerCase();
+          const desc = card.querySelector('p').innerText.toLowerCase();
+          const category = card.getAttribute('data-category');
+
+          const matchesSearch = title.includes(searchText) || desc.includes(searchText);
+          const matchesCategory = activeCategory === 'all' || category === activeCategory;
+
+          if (matchesSearch && matchesCategory) {
+            card.classList.remove('hidden');
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+      };
+
+      // Search event
+      searchInput.addEventListener('input', filterServices);
+
+      // Filter button click event
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => {
+            b.classList.remove('active', 'bg-brand-gold', 'text-white', 'border-brand-gold');
+            b.classList.add('text-stone-500', 'border-stone-150', 'dark:border-brand-darkBorder');
+          });
+
+          btn.classList.add('active', 'bg-brand-gold', 'text-white', 'border-brand-gold');
+          btn.classList.remove('text-stone-500', 'border-stone-150', 'dark:border-brand-darkBorder');
+
+          activeCategory = btn.getAttribute('data-filter');
+          filterServices();
+        });
+      });
+    });
+  </script>
+</body>
+</html>
