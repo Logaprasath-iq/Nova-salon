@@ -214,6 +214,7 @@ textarea:disabled,
 #header nav button,
 #header .rtl-ltr-toggle,
 #header .btn-book-now,
+#header .btn-sign-up,
 #header a[href="login.html"],
 #header .font-serif.text-2xl {
   white-space: nowrap;
@@ -222,14 +223,175 @@ textarea:disabled,
 #header .theme-toggle,
 #header .rtl-ltr-toggle,
 #header .btn-book-now,
+#header .btn-sign-up,
 #header a[href="login.html"],
 #mobile-menu-btn {
   flex: 0 0 auto;
 }
 
-#header .btn-book-now {
+#header .btn-book-now,
+#header .btn-sign-up {
   min-height: 2.5rem;
   justify-content: center;
+}
+
+.nova-footer {
+  background: #0F0F11;
+  color: #A8A29E;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 5rem 0 2.5rem;
+}
+
+.nova-footer__grid,
+.nova-footer__bottom {
+  width: min(80rem, 100%);
+  margin: 0 auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.nova-footer__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 3rem;
+  margin-bottom: 4rem;
+}
+
+.nova-footer__column {
+  min-width: 0;
+}
+
+.nova-footer__brand-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.nova-footer__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  width: fit-content;
+  max-width: 100%;
+  color: var(--nova-accent, var(--color-gold));
+  font-family: var(--font-serif);
+  font-size: clamp(1.5rem, 4vw, 1.875rem);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  line-height: 1.2;
+}
+
+.nova-footer__brand i {
+  font-size: 0.9em;
+  flex: 0 0 auto;
+}
+
+.nova-footer__text {
+  color: #A8A29E;
+  font-size: 0.875rem;
+  line-height: 1.8;
+  font-weight: 300;
+  max-width: 26rem;
+}
+
+.nova-footer h4 {
+  color: #fff;
+  font-family: var(--font-serif);
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.nova-footer ul {
+  display: grid;
+  gap: 0.75rem;
+  font-size: 0.875rem;
+}
+
+.nova-footer a {
+  color: inherit;
+}
+
+.nova-footer__column a:hover,
+.nova-footer__bottom-links a:hover {
+  color: var(--nova-accent, var(--color-gold));
+}
+
+.nova-footer__phone {
+  display: inline-block;
+  color: var(--nova-accent, var(--color-gold)) !important;
+  margin-top: 0.75rem;
+  font-size: 0.875rem;
+}
+
+.nova-footer__social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.nova-footer__social a {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 9999px;
+  background: #1C1917;
+  color: #D6D3D1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nova-footer__social a:hover {
+  background: var(--nova-accent, var(--color-gold));
+  color: #0F0F11;
+}
+
+.nova-footer__bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+  color: #78716C;
+  font-size: 0.75rem;
+}
+
+.nova-footer__bottom-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.nova-body-with-global-footer {
+  display: block !important;
+  align-items: initial !important;
+  justify-content: initial !important;
+  padding: 0 !important;
+  min-height: 100vh;
+}
+
+.nova-utility-page-shell {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6rem 1rem;
+  overflow: hidden;
+}
+
+.nova-utility-page-shell > .utility-footer {
+  display: none;
+}
+
+.nova-footer--dashboard {
+  border-radius: 1rem;
+  margin-top: 2rem;
+  overflow: hidden;
+  padding-top: 3rem;
 }
 
 header nav .nova-dropdown,
@@ -536,7 +698,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
   #header .rtl-ltr-toggle,
   #header a[href="login.html"],
-  #header .btn-book-now {
+  #header .btn-book-now,
+  #header .btn-sign-up {
     padding-left: 0.75rem !important;
     padding-right: 0.75rem !important;
     letter-spacing: 0.05em;
@@ -563,7 +726,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
   header .rtl-ltr-toggle,
   header a[href="login.html"],
-  header .btn-book-now {
+  header .btn-book-now,
+  header .btn-sign-up {
     display: none !important;
   }
 
@@ -650,6 +814,29 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   .utility-controlbar .rtl-ltr-toggle {
     padding-left: 0.625rem;
     padding-right: 0.625rem;
+  }
+}
+
+@media (min-width: 640px) {
+  .nova-footer__bottom {
+    flex-direction: row;
+  }
+
+  .nova-utility-page-shell {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .nova-footer__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 992px) {
+  .nova-footer__grid {
+    grid-template-columns: 1.35fr repeat(3, minmax(0, 1fr));
   }
 }
 
@@ -795,6 +982,16 @@ html[dir="rtl"] #close-appointment-modal {
 html[dir="rtl"] #scroll-to-top {
   right: auto;
   left: 1.5rem;
+}
+
+html[dir="rtl"] .nova-footer__brand,
+html[dir="rtl"] .nova-footer__social {
+  margin-left: auto;
+  margin-right: 0;
+}
+
+html[dir="rtl"] .nova-footer__bottom {
+  direction: rtl;
 }
 
 html[dir="rtl"] #notif-dropdown {

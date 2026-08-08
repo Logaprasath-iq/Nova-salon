@@ -47,15 +47,25 @@ const NOVA_SERVICES = [
     rating: '4.9',
     reviewCount: '124',
     reviews: [
-      ['Victoria Sterling', 'August 1, 2026', 'Sophia understood exactly how much length I wanted to keep. The blowout lasted through two events and still looked soft the next morning.'],
-      ['Marcus Vance', 'July 26, 2026', 'Clean, calm, and detailed. The cut is easy to style at home, which is exactly what I needed.']
+      {
+        name: 'Victoria Sterling',
+        date: 'August 1, 2026',
+        image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=120',
+        body: 'Sophia understood exactly how much length I wanted to keep and refreshed the color around my face beautifully. The blowout lasted through two events.'
+      },
+      {
+        name: 'Marcus Vance',
+        date: 'July 26, 2026',
+        image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=120',
+        body: 'Clean, calm, and detailed. The cut sits well without effort, and the color gloss made everything look sharper on camera.'
+      }
     ],
     faq: [
       ['Can I choose my stylist?', 'Yes. You can request Sophia Laurent, Liam Thorne, or any available master stylist during booking.'],
       ['Should I wash my hair before the visit?', 'You do not need to. The service includes a professional cleanse and conditioning ritual.'],
       ['How often should I rebook?', 'Most guests return every 6 to 8 weeks to maintain shape, volume, and healthy ends.']
     ],
-    relatedServices: ['balayage', 'gel-manicure', 'facial']
+    relatedServices: ['balayage', 'nail-artistry', 'collagen-facial']
   },
   {
     id: 'balayage',
@@ -105,18 +115,28 @@ const NOVA_SERVICES = [
     rating: '4.8',
     reviewCount: '98',
     reviews: [
-      ['Alexandra Dubois', 'July 30, 2026', 'The color looks expensive but still natural. I love that the grow-out will be soft.'],
-      ['Nina Patel', 'July 18, 2026', 'My old highlights were uneven, and NOVA blended everything into a warm, glossy finish.']
+      {
+        name: 'Alexandra Dubois',
+        date: 'July 30, 2026',
+        image: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&q=80&w=120',
+        body: 'The color looks expensive but still natural. The face-framing pieces are bright without feeling stripy, and I love that the grow-out will be soft.'
+      },
+      {
+        name: 'Nina Patel',
+        date: 'July 18, 2026',
+        image: 'https://images.unsplash.com/photo-1520813792240-56fc4a3765a7?auto=format&fit=crop&q=80&w=120',
+        body: 'My old highlights were uneven, and NOVA blended everything into a warm, glossy brunette finish with just the right amount of dimension.'
+      }
     ],
     faq: [
       ['Is balayage lower maintenance than highlights?', 'Usually, yes. The placement is softer at the root, so many guests rebook every 10 to 14 weeks.'],
       ['Will I need toner?', 'Yes. Gloss toner refines warmth, adds shine, and helps create the final shade.'],
       ['Can balayage cover gray hair?', 'Balayage adds brightness but does not fully replace gray coverage. Your colorist can combine it with root color if needed.']
     ],
-    relatedServices: ['luxury-haircut', 'bridal-makeup', 'facial']
+    relatedServices: ['luxury-haircut', 'bridal-makeup', 'collagen-facial']
   },
   {
-    id: 'facial',
+    id: 'collagen-facial',
     title: 'Collagen Gold Facial',
     category: 'Skincare',
     subtitle: 'Radiance Treatment Room',
@@ -163,28 +183,38 @@ const NOVA_SERVICES = [
     rating: '5.0',
     reviewCount: '84',
     reviews: [
-      ['Camille Ross', 'August 2, 2026', 'My skin looked smooth and rested without any redness. Perfect before dinner plans.'],
-      ['Priya Shah', 'July 21, 2026', 'Emma adjusted everything for my sensitive skin and the glow lasted for days.']
+      {
+        name: 'Camille Ross',
+        date: 'August 2, 2026',
+        image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=120',
+        body: 'The collagen mask left my skin smooth, calm, and luminous without any redness. It was exactly the reset I wanted before dinner plans.'
+      },
+      {
+        name: 'Priya Shah',
+        date: 'July 21, 2026',
+        image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=120',
+        body: 'Emma adjusted the exfoliation for my sensitive skin and focused on hydration. The glow stayed soft and fresh for days.'
+      }
     ],
     faq: [
       ['Is there downtime?', 'Most guests leave with a healthy glow and no downtime. Reactive skin may look pink briefly.'],
       ['Can I wear makeup after?', 'For best results, keep skin clean for the rest of the day and wear makeup the next morning.'],
       ['How often should I book?', 'Monthly facials are ideal for steady hydration, texture support, and skin monitoring.']
     ],
-    relatedServices: ['massage', 'gel-manicure', 'bridal-makeup']
+    relatedServices: ['aromatherapy-massage', 'nail-artistry', 'bridal-makeup']
   },
   {
-    id: 'gel-manicure',
-    title: 'Signature Gel Manicure',
+    id: 'nail-artistry',
+    title: 'Signature Nail Artistry',
     category: 'Nail Art',
     subtitle: 'Nail Atelier',
-    metaTitle: 'Signature Gel Manicure - NOVA Salon',
-    metaDescription: 'Book NOVA Signature Gel Manicure with nail shaping, cuticle care, premium gel polish, hand treatment, pricing, gallery, FAQs, and reviews.',
+    metaTitle: 'Signature Nail Artistry - NOVA Salon',
+    metaDescription: 'Book NOVA Signature Nail Artistry with nail shaping, cuticle care, premium gel polish, hand treatment, pricing, gallery, FAQs, and reviews.',
     heroImage: './assets/images/img12.jpg',
     heroAlt: 'Signature gel manicure at NOVA nail atelier',
     descriptionTitle: 'Gloss, Shape, and Hand Care',
     description: [
-      'Signature Gel Manicure is a polished nail-care appointment for guests who want clean shaping, soft cuticles, and durable color with a refined finish.',
+      'Signature Nail Artistry is a polished nail-care appointment for guests who want clean shaping, soft cuticles, durable color, and refined accent detail.',
       'The service includes nail shaping, cuticle detailing, gentle buffing, gel color, hydration oil, and a warm hand treatment. The result is elegant, durable, and easy to maintain.'
     ],
     gallery: [
@@ -221,15 +251,25 @@ const NOVA_SERVICES = [
     rating: '4.7',
     reviewCount: '210',
     reviews: [
-      ['Meera Iyer', 'August 3, 2026', 'The shape was flawless and the color stayed glossy through travel.'],
-      ['Chloe Martin', 'July 29, 2026', 'Quick, precise, and very clean. The nude shade recommendation was perfect.']
+      {
+        name: 'Meera Iyer',
+        date: 'August 3, 2026',
+        image: 'https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&q=80&w=120',
+        body: 'The almond shape was flawless and the fine gold accent line looked elegant, not busy. My manicure stayed glossy through a week of travel.'
+      },
+      {
+        name: 'Chloe Martin',
+        date: 'July 29, 2026',
+        image: 'https://images.unsplash.com/photo-1509967419530-da38b4704bc6?auto=format&fit=crop&q=80&w=120',
+        body: 'Mia helped me choose a soft nude chrome that matched my jewelry. The cuticle work was precise and the finish looked editorial.'
+      }
     ],
     faq: [
       ['How long does gel last?', 'Most guests enjoy 2 to 3 weeks of wear with proper home care.'],
       ['Do you offer safe removal?', 'Yes. We recommend professional removal to protect the nail plate.'],
       ['Can I add nail art?', 'Yes. Minimal nail art, chrome, French tips, and accent details can be added during booking.']
     ],
-    relatedServices: ['facial', 'bridal-makeup', 'luxury-haircut']
+    relatedServices: ['collagen-facial', 'bridal-makeup', 'luxury-haircut']
   },
   {
     id: 'bridal-makeup',
@@ -279,28 +319,38 @@ const NOVA_SERVICES = [
     rating: '4.9',
     reviewCount: '112',
     reviews: [
-      ['Isabella Reed', 'June 14, 2026', 'The look stayed perfect through photos, dinner, and dancing. I still felt like myself.'],
-      ['Amara Wells', 'May 22, 2026', 'The timeline was calm, and the touch-up plan made the whole day easier.']
+      {
+        name: 'Isabella Reed',
+        date: 'June 14, 2026',
+        image: 'https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?auto=format&fit=crop&q=80&w=120',
+        body: 'My makeup stayed perfect through portraits, dinner, and dancing, but still looked like me. The skin finish photographed beautifully.'
+      },
+      {
+        name: 'Amara Wells',
+        date: 'May 22, 2026',
+        image: 'https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=crop&q=80&w=120',
+        body: 'The wedding morning timeline felt calm and organized. My hair, lashes, and lip color were checked in every kind of light before we left.'
+      }
     ],
     faq: [
       ['Should I book a trial?', 'Yes. Trials are strongly recommended for bridal services so the final day feels predictable.'],
       ['Are lashes included?', 'Premium false lashes are included if they suit your chosen look.'],
       ['Can you support bridesmaids?', 'Yes. Group styling can be arranged based on party size and timing.']
     ],
-    relatedServices: ['facial', 'gel-manicure', 'balayage']
+    relatedServices: ['collagen-facial', 'nail-artistry', 'balayage']
   },
   {
-    id: 'massage',
-    title: 'Aromatherapy Massage',
+    id: 'aromatherapy-massage',
+    title: 'Aromatherapy Spa Massage',
     category: 'Spa Rituals',
     subtitle: 'Wellness Therapy Suite',
-    metaTitle: 'Aromatherapy Massage - NOVA Salon',
+    metaTitle: 'Aromatherapy Spa Massage - NOVA Salon',
     metaDescription: 'Relax with NOVA Aromatherapy Massage featuring custom essential oils, pressure planning, wellness benefits, pricing, FAQs, and testimonials.',
     heroImage: './assets/images/img14.jpg',
     heroAlt: 'Aromatherapy massage spa treatment room',
     descriptionTitle: 'Scent, Pressure, and Recovery',
     description: [
-      'Aromatherapy Massage is a restorative full-body ritual using custom oil blends and measured pressure to help release tension, quiet the nervous system, and support recovery.',
+      'Aromatherapy Spa Massage is a restorative full-body ritual using custom oil blends and measured pressure to help release tension, quiet the nervous system, and support recovery.',
       'Your therapist discusses pressure preferences, focus areas, and scent sensitivities before the session. The treatment is calm, structured, and tailored to the way your body feels that day.'
     ],
     gallery: [
@@ -337,20 +387,41 @@ const NOVA_SERVICES = [
     rating: '4.9',
     reviewCount: '156',
     reviews: [
-      ['Daniel Park', 'August 4, 2026', 'The pressure was exactly right and the lavender blend helped me sleep better that night.'],
-      ['Renee Clark', 'July 20, 2026', 'A polished spa experience from start to finish. Calm, clean, and deeply relaxing.']
+      {
+        name: 'Daniel Park',
+        date: 'August 4, 2026',
+        image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=120',
+        body: 'The pressure work through my shoulders was exactly right, and the lavender blend helped me sleep better that night.'
+      },
+      {
+        name: 'Renee Clark',
+        date: 'July 20, 2026',
+        image: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&q=80&w=120',
+        body: 'A calm spa experience from start to finish. The therapist checked scent preferences, then built a massage that felt deeply restorative.'
+      }
     ],
     faq: [
       ['Can I choose the oil blend?', 'Yes. Your therapist will recommend options and avoid any scent you dislike.'],
       ['Is deep pressure available?', 'Yes. Pressure can be adapted, but the service remains restorative rather than aggressive.'],
       ['How should I prepare?', 'Hydrate, arrive a few minutes early, and share any injuries or sensitivities before the session starts.']
     ],
-    relatedServices: ['facial', 'luxury-haircut', 'gel-manicure']
+    relatedServices: ['collagen-facial', 'luxury-haircut', 'nail-artistry']
   }
 ];
 
 (function () {
-  const byId = (id) => NOVA_SERVICES.find((service) => service.id === id) || NOVA_SERVICES[0];
+  const serviceAliases = {
+    facial: 'collagen-facial',
+    'gel-manicure': 'nail-artistry',
+    manicure: 'nail-artistry',
+    massage: 'aromatherapy-massage',
+    'spa-massage': 'aromatherapy-massage'
+  };
+  const byId = (id) => {
+    const requestedId = String(id || '').trim();
+    const canonicalId = serviceAliases[requestedId] || requestedId;
+    return NOVA_SERVICES.find((service) => service.id === canonicalId) || NOVA_SERVICES[0];
+  };
   const moneyToNumber = (value) => Number(String(value).replace(/[^0-9.]/g, '')) || 0;
   const stars = () => '<i class="fa-solid fa-star"></i>'.repeat(5);
   const esc = (value) => String(value ?? '').replace(/[&<>"']/g, (char) => ({
@@ -362,7 +433,26 @@ const NOVA_SERVICES = [
   })[char]);
 
   function serviceUrl(id) {
-    return `service-details.html?id=${encodeURIComponent(id)}`;
+    const canonicalId = serviceAliases[String(id || '').trim()] || id;
+    return `service-details.html?id=${encodeURIComponent(canonicalId)}`;
+  }
+
+  function normalizeReview(review) {
+    if (Array.isArray(review)) {
+      return {
+        name: review[0],
+        date: review[1],
+        body: review[2],
+        image: review[3] || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=120'
+      };
+    }
+    return {
+      name: review.name,
+      date: review.date,
+      body: review.body,
+      image: review.image,
+      imageAlt: review.imageAlt
+    };
   }
 
   function renderServiceDetails() {
@@ -523,21 +613,24 @@ const NOVA_SERVICES = [
           </div>
         </div>
         <div class="space-y-6 divide-y divide-stone-100 dark:divide-brand-darkBorder">
-          ${service.reviews.map(([name, date, body]) => `
+          ${service.reviews.map((item) => {
+            const review = normalizeReview(item);
+            return `
             <div class="pt-6">
               <div class="flex justify-between items-start mb-3 gap-4">
                 <div class="flex gap-3 items-center">
-                  <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=80" class="w-10 h-10 rounded-full object-cover shadow" alt="${esc(name)}">
+                  <img src="${esc(review.image)}" class="w-10 h-10 rounded-full object-cover shadow" alt="${esc(review.imageAlt || review.name)}">
                   <div>
-                    <h5 class="font-bold text-sm">${esc(name)}</h5>
-                    <span class="text-[10px] text-stone-400">${esc(date)}</span>
+                    <h5 class="font-bold text-sm">${esc(review.name)}</h5>
+                    <span class="text-[10px] text-stone-400">${esc(review.date)}</span>
                   </div>
                 </div>
                 <div class="text-brand-gold text-xs shrink-0">${stars()}</div>
               </div>
-              <p class="text-stone-500 dark:text-stone-400 text-sm leading-relaxed">"${esc(body)}"</p>
+              <p class="text-stone-500 dark:text-stone-400 text-sm leading-relaxed">"${esc(review.body)}"</p>
             </div>
-          `).join('')}
+          `;
+          }).join('')}
         </div>
       </div>
     `;

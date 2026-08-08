@@ -1,6 +1,6 @@
 (() => {
   const APPOINTMENTS_KEY = 'appointments';
-  const TRIGGER_SELECTOR = '[data-booking-trigger], .btn-book-now, a[href="#appointment"], a[href="#quick-booking"], a[href="contact.html#appointment"], a[href="#booking-modal"]';
+  const TRIGGER_SELECTOR = '[data-booking-trigger], .btn-book-now:not(.btn-sign-up), a[href="#appointment"], a[href="#quick-booking"], a[href="contact.html#appointment"], a[href="#booking-modal"]';
   let swalLoadPromise = null;
 
   const storage = {
@@ -375,7 +375,7 @@
 
       const href = trigger.getAttribute('href') || '';
       const shouldOpen = trigger.hasAttribute('data-booking-trigger') ||
-        trigger.classList.contains('btn-book-now') ||
+        (trigger.classList.contains('btn-book-now') && !trigger.classList.contains('btn-sign-up')) ||
         ['#appointment', '#quick-booking', '#booking-modal', 'contact.html#appointment'].includes(href);
 
       if (shouldOpen) openBookingModal(event);

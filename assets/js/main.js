@@ -345,7 +345,16 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    document.querySelectorAll('[data-booking-trigger], .btn-book-now').forEach((button) => {
+    document.querySelectorAll('#header .btn-book-now').forEach((button) => {
+      button.setAttribute('href', 'register.html');
+      button.removeAttribute('data-booking-trigger');
+      button.classList.remove('btn-book-now');
+      button.classList.add('btn-sign-up');
+      button.setAttribute('aria-label', 'Sign Up');
+      button.innerHTML = '<i class="fa-solid fa-user-plus text-xs"></i> SIGN UP';
+    });
+
+    document.querySelectorAll('[data-booking-trigger], .btn-book-now:not(.btn-sign-up)').forEach((button) => {
       button.setAttribute('href', '#booking-modal');
       button.setAttribute('data-booking-trigger', 'true');
       button.setAttribute('aria-label', 'Book Now');
@@ -364,6 +373,94 @@ document.addEventListener('DOMContentLoaded', () => {
       const target = href.split('#')[0].split('?')[0] || 'index.html';
       if (target.toLowerCase() === pageKey) link.setAttribute('aria-current', 'page');
     });
+  };
+
+  const buildGlobalFooter = (variant = '') => `
+    <footer class="nova-footer${variant ? ` nova-footer--${variant}` : ''}" data-nova-footer>
+      <div class="nova-footer__grid">
+        <div class="nova-footer__column nova-footer__brand-column">
+          <a href="index.html" class="nova-footer__brand" aria-label="NOVA Salon home">
+            <i class="fa-solid fa-scissors" aria-hidden="true"></i>
+            <span>NOVA Salon</span>
+          </a>
+          <p class="nova-footer__text">
+            A premium sanctuary of artistry and relaxation, creating bespoke luxury hair, nail, skincare, makeup, and wellness experiences.
+          </p>
+          <div class="nova-footer__social" aria-label="Social links">
+            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter" aria-hidden="true"></i></a>
+            <a href="#" aria-label="Pinterest"><i class="fa-brands fa-pinterest-p" aria-hidden="true"></i></a>
+          </div>
+        </div>
+
+        <div class="nova-footer__column">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="service-details.html?id=luxury-haircut">Luxury Haircut &amp; Color</a></li>
+            <li><a href="service-details.html?id=collagen-facial">Collagen Gold Facial</a></li>
+            <li><a href="service-details.html?id=nail-artistry">Signature Nail Artistry</a></li>
+            <li><a href="service-details.html?id=aromatherapy-massage">Aromatherapy Spa Massages</a></li>
+            <li><a href="service-details.html?id=bridal-makeup">Bridal Makeover Packages</a></li>
+          </ul>
+        </div>
+
+        <div class="nova-footer__column">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="about.html">Our Company Story</a></li>
+            <li><a href="pricing.html">Membership Pricing</a></li>
+            <li><a href="blog.html">Latest Styling News</a></li>
+            <li><a href="contact.html">Location &amp; Contacts</a></li>
+          </ul>
+        </div>
+
+        <div class="nova-footer__column">
+          <h4>Location</h4>
+          <p class="nova-footer__text">742 Evergreen Terrace, Luxury District</p>
+          <a href="tel:+15557891234" class="nova-footer__phone">+1 (555) 789-1234</a>
+        </div>
+      </div>
+
+      <div class="nova-footer__bottom">
+        <span>&copy; 2026 NOVA Salon. All rights reserved.</span>
+        <div class="nova-footer__bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </footer>
+  `;
+
+  const initGlobalFooter = () => {
+    const footer = document.querySelector('footer');
+    if (footer) {
+      footer.outerHTML = buildGlobalFooter();
+      return;
+    }
+
+    const dashboardMain = document.querySelector('body[data-auth-required] main.overflow-y-auto');
+    if (dashboardMain) {
+      dashboardMain.insertAdjacentHTML('beforeend', buildGlobalFooter('dashboard'));
+      return;
+    }
+
+    const needsUtilityShell = document.querySelector('.auth-card, .utility-card, .utility-footer');
+    if (needsUtilityShell && !document.querySelector('.nova-utility-page-shell')) {
+      const shell = document.createElement('main');
+      shell.className = 'nova-utility-page-shell';
+      Array.from(document.body.childNodes).forEach((node) => {
+        if (node.nodeType === Node.ELEMENT_NODE && ['SCRIPT', 'FOOTER'].includes(node.tagName)) return;
+        shell.appendChild(node);
+      });
+      document.body.classList.add('nova-body-with-global-footer');
+      document.body.insertBefore(shell, document.body.firstChild);
+    }
+
+    const template = document.createElement('template');
+    template.innerHTML = buildGlobalFooter().trim();
+    const firstScript = Array.from(document.body.children).find((child) => child.tagName === 'SCRIPT');
+    document.body.insertBefore(template.content.firstElementChild, firstScript || null);
   };
 
   const injectDrawerUtilities = (drawer) => {
@@ -524,15 +621,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const serviceIds = {
       'luxury haircut styling': 'luxury-haircut',
       'luxury haircut and styling': 'luxury-haircut',
+      'luxury haircut color': 'luxury-haircut',
+      'luxury haircut and color': 'luxury-haircut',
       'hair cut blowout': 'luxury-haircut',
       'balayage highlight color': 'balayage',
       'balayage highlight and color': 'balayage',
       'balayage coloring': 'balayage',
-      'collagen gold facial': 'facial',
-      'signature gel manicure': 'gel-manicure',
+      'collagen gold facial': 'collagen-facial',
+      'collagen gold facials': 'collagen-facial',
+      'signature gel manicure': 'nail-artistry',
+      'signature nail artistry': 'nail-artistry',
       'bridal makeup styling': 'bridal-makeup',
       'bridal makeup and styling': 'bridal-makeup',
-      'aromatherapy massage': 'massage'
+      'bridal makeover packages': 'bridal-makeup',
+      'aromatherapy massage': 'aromatherapy-massage',
+      'aromatherapy spa massage': 'aromatherapy-massage',
+      'aromatherapy spa massages': 'aromatherapy-massage'
     };
 
     const serviceTitleFromLink = (link) => {
@@ -550,6 +654,14 @@ document.addEventListener('DOMContentLoaded', () => {
         const fuzzyMatch = Object.keys(serviceIds).find((key) => normalized.includes(key) || key.includes(normalized));
         const id = directMatch || (fuzzyMatch ? serviceIds[fuzzyMatch] : '');
         if (id) link.setAttribute('href', `service-details.html?id=${id}`);
+      } else if (/^service-details\.html\?id=/.test(href)) {
+        const legacyId = new URL(href, window.location.href).searchParams.get('id');
+        const aliases = {
+          facial: 'collagen-facial',
+          'gel-manicure': 'nail-artistry',
+          massage: 'aromatherapy-massage'
+        };
+        if (aliases[legacyId]) link.setAttribute('href', `service-details.html?id=${aliases[legacyId]}`);
       }
 
       if (/blog-post\.html\?post=/.test(href)) {
@@ -965,6 +1077,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobileDrawer();
   initDesktopDropdown();
   initActiveNavigation();
+  initGlobalFooter();
   initDynamicLinks();
   initImages();
   initAppointmentForms();

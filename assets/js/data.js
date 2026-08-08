@@ -36,7 +36,7 @@ const SALON_SERVICES = [
   },
   {
     id: 4,
-    name: "Aromatherapy Massage",
+    name: "Aromatherapy Spa Massage",
     category: "spa",
     price: 95.00,
     duration: "90 mins",
@@ -47,7 +47,7 @@ const SALON_SERVICES = [
   },
   {
     id: 5,
-    name: "Signature Gel Manicure",
+    name: "Signature Nail Artistry",
     category: "nails",
     price: 55.00,
     duration: "45 mins",

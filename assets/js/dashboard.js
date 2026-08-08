@@ -80,10 +80,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const serviceSeeds = [
     { id: 'luxury-haircut', title: 'Luxury Haircut & Styling', category: 'Hair Care', price: 85, duration: '60 mins', status: 'Active', image: './assets/images/img9.jpg' },
     { id: 'balayage', title: 'Balayage Highlight & Color', category: 'Hair Care', price: 180, duration: '180 mins', status: 'Active', image: './assets/images/img10.jpg' },
-    { id: 'facial', title: 'Collagen Gold Facial', category: 'Skincare', price: 120, duration: '75 mins', status: 'Active', image: './assets/images/img11.jpg' },
-    { id: 'gel-manicure', title: 'Signature Gel Manicure', category: 'Nail Art', price: 55, duration: '45 mins', status: 'Active', image: './assets/images/img12.jpg' },
+    { id: 'collagen-facial', title: 'Collagen Gold Facial', category: 'Skincare', price: 120, duration: '75 mins', status: 'Active', image: './assets/images/img11.jpg' },
+    { id: 'nail-artistry', title: 'Signature Nail Artistry', category: 'Nail Art', price: 55, duration: '45 mins', status: 'Active', image: './assets/images/img12.jpg' },
     { id: 'bridal-makeup', title: 'Bridal Makeup & Styling', category: 'Makeup', price: 250, duration: '120 mins', status: 'Active', image: './assets/images/img13.jpg' },
-    { id: 'massage', title: 'Aromatherapy Massage', category: 'Spa Rituals', price: 95, duration: '90 mins', status: 'Active', image: './assets/images/img14.jpg' }
+    { id: 'aromatherapy-massage', title: 'Aromatherapy Spa Massage', category: 'Spa Rituals', price: 95, duration: '90 mins', status: 'Active', image: './assets/images/img14.jpg' }
   ];
 
   const blogSeeds = [
