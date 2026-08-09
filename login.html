@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
   <title>Login - NOVA Salon & Spa</title>
   
   <!-- CSS Dependencies -->
@@ -108,10 +109,6 @@
       </div>
 
       <button type="submit" class="w-full py-3.5 bg-gradient-to-r from-brand-gold to-brand-goldDark text-white font-semibold rounded-xl hover:shadow-lg transition-all text-xs">Log In</button>
-      <div class="grid grid-cols-2 gap-2 pt-1">
-        <a href="customer-dashboard.html" data-demo-login="customer" class="text-center py-2.5 border border-brand-gold/40 text-brand-gold rounded-xl text-[10px] font-bold uppercase tracking-widest hover:bg-brand-gold hover:text-white transition-all">Customer Demo</a>
-        <a href="dashboard.html" data-demo-login="admin" class="text-center py-2.5 border border-stone-200 dark:border-brand-darkBorder text-stone-500 dark:text-stone-300 rounded-xl text-[10px] font-bold uppercase tracking-widest hover:border-brand-gold hover:text-brand-gold transition-all">Admin Demo</a>
-      </div>
     </form>
 
     <!-- Social Logins Divider -->
@@ -123,9 +120,9 @@
 
     <!-- Social Buttons -->
     <div class="grid grid-cols-3 gap-3">
-      <button class="py-2 px-3 border border-stone-200 dark:border-brand-darkBorder rounded-xl hover:bg-stone-50 dark:hover:bg-stone-850 flex items-center justify-center text-stone-500 transition-colors"><i class="fa-brands fa-google text-lg"></i></button>
-      <button class="py-2 px-3 border border-stone-200 dark:border-brand-darkBorder rounded-xl hover:bg-stone-50 dark:hover:bg-stone-850 flex items-center justify-center text-stone-500 transition-colors"><i class="fa-brands fa-facebook-f text-lg"></i></button>
-      <button class="py-2 px-3 border border-stone-200 dark:border-brand-darkBorder rounded-xl hover:bg-stone-50 dark:hover:bg-stone-850 flex items-center justify-center text-stone-500 transition-colors"><i class="fa-brands fa-apple text-lg"></i></button>
+      <button type="button" data-social-login="Google" class="auth-social-btn transition-colors" aria-label="Continue with Google" title="Continue with Google"><i class="fa-brands fa-google text-lg" aria-hidden="true"></i></button>
+      <button type="button" data-social-login="Facebook" class="auth-social-btn transition-colors" aria-label="Continue with Facebook" title="Continue with Facebook"><i class="fa-brands fa-facebook-f text-lg" aria-hidden="true"></i></button>
+      <button type="button" data-social-login="Apple" class="auth-social-btn transition-colors" aria-label="Continue with Apple" title="Continue with Apple"><i class="fa-brands fa-apple text-lg" aria-hidden="true"></i></button>
     </div>
 
     <!-- Sign up Link -->

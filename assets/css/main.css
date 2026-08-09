@@ -312,6 +312,13 @@ textarea:disabled,
   color: inherit;
 }
 
+.nova-footer .nova-footer__brand,
+.nova-footer .nova-footer__brand:hover,
+.nova-footer .nova-footer__brand i,
+.nova-footer .nova-footer__brand span {
+  color: var(--color-gold) !important;
+}
+
 .nova-footer__column a:hover,
 .nova-footer__bottom-links a:hover {
   color: var(--nova-accent, var(--color-gold));
@@ -464,6 +471,12 @@ header a[aria-current="page"]:not([class*="text-brand-spaGold"]),
   max-width: min(20rem, 100vw);
   overflow-y: auto;
   overscroll-behavior: contain;
+  padding-bottom: max(2rem, env(safe-area-inset-bottom));
+  gap: 1.5rem;
+}
+
+#mobile-drawer nav {
+  min-width: 0;
 }
 
 .drawer-utilities {
@@ -491,6 +504,204 @@ header a[aria-current="page"]:not([class*="text-brand-spaGold"]),
 .drawer-utility-btn.is-primary {
   background: var(--nova-accent, var(--color-gold));
   color: #0F0F11;
+}
+
+.mobile-booking-btn {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  min-height: 3rem;
+  width: 100%;
+  margin-top: 0.75rem;
+  border: 1px solid color-mix(in srgb, var(--nova-accent, var(--color-gold)) 45%, transparent);
+  background: var(--nova-accent, var(--color-gold));
+  background: linear-gradient(135deg, var(--nova-accent, var(--color-gold)), color-mix(in srgb, var(--nova-accent, var(--color-gold)) 72%, #0F0F11));
+  color: #0F0F11 !important;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  text-transform: uppercase;
+  white-space: nowrap;
+  box-shadow: 0 12px 24px rgba(15, 15, 17, 0.18);
+}
+
+.mobile-booking-btn:hover {
+  color: #0F0F11 !important;
+  transform: translateY(-1px);
+  box-shadow: 0 14px 28px rgba(212, 175, 55, 0.28);
+}
+
+.mobile-booking-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 8px 18px rgba(15, 15, 17, 0.18);
+}
+
+.mobile-booking-btn i {
+  flex: 0 0 auto;
+  font-size: 0.9rem;
+}
+
+html:not(.dark) .home-2-page #header {
+  background: rgba(15, 15, 17, 0.96) !important;
+  border-bottom: 1px solid rgba(197, 168, 128, 0.18);
+  color: #fff;
+}
+
+html:not(.dark) .home-2-page #header .rtl-ltr-toggle {
+  border-color: rgba(197, 168, 128, 0.42);
+  color: #D6D3D1;
+}
+
+html:not(.dark) .home-2-page #header .rtl-ltr-toggle:hover {
+  border-color: #C5A880;
+  color: #C5A880;
+}
+
+html:not(.dark) .home-2-page #mobile-menu-btn {
+  color: #fff;
+}
+
+.home-2-page #header > div > a .font-serif.text-2xl,
+.home-2-page #header > div > a .font-serif.text-2xl i,
+.home-2-page #header nav > .nova-dropdown:first-child .nova-dropdown-trigger,
+.home-2-page #header nav > .relative:first-child a,
+.home-2-page #mobile-drawer nav > div:first-child .mobile-dropdown-btn,
+.home-2-page #mobile-drawer nav > a[aria-current="page"] {
+  color: var(--color-gold) !important;
+}
+
+.home-2-page #header nav > .nova-dropdown:first-child .nova-dropdown-trigger {
+  border-color: var(--color-gold) !important;
+}
+
+.home-2-page #header nav > .nova-dropdown:first-child > span,
+.home-2-page #header nav > .relative:first-child > span {
+  background-color: var(--color-gold) !important;
+}
+
+.home-2-page #header .btn-sign-up,
+.home-2-page #header .theme-toggle {
+  background: var(--color-gold) !important;
+  color: #0F0F11 !important;
+}
+
+.home-2-page #header .btn-sign-up:hover,
+.home-2-page #header .theme-toggle:hover {
+  background: #AA8C2C !important;
+  color: #0F0F11 !important;
+}
+
+.home-2-page #header a[href="login.html"],
+.home-2-page #header .rtl-ltr-toggle {
+  border-color: var(--color-gold) !important;
+  color: var(--color-gold) !important;
+}
+
+.home-2-page #header a[href="login.html"]:hover,
+.home-2-page #header .rtl-ltr-toggle:hover {
+  background: var(--color-gold) !important;
+  color: #0F0F11 !important;
+}
+
+.home-2-page #header nav .nova-dropdown > div.absolute.top-full a:hover,
+.home-2-page #header nav .nova-dropdown > div.absolute.top-full a[aria-current="page"],
+.home-2-page #header nav .nova-home-dropdown > div.absolute.top-full a:hover,
+.home-2-page #header nav .nova-home-dropdown > div.absolute.top-full a[aria-current="page"] {
+  background: var(--color-gold) !important;
+  color: #0F0F11 !important;
+}
+
+.contact-layout-grid {
+  align-items: start;
+  gap: clamp(2rem, 5vw, 4rem);
+}
+
+.contact-info-panel,
+.contact-form-panel {
+  min-width: 0;
+}
+
+.contact-info-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.contact-info-heading {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.contact-info-heading > * {
+  margin: 0;
+}
+
+.contact-info-cards {
+  display: grid;
+  gap: 1rem;
+}
+
+.contact-info-card {
+  min-width: 0;
+}
+
+.contact-info-card > div {
+  min-width: 0;
+}
+
+.contact-info-card h4 {
+  overflow-wrap: anywhere;
+}
+
+.contact-form-panel {
+  align-self: start;
+}
+
+.contact-form-panel form {
+  margin-top: 0;
+}
+
+@media (min-width: 992px) {
+  .contact-form-panel {
+    padding-top: 2.25rem !important;
+  }
+}
+
+.spa-review-grid {
+  align-items: stretch;
+}
+
+.spa-review-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.spa-review-stars {
+  flex: 0 0 auto;
+}
+
+.spa-review-text {
+  flex: 1 1 auto;
+}
+
+.spa-review-profile {
+  flex: 0 0 auto;
+  margin-top: auto;
+}
+
+.spa-review-profile img {
+  width: 2.5rem;
+  height: 2.5rem;
+  flex: 0 0 2.5rem;
+}
+
+.spa-review-profile h4,
+.spa-review-profile span {
+  line-height: 1.35;
 }
 
 .nova-field-error,
@@ -555,6 +766,7 @@ header a[aria-current="page"]:not([class*="text-brand-spaGold"]),
   background: rgba(253, 251, 247, 0.92);
   border-color: rgba(212, 175, 55, 0.22);
   color: #1C1917;
+  overflow-wrap: anywhere;
 }
 
 .dark .auth-card,
@@ -616,6 +828,54 @@ header a[aria-current="page"]:not([class*="text-brand-spaGold"]),
   accent-color: var(--nova-accent, var(--color-gold));
 }
 
+.auth-card form > .flex.items-start > label {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.auth-card .text-stone-400 {
+  color: #78716C;
+}
+
+.dark .auth-card .text-stone-400 {
+  color: #A8A29E;
+}
+
+.auth-social-btn {
+  min-height: 2.75rem;
+  background: rgba(255, 255, 255, 0.84);
+  border: 1px solid rgba(214, 211, 209, 0.9);
+  color: #292524;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.75rem;
+}
+
+.auth-social-btn:hover {
+  background: rgba(212, 175, 55, 0.12);
+  border-color: var(--nova-accent, var(--color-gold));
+  color: #0F0F11;
+}
+
+.auth-social-btn:focus-visible {
+  border-color: var(--nova-accent, var(--color-gold));
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.18);
+}
+
+.dark .auth-social-btn {
+  background: rgba(15, 15, 17, 0.74);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: #FDFBF7;
+}
+
+.dark .auth-social-btn:hover,
+.dark .auth-social-btn:focus-visible {
+  background: rgba(212, 175, 55, 0.14);
+  border-color: var(--nova-accent, var(--color-gold));
+  color: #fff;
+}
+
 .utility-card,
 .glass-light.utility-card {
   background: rgba(253, 251, 247, 0.92);
@@ -673,6 +933,46 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 .dark input[type="date"]::-webkit-calendar-picker-indicator {
   filter: invert(0.9);
+}
+
+.home-2-treatment-grid {
+  align-items: stretch;
+}
+
+.home-2-treatment-card {
+  height: 100%;
+}
+
+.home-2-treatment-card--wide {
+  min-height: 22rem;
+}
+
+.home-2-treatment-media {
+  height: 14rem;
+  flex: 0 0 auto;
+  overflow: hidden;
+}
+
+.home-2-treatment-card--wide .home-2-treatment-media {
+  height: 16rem;
+}
+
+.home-2-treatment-body {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.home-2-treatment-meta {
+  min-height: 3.25rem;
+  margin-top: auto;
+  gap: 0.75rem;
+}
+
+@media (min-width: 768px) {
+  .home-2-treatment-card--wide .home-2-treatment-media {
+    height: auto;
+    min-height: 100%;
+  }
 }
 
 @media (min-width: 992px) and (max-width: 1199.98px) {

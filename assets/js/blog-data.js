@@ -271,21 +271,21 @@ const NOVA_BLOG_ARTICLES = [
     const visible = NOVA_BLOG_ARTICLES.slice((currentPage - 1) * perPage, currentPage * perPage);
 
     grid.innerHTML = visible.map((post, index) => `
-      <article class="bg-[#1e1e1e] border border-stone-850 rounded-3xl overflow-hidden hover-img-zoom shadow-md hover:shadow-xl transition-all group flex flex-col justify-between" data-aos="fade-up" data-aos-delay="${(index % 3) * 100}">
+      <article class="bg-white dark:bg-brand-darkCard border border-stone-150 dark:border-brand-darkBorder rounded-3xl overflow-hidden hover-img-zoom shadow-md hover:shadow-xl transition-all group flex flex-col justify-between" data-aos="fade-up" data-aos-delay="${(index % 3) * 100}">
         <div>
           <div class="h-64 overflow-hidden relative">
             <img src="${esc(post.heroImage)}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="${esc(post.imageAlt)}">
           </div>
           <div class="p-8 space-y-4">
             <span class="inline-block bg-brand-gold text-stone-950 text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full">${esc(post.category)}</span>
-            <h3 class="font-serif text-2xl font-bold text-white hover:text-brand-gold transition-colors leading-snug">
+            <h3 class="font-serif text-2xl font-bold text-stone-900 dark:text-white hover:text-brand-gold transition-colors leading-snug">
               <a href="${articleUrl(post.id)}">${esc(post.title)}</a>
             </h3>
-            <div class="flex items-center gap-4 text-[11px] text-stone-400 flex-wrap">
+            <div class="flex items-center gap-4 text-[11px] text-stone-500 dark:text-stone-400 flex-wrap">
               <span class="flex items-center gap-1.5"><i class="fa-solid fa-user text-brand-gold"></i> ${esc(post.author)}</span>
               <span class="flex items-center gap-1.5"><i class="fa-regular fa-calendar text-brand-gold"></i> ${esc(post.publishDate)}</span>
             </div>
-            <p class="text-stone-400 text-sm leading-relaxed font-light">${esc(post.excerpt)}</p>
+            <p class="text-stone-600 dark:text-brand-darkText text-sm leading-relaxed font-light">${esc(post.excerpt)}</p>
           </div>
         </div>
         <div class="px-8 pb-8">
@@ -297,7 +297,7 @@ const NOVA_BLOG_ARTICLES = [
     if (pagination) {
       pagination.innerHTML = Array.from({ length: totalPages }, (_, index) => {
         const page = index + 1;
-        return `<a href="blog.html?page=${page}" class="w-10 h-10 rounded-full ${page === currentPage ? 'bg-brand-gold text-stone-950' : 'border border-stone-800 text-stone-400 hover:border-brand-gold hover:text-brand-gold'} flex items-center justify-center transition-colors font-bold text-sm">${page}</a>`;
+        return `<a href="blog.html?page=${page}" class="w-10 h-10 rounded-full ${page === currentPage ? 'bg-brand-gold text-stone-950' : 'border border-stone-200 dark:border-stone-800 text-stone-500 dark:text-stone-400 hover:border-brand-gold hover:text-brand-gold'} flex items-center justify-center transition-colors font-bold text-sm">${page}</a>`;
       }).join('');
     }
   }

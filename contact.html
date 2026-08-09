@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
   <title>Contact Us - NOVA Salon & Spa</title>
   <meta name="description" content="Reach out to NOVA Salon. Get our phone number, location, opening hours, or send us a message via our contact form.">
   
@@ -183,17 +184,19 @@
 
   <!-- ================= CONTACT WRAPPER ================= -->
   <section class="py-24 max-w-7xl mx-auto px-6 lg:px-8">
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+    <div class="contact-layout-grid grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
       
       <!-- Left Column (Location Cards & Hours) -->
-      <div class="lg:col-span-5 space-y-8" data-aos="fade-right">
-        <span class="text-brand-rose font-serif text-lg italic tracking-wider block">Location details</span>
-        <h2 class="font-serif text-3xl font-bold text-stone-900 dark:text-white leading-tight">Find Your Sanctuary</h2>
+      <div class="contact-info-panel lg:col-span-5" data-aos="fade-right">
+        <div class="contact-info-heading">
+          <span class="text-brand-rose font-serif text-lg italic tracking-wider block">Location details</span>
+          <h2 class="font-serif text-3xl font-bold text-stone-900 dark:text-white leading-tight">Find Your Sanctuary</h2>
+        </div>
         
         <!-- Cards -->
-        <div class="space-y-4">
+        <div class="contact-info-cards">
           <!-- Card 1 -->
-          <div class="bg-white dark:bg-brand-darkCard border border-stone-150 dark:border-brand-darkBorder p-6 rounded-2xl flex gap-4 items-center">
+          <div class="contact-info-card bg-white dark:bg-brand-darkCard border border-stone-150 dark:border-brand-darkBorder p-6 rounded-2xl flex gap-4 items-center">
             <span class="w-12 h-12 rounded-full bg-brand-rose/20 text-brand-roseDark flex items-center justify-center shrink-0 text-lg"><i class="fa-solid fa-phone"></i></span>
             <div>
               <span class="text-[10px] text-stone-450 uppercase font-bold tracking-widest text-stone-400">Concierge Desk</span>
@@ -201,7 +204,7 @@
             </div>
           </div>
           <!-- Card 2 -->
-          <div class="bg-white dark:bg-brand-darkCard border border-stone-150 dark:border-brand-darkBorder p-6 rounded-2xl flex gap-4 items-center">
+          <div class="contact-info-card bg-white dark:bg-brand-darkCard border border-stone-150 dark:border-brand-darkBorder p-6 rounded-2xl flex gap-4 items-center">
             <span class="w-12 h-12 rounded-full bg-brand-rose/20 text-brand-roseDark flex items-center justify-center shrink-0 text-lg"><i class="fa-solid fa-envelope"></i></span>
             <div>
               <span class="text-[10px] text-stone-450 uppercase font-bold tracking-widest text-stone-400">Email Enquiries</span>
@@ -209,7 +212,7 @@
             </div>
           </div>
           <!-- Card 3 -->
-          <div class="bg-white dark:bg-brand-darkCard border border-stone-150 dark:border-brand-darkBorder p-6 rounded-2xl flex gap-4 items-center">
+          <div class="contact-info-card bg-white dark:bg-brand-darkCard border border-stone-150 dark:border-brand-darkBorder p-6 rounded-2xl flex gap-4 items-center">
             <span class="w-12 h-12 rounded-full bg-brand-rose/20 text-brand-roseDark flex items-center justify-center shrink-0 text-lg"><i class="fa-solid fa-location-dot"></i></span>
             <div>
               <span class="text-[10px] text-stone-450 uppercase font-bold tracking-widest text-stone-400">Our Address</span>
@@ -236,17 +239,10 @@
             </div>
           </div>
         </div>
-
-        <!-- Social Icons -->
-        <div class="flex gap-4 justify-center lg:justify-start">
-          <a href="#" class="w-10 h-10 rounded-full border border-stone-150 dark:border-brand-darkBorder flex items-center justify-center hover:bg-brand-gold hover:text-white hover:border-brand-gold transition-colors"><i class="fa-brands fa-facebook-f"></i></a>
-          <a href="#" class="w-10 h-10 rounded-full border border-stone-150 dark:border-brand-darkBorder flex items-center justify-center hover:bg-brand-gold hover:text-white hover:border-brand-gold transition-colors"><i class="fa-brands fa-instagram"></i></a>
-          <a href="#" class="w-10 h-10 rounded-full border border-stone-150 dark:border-brand-darkBorder flex items-center justify-center hover:bg-brand-gold hover:text-white hover:border-brand-gold transition-colors"><i class="fa-brands fa-twitter"></i></a>
-        </div>
       </div>
 
       <!-- Right Column (Contact Form) -->
-      <div class="lg:col-span-7 bg-white dark:bg-brand-darkCard border border-stone-150 dark:border-brand-darkBorder rounded-3xl p-8 md:p-12 shadow-sm" data-aos="fade-left">
+      <div class="contact-form-panel lg:col-span-7 bg-white dark:bg-brand-darkCard border border-stone-150 dark:border-brand-darkBorder rounded-3xl p-8 md:p-12 shadow-sm" data-aos="fade-left">
         <h3 class="font-serif text-2xl font-bold mb-2">Send Us A Message</h3>
         <p class="text-stone-500 dark:text-stone-400 text-xs mb-8">Drop us a line and our manager will follow up with details.</p>
         

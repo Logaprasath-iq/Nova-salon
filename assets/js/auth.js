@@ -387,6 +387,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   };
 
+  const initSocialLogin = () => {
+    document.querySelectorAll('[data-social-login]').forEach((button) => {
+      button.addEventListener('click', async (event) => {
+        event.preventDefault();
+        const provider = button.getAttribute('data-social-login') || 'Social';
+        await alertBox({
+          icon: 'info',
+          title: `${provider} Login`,
+          text: 'Social login is not configured yet.',
+          confirmButtonColor: '#D4AF37'
+        });
+      });
+    });
+  };
+
   const initForgotPassword = () => {
     const trigger = document.querySelector('[data-forgot-password]');
     if (!trigger) return;
@@ -482,6 +497,7 @@ document.addEventListener('DOMContentLoaded', () => {
   ensureDemoUser('admin');
   initRegister();
   initLogin();
+  initSocialLogin();
   initForgotPassword();
   initProtectedPages();
   initLogout();

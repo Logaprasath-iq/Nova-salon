@@ -2,6 +2,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const BREAKPOINT = 992;
   const root = document.documentElement;
   let swalLoadPromise = null;
+  const SOCIAL_LINKS = Object.freeze({
+    facebook: 'https://www.facebook.com/',
+    instagram: 'https://www.instagram.com/',
+    twitter: 'https://x.com/',
+    pinterest: 'https://www.pinterest.com/'
+  });
 
   const storage = {
     get(key) {
@@ -328,7 +334,10 @@ document.addEventListener('DOMContentLoaded', () => {
           ])}
           ${mobileLink('Contact', 'contact.html')}
           ${mobileLink('Login', 'login.html')}
-          <a href="#booking-modal" data-booking-trigger class="block w-full text-center px-6 py-3 bg-gradient-to-r ${isSpaTheme ? 'from-brand-spaGreen to-brand-spaGreenDark' : 'from-brand-gold to-brand-goldDark'} text-white text-sm font-semibold rounded-full hover:shadow-lg transition-all">Book Now</a>
+          <a href="#booking-modal" data-booking-trigger class="mobile-booking-btn block w-full text-center px-6 py-3 bg-gradient-to-r ${isSpaTheme ? 'from-brand-spaGreen to-brand-spaGreenDark' : 'from-brand-gold to-brand-goldDark'} text-white text-sm font-semibold rounded-full hover:shadow-lg transition-all">
+            <i class="fa-regular fa-calendar-check" aria-hidden="true"></i>
+            <span>BOOK NOW</span>
+          </a>
         `;
       }
 
@@ -336,29 +345,24 @@ document.addEventListener('DOMContentLoaded', () => {
       if (drawerFooter) {
         drawerFooter.innerHTML = `
           <div class="flex justify-center gap-4 text-stone-500">
-            <a href="#" class="${accentHover}"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="#" class="${accentHover}"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#" class="${accentHover}"><i class="fa-brands fa-twitter"></i></a>
-            <a href="#" class="${accentHover}"><i class="fa-brands fa-pinterest-p"></i></a>
+            <a href="${SOCIAL_LINKS.facebook}" target="_blank" rel="noopener noreferrer" class="${accentHover}" aria-label="Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+            <a href="${SOCIAL_LINKS.instagram}" target="_blank" rel="noopener noreferrer" class="${accentHover}" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+            <a href="${SOCIAL_LINKS.twitter}" target="_blank" rel="noopener noreferrer" class="${accentHover}" aria-label="Twitter/X"><i class="fa-brands fa-twitter" aria-hidden="true"></i></a>
+            <a href="${SOCIAL_LINKS.pinterest}" target="_blank" rel="noopener noreferrer" class="${accentHover}" aria-label="Pinterest"><i class="fa-brands fa-pinterest-p" aria-hidden="true"></i></a>
           </div>
         `;
       }
     }
-
-    document.querySelectorAll('#header .btn-book-now').forEach((button) => {
-      button.setAttribute('href', 'register.html');
-      button.removeAttribute('data-booking-trigger');
-      button.classList.remove('btn-book-now');
-      button.classList.add('btn-sign-up');
-      button.setAttribute('aria-label', 'Sign Up');
-      button.innerHTML = '<i class="fa-solid fa-user-plus text-xs"></i> SIGN UP';
-    });
 
     document.querySelectorAll('[data-booking-trigger], .btn-book-now:not(.btn-sign-up)').forEach((button) => {
       button.setAttribute('href', '#booking-modal');
       button.setAttribute('data-booking-trigger', 'true');
       button.setAttribute('aria-label', 'Book Now');
       const icon = button.querySelector('i')?.outerHTML || '<i class="fa-regular fa-calendar-check text-xs"></i>';
+      if (button.classList.contains('mobile-booking-btn')) {
+        button.innerHTML = `${icon}<span>BOOK NOW</span>`;
+        return;
+      }
       const label = button.classList.contains('btn-book-now') || /\buppercase\b/.test(button.className)
         ? 'BOOK NOW'
         : 'Book Now';
@@ -387,10 +391,10 @@ document.addEventListener('DOMContentLoaded', () => {
             A premium sanctuary of artistry and relaxation, creating bespoke luxury hair, nail, skincare, makeup, and wellness experiences.
           </p>
           <div class="nova-footer__social" aria-label="Social links">
-            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
-            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
-            <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter" aria-hidden="true"></i></a>
-            <a href="#" aria-label="Pinterest"><i class="fa-brands fa-pinterest-p" aria-hidden="true"></i></a>
+            <a href="${SOCIAL_LINKS.facebook}" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+            <a href="${SOCIAL_LINKS.instagram}" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+            <a href="${SOCIAL_LINKS.twitter}" target="_blank" rel="noopener noreferrer" aria-label="Twitter/X"><i class="fa-brands fa-twitter" aria-hidden="true"></i></a>
+            <a href="${SOCIAL_LINKS.pinterest}" target="_blank" rel="noopener noreferrer" aria-label="Pinterest"><i class="fa-brands fa-pinterest-p" aria-hidden="true"></i></a>
           </div>
         </div>
 

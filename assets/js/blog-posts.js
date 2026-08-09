@@ -185,19 +185,19 @@ function renderNOVABlogGrid() {
   const visiblePosts = AURA_BLOG_POSTS.slice(start, start + postsPerPage);
 
   grid.innerHTML = visiblePosts.map((post) => `
-    <article class="bg-[#1e1e1e] border border-stone-850 rounded-3xl overflow-hidden hover-img-zoom shadow-md hover:shadow-xl transition-all group flex flex-col justify-between">
+    <article class="bg-white dark:bg-brand-darkCard border border-stone-150 dark:border-brand-darkBorder rounded-3xl overflow-hidden hover-img-zoom shadow-md hover:shadow-xl transition-all group flex flex-col justify-between">
       <div>
         <div class="h-64 overflow-hidden relative">
           <img src="${post.thumb}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="${post.title}">
         </div>
         <div class="p-8 space-y-4">
           <span class="inline-block bg-brand-gold text-stone-950 text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full">${post.category}</span>
-          <h3 class="font-serif text-2xl font-bold text-white hover:text-brand-gold transition-colors leading-snug"><a href="${getPostUrl(post.slug)}">${post.title}</a></h3>
-          <div class="flex items-center gap-4 text-[11px] text-stone-400">
+          <h3 class="font-serif text-2xl font-bold text-stone-900 dark:text-white hover:text-brand-gold transition-colors leading-snug"><a href="${getPostUrl(post.slug)}">${post.title}</a></h3>
+          <div class="flex items-center gap-4 text-[11px] text-stone-500 dark:text-stone-400">
             <span class="flex items-center gap-1.5"><i class="fa-solid fa-user text-brand-gold"></i> ${post.author}</span>
             <span class="flex items-center gap-1.5"><i class="fa-regular fa-calendar text-brand-gold"></i> ${post.date}</span>
           </div>
-          <p class="text-stone-400 text-sm leading-relaxed font-light">${post.excerpt}</p>
+          <p class="text-stone-600 dark:text-brand-darkText text-sm leading-relaxed font-light">${post.excerpt}</p>
         </div>
       </div>
       <div class="px-8 pb-8">
@@ -207,7 +207,7 @@ function renderNOVABlogGrid() {
   `).join('');
 
   const pageLink = (page, label, isActive = false, isIcon = false) => `
-    <a href="blog.html?page=${page}" class="w-10 h-10 rounded-full ${isActive ? 'bg-brand-gold text-stone-950' : 'border border-stone-800 text-stone-400 hover:border-brand-gold hover:text-brand-gold'} flex items-center justify-center transition-colors font-bold text-sm">
+    <a href="blog.html?page=${page}" class="w-10 h-10 rounded-full ${isActive ? 'bg-brand-gold text-stone-950' : 'border border-stone-200 dark:border-stone-800 text-stone-500 dark:text-stone-400 hover:border-brand-gold hover:text-brand-gold'} flex items-center justify-center transition-colors font-bold text-sm">
       ${isIcon ? `<i class="fa-solid ${label} text-xs"></i>` : label}
     </a>
   `;
