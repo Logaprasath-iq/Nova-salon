@@ -235,6 +235,53 @@ textarea:disabled,
   justify-content: center;
 }
 
+/* One compact control rhythm for every page header. */
+#header {
+  min-height: 4.75rem;
+}
+
+/* Ensured wordmark brand name is 100% consistent across header, footer, and auth screens. */
+#header > div > a,
+#header > div > a span,
+.nova-footer__brand,
+.nova-footer__brand span,
+.auth-card a[href="index.html"],
+.auth-card a[href="index.html"] span {
+  font-family: var(--font-serif) !important;
+  font-size: 1.5rem !important; /* 24px */
+  font-weight: 700 !important;
+  letter-spacing: 0.1em !important;
+  color: var(--color-gold) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  line-height: 1.2 !important;
+}
+
+#header > div > a i,
+.nova-footer__brand i,
+.auth-card a[href="index.html"] i {
+  font-size: 0.9em !important;
+  color: var(--color-gold) !important;
+}
+
+#header nav a,
+#header nav button {
+  font-weight: 500 !important;
+}
+
+#header .theme-toggle,
+#header .rtl-ltr-toggle,
+#header a[href="login.html"],
+#header .btn-sign-up,
+#mobile-menu-btn {
+  min-height: 2.5rem !important;
+  height: 2.5rem !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
 .nova-footer {
   background: #0F0F11;
   color: #A8A29E;
@@ -331,6 +378,30 @@ textarea:disabled,
   font-size: 0.875rem;
 }
 
+.nova-footer__contact {
+  display: grid !important;
+  gap: 0.7rem !important;
+  font-size: 0.8125rem !important;
+}
+
+.nova-footer__contact li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  line-height: 1.55;
+}
+
+.nova-footer__contact i {
+  color: var(--nova-accent, var(--color-gold));
+  width: 1rem;
+  margin-top: 0.15rem;
+  text-align: center;
+}
+
+.nova-footer__contact a:hover {
+  color: var(--nova-accent, var(--color-gold));
+}
+
 .nova-footer__social {
   display: flex;
   flex-wrap: wrap;
@@ -351,6 +422,14 @@ textarea:disabled,
 .nova-footer__social a:hover {
   background: var(--nova-accent, var(--color-gold));
   color: #0F0F11;
+}
+
+.nova-x-icon {
+  display: inline-block;
+  font-family: Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1;
 }
 
 .nova-footer__bottom {
@@ -670,6 +749,20 @@ html:not(.dark) .home-2-page #mobile-menu-btn {
   }
 }
 
+@media (max-width: 991.98px) {
+  #header > div > div:last-child > :not(#mobile-menu-btn) {
+    display: none !important;
+  }
+
+  #header > div {
+    min-height: 4.5rem;
+  }
+
+  #header > div > a .font-serif.text-2xl {
+    font-size: 1.35rem;
+  }
+}
+
 .spa-review-grid {
   align-items: stretch;
 }
@@ -944,7 +1037,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 .home-2-treatment-card--wide {
-  min-height: 22rem;
+  min-height: 18rem;
 }
 
 .home-2-treatment-media {
@@ -954,18 +1047,114 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 .home-2-treatment-card--wide .home-2-treatment-media {
-  height: 16rem;
+  height: 14rem;
 }
 
 .home-2-treatment-body {
   flex: 1 1 auto;
   min-width: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .home-2-treatment-meta {
   min-height: 3.25rem;
   margin-top: auto;
   gap: 0.75rem;
+}
+
+/* Home feature collage: large lead image with two right-side tiles. */
+.nova-feature-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(9rem, 1fr);
+  grid-template-rows: minmax(15rem, 1fr) auto;
+  gap: 1rem;
+  align-items: stretch;
+  min-height: clamp(23rem, 34vw, 31rem);
+}
+
+.nova-feature-grid__primary {
+  grid-row: 1 / span 2;
+  min-height: 0;
+}
+
+.nova-feature-grid__secondary {
+  min-height: 0;
+}
+
+.nova-feature-grid__stat {
+  min-height: 7.5rem;
+  align-self: stretch;
+  justify-content: center;
+}
+
+.nova-feature-grid img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Editorial image groups keep a premium, balanced crop at every size. */
+.nova-story-section .relative.grid > div {
+  min-height: clamp(18rem, 35vw, 32rem);
+}
+
+.nova-story-section .relative.grid img,
+.nova-home-feature-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.nova-story-image {
+  min-height: clamp(24rem, 42vw, 40rem);
+}
+
+.nova-story-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (min-width: 992px) {
+  .nova-story-image {
+    margin-top: 3.5rem;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .nova-story-section .grid,
+  .nova-home-feature-media {
+    gap: 0.75rem !important;
+  }
+
+  .nova-story-section .relative.grid > div {
+    min-height: 18rem;
+  }
+
+  .nova-story-image {
+    min-height: 21rem;
+    margin-top: 2rem;
+  }
+  .nova-home-feature-media > div:not(.absolute) {
+    min-height: 12rem;
+  }
+
+  .nova-feature-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(7.5rem, 0.72fr);
+    grid-template-rows: minmax(14rem, 1fr) auto;
+    min-height: 20rem;
+    gap: 0.75rem;
+  }
+
+  .nova-feature-grid__stat {
+    min-height: 6.5rem;
+    padding: 1rem !important;
+  }
+
+  .nova-feature-grid__stat .font-serif {
+    font-size: 2.25rem;
+  }
 }
 
 @media (min-width: 768px) {
@@ -1116,6 +1305,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     padding-right: 0.625rem;
   }
 }
+
+/* Wordmark is standardized at the top of main.css */
 
 @media (min-width: 640px) {
   .nova-footer__bottom {

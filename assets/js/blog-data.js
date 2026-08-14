@@ -387,7 +387,7 @@ const NOVA_BLOG_ARTICLES = [
           <span class="text-stone-400 uppercase tracking-widest">Share Post:</span>
           <div class="flex gap-2">
             <a href="https://www.facebook.com/sharer/sharer.php?u=${currentUrl}" target="_blank" rel="noopener" class="w-8 h-8 rounded-full border border-stone-150 dark:border-brand-darkBorder flex items-center justify-center hover:bg-brand-gold hover:text-white hover:border-brand-gold transition-all" aria-label="Share on Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="https://twitter.com/intent/tweet?url=${currentUrl}&text=${encodeURIComponent(post.title)}" target="_blank" rel="noopener" class="w-8 h-8 rounded-full border border-stone-150 dark:border-brand-darkBorder flex items-center justify-center hover:bg-brand-gold hover:text-white hover:border-brand-gold transition-all" aria-label="Share on Twitter"><i class="fa-brands fa-twitter"></i></a>
+            <a href="https://x.com/intent/tweet?url=${currentUrl}&text=${encodeURIComponent(post.title)}" target="_blank" rel="noopener" class="w-8 h-8 rounded-full border border-stone-150 dark:border-brand-darkBorder flex items-center justify-center hover:bg-brand-gold hover:text-white hover:border-brand-gold transition-all" aria-label="Share on X"><i class="fa-brands fa-x-twitter"></i></a>
             <button type="button" data-copy-link class="w-8 h-8 rounded-full border border-stone-150 dark:border-brand-darkBorder flex items-center justify-center hover:bg-brand-gold hover:text-white hover:border-brand-gold transition-all" aria-label="Copy article link"><i class="fa-solid fa-link"></i></button>
           </div>
         </div>

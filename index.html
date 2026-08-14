@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
@@ -87,7 +87,10 @@
           <button type="button" class="flex items-center gap-1.5 font-semibold text-stone-300 hover:text-brand-gold border border-transparent hover:border-brand-gold px-3.5 py-1.5 rounded-lg transition-all">
             Pages <i class="fa-solid fa-chevron-down text-xs transition-transform group-hover:rotate-180"></i>
           </button>
-          <div class="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-40 bg-[#181818] border border-stone-850 rounded-xl shadow-2xl p-2 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-200 z-50">
+          <div class="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-48 bg-[#181818] border border-stone-850 rounded-xl shadow-2xl p-2 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-200 z-50">
+            <a href="pricing.html#membership" class="block px-4 py-2.5 text-xs font-semibold rounded-lg text-white hover:bg-stone-800 hover:text-brand-gold transition-colors">Offers & Packages</a>
+            <a href="about.html#artisans" class="block px-4 py-2.5 text-xs font-semibold rounded-lg text-white hover:bg-stone-800 hover:text-brand-gold transition-colors">Our Stylists</a>
+            <a href="services.html#bridal-services" class="block px-4 py-2.5 text-xs font-semibold rounded-lg text-white hover:bg-stone-800 hover:text-brand-gold transition-colors">Bridal Services</a>
             <a href="404.html" class="block px-4 py-2.5 text-xs font-semibold rounded-lg text-white hover:bg-stone-800 hover:text-brand-gold transition-colors">404 Error</a>
             <a href="coming-soon.html" class="block px-4 py-2.5 text-xs font-semibold rounded-lg text-white hover:bg-stone-800 hover:text-brand-gold transition-colors">Coming Soon</a>
             <a href="maintenance.html" class="block px-4 py-2.5 text-xs font-semibold rounded-lg text-white hover:bg-stone-800 hover:text-brand-gold transition-colors">Maintenance</a>
@@ -108,17 +111,17 @@
         </button>
 
         <!-- LTR/RTL Layout Toggle Button -->
-        <button class="rtl-ltr-toggle px-4 py-2 border border-stone-850 text-stone-300 hover:border-brand-gold hover:text-brand-gold rounded-full text-xs font-semibold uppercase tracking-wider flex items-center gap-1.5 transition-all" aria-label="Toggle Direction">
-          <i class="fa-solid fa-globe text-xs"></i> <span class="dir-text">LTR</span>
+        <button class="rtl-ltr-toggle h-10 px-4 border border-stone-850 text-stone-300 hover:border-brand-gold hover:text-brand-gold rounded-full text-xs font-semibold uppercase tracking-wider flex items-center justify-center gap-1.5 transition-all" aria-label="Toggle Direction">
+          <i class="fa-solid fa-right-left text-xs"></i> <span class="dir-text">LTR</span>
         </button>
 
         <!-- Login Outline Button -->
-        <a href="login.html" class="px-5 py-2 border border-brand-gold text-brand-gold hover:bg-brand-gold hover:text-stone-950 rounded-full text-xs font-semibold uppercase tracking-wider flex items-center gap-1.5 transition-all">
+        <a href="login.html" class="h-10 px-5 border border-brand-gold text-brand-gold hover:bg-brand-gold hover:text-stone-950 rounded-full text-xs font-semibold uppercase tracking-wider flex items-center justify-center gap-1.5 transition-all">
           <i class="fa-solid fa-user text-xs"></i> LOGIN
         </a>
 
         <!-- Sign Up Button -->
-        <a href="register.html" class="btn-sign-up px-5 py-2.5 bg-brand-gold hover:bg-brand-goldDark text-stone-950 rounded-full text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 transition-all">
+        <a href="register.html" class="btn-sign-up h-10 px-5 bg-brand-gold hover:bg-brand-goldDark text-stone-950 rounded-full text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 transition-all">
           <i class="fa-solid fa-user-plus text-xs"></i> SIGN UP
         </a>
 
@@ -170,7 +173,7 @@
       <div class="flex justify-center gap-4 text-stone-500">
         <a href="#" class="hover:text-brand-gold"><i class="fa-brands fa-facebook-f"></i></a>
         <a href="#" class="hover:text-brand-gold"><i class="fa-brands fa-instagram"></i></a>
-        <a href="#" class="hover:text-brand-gold"><i class="fa-brands fa-twitter"></i></a>
+        <a href="https://x.com/" target="_blank" rel="noopener noreferrer" class="hover:text-brand-gold" aria-label="X (formerly Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
         <a href="#" class="hover:text-brand-gold"><i class="fa-brands fa-pinterest-p"></i></a>
       </div>
     </div>
@@ -374,17 +377,16 @@
   <section class="py-24 max-w-7xl mx-auto px-6 lg:px-8">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
       <!-- Left Images Group -->
-      <div class="relative grid grid-cols-12 gap-4" data-aos="fade-right">
-        <div class="col-span-8 hover-img-zoom rounded-2xl overflow-hidden shadow-md">
-          <img src="./assets/images/img5.jpg" class="w-full h-auto object-cover" alt="Skincare Specialist">
+      <div class="nova-feature-grid" data-aos="fade-right">
+        <div class="nova-feature-grid__primary hover-img-zoom rounded-2xl overflow-hidden shadow-md">
+          <img src="./assets/images/img5.jpg" class="w-full h-full object-cover" alt="Skincare Specialist">
         </div>
-        <div class="col-span-4 self-end hover-img-zoom rounded-2xl overflow-hidden shadow-md mb-8">
-          <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&q=80&w=400" class="w-full h-auto object-cover" alt="Nail Art">
+        <div class="nova-feature-grid__secondary hover-img-zoom rounded-2xl overflow-hidden shadow-md">
+          <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover" alt="Nail Art">
         </div>
-        <!-- Floating Stats box -->
-        <div class="absolute bottom-0 right-4 bg-brand-gold text-white p-6 rounded-2xl shadow-xl flex items-center gap-4 border border-white/20">
-          <span class="font-serif text-5xl font-bold">12+</span>
-          <div class="text-xs uppercase tracking-widest font-semibold leading-tight">Years Of<br>Excellence</div>
+        <div class="nova-feature-grid__stat bg-brand-gold text-white p-4 md:p-6 rounded-xl md:rounded-2xl shadow-xl flex items-center gap-4 border border-white/20">
+          <span class="font-serif text-3xl md:text-5xl font-bold">12+</span>
+          <div class="text-[10px] md:text-xs uppercase tracking-widest font-semibold leading-tight">Years Of<br>Excellence</div>
         </div>
       </div>
 
@@ -438,7 +440,7 @@
         <!-- Stylist 1 -->
         <div class="bg-white dark:bg-brand-darkCard border border-stone-100 dark:border-brand-darkBorder rounded-2xl overflow-hidden hover-img-zoom group shadow-sm hover:shadow-lg transition-all" data-aos="fade-up" data-aos-delay="100">
           <div class="relative h-80">
-            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover" alt="Sophia Laurent">
+            <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover" alt="Sophia Laurent">
             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6">
               <div class="flex gap-4 text-white">
                 <a href="#" class="hover:text-brand-gold transition-colors"><i class="fa-brands fa-instagram text-xl"></i></a>
@@ -456,7 +458,7 @@
         <!-- Stylist 2 -->
         <div class="bg-white dark:bg-brand-darkCard border border-stone-100 dark:border-brand-darkBorder rounded-2xl overflow-hidden hover-img-zoom group shadow-sm hover:shadow-lg transition-all" data-aos="fade-up" data-aos-delay="200">
           <div class="relative h-80">
-            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover" alt="Liam Thorne">
+            <img src="./assets/images/liam_thorne.jpg" class="w-full h-full object-cover" alt="Liam Thorne">
             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6">
               <div class="flex gap-4 text-white">
                 <a href="#" class="hover:text-brand-gold transition-colors"><i class="fa-brands fa-instagram text-xl"></i></a>
@@ -474,7 +476,7 @@
         <!-- Stylist 3 -->
         <div class="bg-white dark:bg-brand-darkCard border border-stone-100 dark:border-brand-darkBorder rounded-2xl overflow-hidden hover-img-zoom group shadow-sm hover:shadow-lg transition-all" data-aos="fade-up" data-aos-delay="300">
           <div class="relative h-80">
-            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover" alt="Emma Watson">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover" alt="Emma Watson">
             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6">
               <div class="flex gap-4 text-white">
                 <a href="#" class="hover:text-brand-gold transition-colors"><i class="fa-brands fa-instagram text-xl"></i></a>
@@ -492,7 +494,7 @@
         <!-- Stylist 4 -->
         <div class="bg-white dark:bg-brand-darkCard border border-stone-100 dark:border-brand-darkBorder rounded-2xl overflow-hidden hover-img-zoom group shadow-sm hover:shadow-lg transition-all" data-aos="fade-up" data-aos-delay="400">
           <div class="relative h-80">
-            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover" alt="Chloe Bennett">
+            <img src="./assets/images/chloe_bennett.jpg" class="w-full h-full object-cover" alt="Chloe Bennett">
             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6">
               <div class="flex gap-4 text-white">
                 <a href="#" class="hover:text-brand-gold transition-colors"><i class="fa-brands fa-instagram text-xl"></i></a>
@@ -839,7 +841,7 @@
         <div class="flex gap-4">
           <a href="#" class="w-10 h-10 rounded-full bg-stone-850 hover:bg-brand-gold hover:text-white flex items-center justify-center transition-all"><i class="fa-brands fa-facebook-f"></i></a>
           <a href="#" class="w-10 h-10 rounded-full bg-stone-850 hover:bg-brand-gold hover:text-white flex items-center justify-center transition-all"><i class="fa-brands fa-instagram"></i></a>
-          <a href="#" class="w-10 h-10 rounded-full bg-stone-850 hover:bg-brand-gold hover:text-white flex items-center justify-center transition-all"><i class="fa-brands fa-twitter"></i></a>
+          <a href="https://x.com/" target="_blank" rel="noopener noreferrer" aria-label="X (formerly Twitter)" class="w-10 h-10 rounded-full bg-stone-850 hover:bg-brand-gold hover:text-white flex items-center justify-center transition-all"><i class="fa-brands fa-x-twitter"></i></a>
           <a href="#" class="w-10 h-10 rounded-full bg-stone-850 hover:bg-brand-gold hover:text-white flex items-center justify-center transition-all"><i class="fa-brands fa-pinterest-p"></i></a>
         </div>
       </div>
@@ -864,9 +866,20 @@
           <li><a href="pricing.html" class="hover:text-brand-gold transition-colors">Membership Pricing</a></li>
           <li><a href="blog.html" class="hover:text-brand-gold transition-colors">Latest Styling News</a></li>
           <li><a href="contact.html" class="hover:text-brand-gold transition-colors">Location & Contacts</a></li>
-</ul>
+        </ul>
       </div>
-</div>
+
+      <!-- Col 4: Location Info -->
+      <div class="space-y-6">
+        <h4 class="font-serif text-white text-lg font-bold">Location</h4>
+        <ul class="space-y-3 text-sm">
+          <li class="flex gap-2.5 items-start"><i class="fa-solid fa-location-dot text-brand-gold mt-1"></i><span>742 Evergreen Terrace<br>Luxury District, New York</span></li>
+          <li class="flex gap-2.5 items-center"><i class="fa-solid fa-phone text-brand-gold"></i><a href="tel:+15557891234" class="hover:text-brand-gold transition-colors">+1 (555) 789-1234</a></li>
+          <li class="flex gap-2.5 items-center"><i class="fa-solid fa-envelope text-brand-gold"></i><a href="mailto:hello@novasalon.com" class="hover:text-brand-gold transition-colors">hello@novasalon.com</a></li>
+          <li class="flex gap-2.5 items-center"><i class="fa-regular fa-clock text-brand-gold"></i><span>Mon–Sat, 9 AM–8 PM</span></li>
+        </ul>
+      </div>
+    </div>
 
     <!-- Copyright -->
     <div class="max-w-7xl mx-auto px-6 lg:px-8 border-t border-stone-800 pt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-stone-500">

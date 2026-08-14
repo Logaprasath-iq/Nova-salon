@@ -86,7 +86,10 @@
           <button type="button" class="flex items-center gap-1.5 font-semibold text-stone-300 hover:text-brand-gold border border-transparent hover:border-brand-gold px-3.5 py-1.5 rounded-lg transition-all">
             Pages <i class="fa-solid fa-chevron-down text-xs transition-transform group-hover:rotate-180"></i>
           </button>
-          <div class="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-40 bg-[#181818] border border-stone-850 rounded-xl shadow-2xl p-2 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-200 z-50">
+          <div class="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-48 bg-[#181818] border border-stone-850 rounded-xl shadow-2xl p-2 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-200 z-50">
+            <a href="pricing.html#membership" class="block px-4 py-2.5 text-xs font-semibold rounded-lg text-white hover:bg-stone-800 hover:text-brand-gold transition-colors">Offers & Packages</a>
+            <a href="about.html#artisans" class="block px-4 py-2.5 text-xs font-semibold rounded-lg text-white hover:bg-stone-800 hover:text-brand-gold transition-colors">Our Stylists</a>
+            <a href="services.html#bridal-services" class="block px-4 py-2.5 text-xs font-semibold rounded-lg text-white hover:bg-stone-800 hover:text-brand-gold transition-colors">Bridal Services</a>
             <a href="404.html" class="block px-4 py-2.5 text-xs font-semibold rounded-lg text-white hover:bg-stone-800 hover:text-brand-gold transition-colors">404 Error</a>
             <a href="coming-soon.html" class="block px-4 py-2.5 text-xs font-semibold rounded-lg text-white hover:bg-stone-800 hover:text-brand-gold transition-colors">Coming Soon</a>
             <a href="maintenance.html" class="block px-4 py-2.5 text-xs font-semibold rounded-lg text-white hover:bg-stone-800 hover:text-brand-gold transition-colors">Maintenance</a>
@@ -107,17 +110,17 @@
         </button>
 
         <!-- LTR/RTL Layout Toggle Button -->
-        <button class="rtl-ltr-toggle px-4 py-2 border border-stone-850 text-stone-300 hover:border-brand-gold hover:text-brand-gold rounded-full text-xs font-semibold uppercase tracking-wider flex items-center gap-1.5 transition-all" aria-label="Toggle Direction">
-          <i class="fa-solid fa-globe text-xs"></i> <span class="dir-text">LTR</span>
+        <button class="rtl-ltr-toggle h-10 px-4 border border-stone-850 text-stone-300 hover:border-brand-gold hover:text-brand-gold rounded-full text-xs font-semibold uppercase tracking-wider flex items-center justify-center gap-1.5 transition-all" aria-label="Toggle Direction">
+          <i class="fa-solid fa-right-left text-xs"></i> <span class="dir-text">LTR</span>
         </button>
 
         <!-- Login Outline Button -->
-        <a href="login.html" class="px-5 py-2 border border-brand-gold text-brand-gold hover:bg-brand-gold hover:text-stone-950 rounded-full text-xs font-semibold uppercase tracking-wider flex items-center gap-1.5 transition-all">
+        <a href="login.html" class="h-10 px-5 border border-brand-gold text-brand-gold hover:bg-brand-gold hover:text-stone-950 rounded-full text-xs font-semibold uppercase tracking-wider flex items-center justify-center gap-1.5 transition-all">
           <i class="fa-solid fa-user text-xs"></i> LOGIN
         </a>
 
         <!-- Sign Up Button -->
-        <a href="register.html" class="btn-sign-up px-5 py-2.5 bg-brand-gold hover:bg-brand-goldDark text-stone-950 rounded-full text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 transition-all">
+        <a href="register.html" class="btn-sign-up h-10 px-5 bg-brand-gold hover:bg-brand-goldDark text-stone-950 rounded-full text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 transition-all">
           <i class="fa-solid fa-user-plus text-xs"></i> SIGN UP
         </a>
 
@@ -465,8 +468,12 @@
 
       <div class="space-y-6">
         <h4 class="font-serif text-white text-lg font-bold">Location</h4>
-        <p class="text-stone-400 text-sm font-light">742 Evergreen Terrace, Luxury District</p>
-        <span class="text-brand-gold text-sm">+1 (555) 789-1234</span>
+        <ul class="space-y-3 text-sm">
+          <li class="flex gap-2.5 items-start"><i class="fa-solid fa-location-dot text-brand-gold mt-1"></i><span>742 Evergreen Terrace<br>Luxury District, New York</span></li>
+          <li class="flex gap-2.5 items-center"><i class="fa-solid fa-phone text-brand-gold"></i><a href="tel:+15557891234" class="hover:text-brand-gold transition-colors">+1 (555) 789-1234</a></li>
+          <li class="flex gap-2.5 items-center"><i class="fa-solid fa-envelope text-brand-gold"></i><a href="mailto:hello@novasalon.com" class="hover:text-brand-gold transition-colors">hello@novasalon.com</a></li>
+          <li class="flex gap-2.5 items-center"><i class="fa-regular fa-clock text-brand-gold"></i><span>Mon–Sat, 9 AM–8 PM</span></li>
+        </ul>
       </div>
     </div>
 

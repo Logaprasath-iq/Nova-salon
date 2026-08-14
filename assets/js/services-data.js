@@ -65,6 +65,8 @@ const NOVA_SERVICES = [
       ['Should I wash my hair before the visit?', 'You do not need to. The service includes a professional cleanse and conditioning ritual.'],
       ['How often should I rebook?', 'Most guests return every 6 to 8 weeks to maintain shape, volume, and healthy ends.']
     ],
+    suitableFor: "Ideal for anyone looking to update their look, remove split ends, or get expert advice on a style that complements their face shape and lifestyle.",
+    whatsIncluded: ["Scalp analysis & consultation", "Precision dry/wet cutting", "Luxury shampoo & conditioning", "Signature blowout styling"],
     relatedServices: ['balayage', 'nail-artistry', 'collagen-facial']
   },
   {
@@ -133,6 +135,8 @@ const NOVA_SERVICES = [
       ['Will I need toner?', 'Yes. Gloss toner refines warmth, adds shine, and helps create the final shade.'],
       ['Can balayage cover gray hair?', 'Balayage adds brightness but does not fully replace gray coverage. Your colorist can combine it with root color if needed.']
     ],
+    suitableFor: "Ideal for clients seeking natural-looking, dimensional highlights with low maintenance and a soft grow-out window.",
+    whatsIncluded: ["Custom highlight painting", "Bond protection treatment", "Glossing & toning wash", "Blowout styling & wave finish"],
     relatedServices: ['luxury-haircut', 'bridal-makeup', 'collagen-facial']
   },
   {
@@ -201,6 +205,8 @@ const NOVA_SERVICES = [
       ['Can I wear makeup after?', 'For best results, keep skin clean for the rest of the day and wear makeup the next morning.'],
       ['How often should I book?', 'Monthly facials are ideal for steady hydration, texture support, and skin monitoring.']
     ],
+    suitableFor: "Suitable for guests experiencing dryness, fine lines, or dullness who want to restore elasticity and skin radiance immediately.",
+    whatsIncluded: ["Deep double cleanse & extraction", "Exfoliating enzyme peel", "24k gold leaf firming mask", "Marine collagen serum infusion"],
     relatedServices: ['aromatherapy-massage', 'nail-artistry', 'bridal-makeup']
   },
   {
@@ -269,6 +275,8 @@ const NOVA_SERVICES = [
       ['Do you offer safe removal?', 'Yes. We recommend professional removal to protect the nail plate.'],
       ['Can I add nail art?', 'Yes. Minimal nail art, chrome, French tips, and accent details can be added during booking.']
     ],
+    suitableFor: "Ideal for those wanting clean, groomed cuticles, a relaxing hand massage, and long-lasting gel nails with custom hand-painted art.",
+    whatsIncluded: ["Cuticle shaping & care", "Sugar scrub exfoliation", "Long-lasting gel polish", "Bespoke nail art design & nourishing oil"],
     relatedServices: ['collagen-facial', 'bridal-makeup', 'luxury-haircut']
   },
   {
@@ -337,6 +345,8 @@ const NOVA_SERVICES = [
       ['Are lashes included?', 'Premium false lashes are included if they suit your chosen look.'],
       ['Can you support bridesmaids?', 'Yes. Group styling can be arranged based on party size and timing.']
     ],
+    suitableFor: "Designed specifically for brides-to-be wanting a premium, photography-proof makeup application that enhances their natural features.",
+    whatsIncluded: ["HD airbrush or cream foundation", "Custom lash application", "Waterproof setting lock", "Mini touch-up lip and powder kit"],
     relatedServices: ['collagen-facial', 'nail-artistry', 'balayage']
   },
   {
@@ -405,6 +415,8 @@ const NOVA_SERVICES = [
       ['Is deep pressure available?', 'Yes. Pressure can be adapted, but the service remains restorative rather than aggressive.'],
       ['How should I prepare?', 'Hydrate, arrive a few minutes early, and share any injuries or sensitivities before the session starts.']
     ],
+    suitableFor: "Perfect for anyone carrying stress, muscle tension, or mental fatigue who wants a deeply relaxing and sensory-healing experience.",
+    whatsIncluded: ["Custom essential oil selection", "90-minute full body massage", "Hot stone muscle integration", "Warm towel neck wrap & herbal tea"],
     relatedServices: ['collagen-facial', 'luxury-haircut', 'nail-artistry']
   }
 ];
@@ -510,6 +522,25 @@ const NOVA_SERVICES = [
               </div>
             </div>
           `).join('')}
+        </div>
+      </div>
+
+      <!-- Suitable For & What's Included Sections -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 border-t border-b border-stone-150 dark:border-brand-darkBorder py-8 my-8 animate-fade-in">
+        <div>
+          <h3 class="font-serif text-2xl font-bold text-stone-900 dark:text-white mb-4">Suitable For Whom</h3>
+          <p class="text-stone-500 dark:text-stone-400 text-sm leading-relaxed font-light">${esc(service.suitableFor)}</p>
+        </div>
+        <div>
+          <h3 class="font-serif text-2xl font-bold text-stone-900 dark:text-white mb-4">What's Included</h3>
+          <ul class="space-y-3">
+            ${service.whatsIncluded.map((item) => `
+              <li class="flex gap-2.5 items-center text-sm text-stone-500 dark:text-stone-400 font-light">
+                <i class="fa-solid fa-circle-check text-brand-gold text-xs"></i>
+                <span>${esc(item)}</span>
+              </li>
+            `).join('')}
+          </ul>
         </div>
       </div>
 

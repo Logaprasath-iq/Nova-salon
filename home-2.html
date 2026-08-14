@@ -1,10 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
-  <title>NOVA Spa - Mind, Body & Soul Sanctuary</title>
+  <title>NOVA Salon - Mind, Body & Soul Sanctuary</title>
   <meta name="description" content="Immerse yourself in our premium organic spa sanctuary. Experience holistic massages, custom facials, and ultimate relaxation treatments.">
   
   <!-- CSS Dependencies -->
@@ -25,16 +25,23 @@
               855: '#1C1917'
             },
             brand: {
-              spaGreen: '#2E5A44',
-              spaGreenDark: '#1E3E2E',
-              spaGold: '#C5A880',
-              spaRose: '#E8C5C8',
-              spaCream: '#F8F6F2',
-              spaCreamDark: '#EDECE7',
-              darkBg: '#0A0F0D',
-              darkCard: '#131D19',
-              darkBorder: '#1E2D27',
-              darkText: '#9AB3A6'
+              gold: '#D4AF37',
+              goldDark: '#AA8C2C',
+              rose: '#D9A38F',
+              roseDark: '#B76E79',
+              cream: '#FDFBF7',
+              creamDark: '#F5EFE6',
+              darkBg: '#0F0F11',
+              darkCard: '#1A1A1F',
+              darkBorder: 'rgba(255,255,255,.08)',
+              darkText: '#A1A1AA',
+              
+              spaGreen: '#D4AF37',
+              spaGreenDark: '#AA8C2C',
+              spaGold: '#D4AF37',
+              spaRose: '#D9A38F',
+              spaCream: '#FDFBF7',
+              spaCreamDark: '#F5EFE6'
             }
           },
           screens: { lg: '992px' },
@@ -58,7 +65,7 @@
     <div class="max-w-7xl mx-auto px-6 lg:px-8 flex justify-between items-center">
       <!-- Logo -->
       <a href="index.html" class="flex items-center gap-2">
-        <span class="font-serif text-2xl font-bold tracking-widest text-brand-spaGold flex items-center gap-2"><i class="fa-solid fa-scissors"></i> NOVA Spa</span>
+        <span class="font-serif text-2xl font-bold tracking-widest text-brand-spaGold flex items-center gap-2"><i class="fa-solid fa-scissors"></i> NOVA Salon</span>
       </a>
       <!-- Desktop Nav Menu -->
             <nav class="hidden lg:flex items-center gap-6">
@@ -86,10 +93,13 @@
           <button type="button" class="flex items-center gap-1.5 font-semibold text-stone-300 hover:text-brand-spaGold border border-transparent hover:border-brand-spaGold px-3.5 py-1.5 rounded-lg transition-all">
             Pages <i class="fa-solid fa-chevron-down text-xs transition-transform group-hover:rotate-180"></i>
           </button>
-          <div class="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-40 bg-[#181818] border border-stone-850 rounded-xl shadow-2xl p-2 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-200 z-50">
-            <a href="404.html" class="block px-4 py-2.5 text-xs font-semibold rounded-lg text-white hover:bg-stone-800 hover:text-brand-spaGold transition-colors">404 Error</a>
-            <a href="coming-soon.html" class="block px-4 py-2.5 text-xs font-semibold rounded-lg text-white hover:bg-stone-800 hover:text-brand-spaGold transition-colors">Coming Soon</a>
-            <a href="maintenance.html" class="block px-4 py-2.5 text-xs font-semibold rounded-lg text-white hover:bg-stone-800 hover:text-brand-spaGold transition-colors">Maintenance</a>
+          <div class="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-48 bg-[#181818] border border-stone-850 rounded-xl shadow-2xl p-2 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-200 z-50">
+            <a href="pricing.html#membership" class="block px-4 py-2.5 text-xs font-semibold rounded-lg text-white hover:bg-stone-800 hover:text-brand-gold transition-colors">Offers & Packages</a>
+            <a href="about.html#artisans" class="block px-4 py-2.5 text-xs font-semibold rounded-lg text-white hover:bg-stone-800 hover:text-brand-gold transition-colors">Our Stylists</a>
+            <a href="services.html#bridal-services" class="block px-4 py-2.5 text-xs font-semibold rounded-lg text-white hover:bg-stone-800 hover:text-brand-gold transition-colors">Bridal Services</a>
+            <a href="404.html" class="block px-4 py-2.5 text-xs font-semibold rounded-lg text-white hover:bg-stone-800 hover:text-brand-gold transition-colors">404 Error</a>
+            <a href="coming-soon.html" class="block px-4 py-2.5 text-xs font-semibold rounded-lg text-white hover:bg-stone-800 hover:text-brand-gold transition-colors">Coming Soon</a>
+            <a href="maintenance.html" class="block px-4 py-2.5 text-xs font-semibold rounded-lg text-white hover:bg-stone-800 hover:text-brand-gold transition-colors">Maintenance</a>
           </div>
           <span class="absolute bottom-0 w-0 h-0.5 bg-brand-spaGold rounded-full transition-all group-hover:w-8"></span>
         </div>
@@ -107,17 +117,17 @@
         </button>
 
         <!-- LTR/RTL Layout Toggle Button -->
-        <button class="rtl-ltr-toggle px-4 py-2 border border-stone-850 text-stone-300 hover:border-brand-spaGold hover:text-brand-spaGold rounded-full text-xs font-semibold uppercase tracking-wider flex items-center gap-1.5 transition-all" aria-label="Toggle Direction">
-          <i class="fa-solid fa-globe text-xs"></i> <span class="dir-text">LTR</span>
+        <button class="rtl-ltr-toggle h-10 px-4 border border-stone-850 text-stone-300 hover:border-brand-spaGold hover:text-brand-spaGold rounded-full text-xs font-semibold uppercase tracking-wider flex items-center justify-center gap-1.5 transition-all" aria-label="Toggle Direction">
+          <i class="fa-solid fa-right-left text-xs"></i> <span class="dir-text">LTR</span>
         </button>
 
         <!-- Login Outline Button -->
-        <a href="login.html" class="px-5 py-2 border border-brand-spaGold text-brand-spaGold hover:bg-brand-spaGold hover:text-stone-950 rounded-full text-xs font-semibold uppercase tracking-wider flex items-center gap-1.5 transition-all">
+        <a href="login.html" class="h-10 px-5 border border-brand-spaGold text-brand-spaGold hover:bg-brand-spaGold hover:text-stone-950 rounded-full text-xs font-semibold uppercase tracking-wider flex items-center justify-center gap-1.5 transition-all">
           <i class="fa-solid fa-user text-xs"></i> LOGIN
         </a>
 
         <!-- Sign Up Button -->
-        <a href="register.html" class="btn-sign-up px-5 py-2.5 bg-brand-spaGold hover:bg-brand-spaGreenDark text-stone-950 rounded-full text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 transition-all">
+        <a href="register.html" class="btn-sign-up h-10 px-5 bg-brand-spaGold hover:bg-brand-spaGreenDark text-stone-950 rounded-full text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 transition-all">
           <i class="fa-solid fa-user-plus text-xs"></i> SIGN UP
         </a>
 
@@ -166,7 +176,7 @@
       <div class="flex justify-center gap-4 text-stone-500">
         <a href="#" class="hover:text-brand-spaGold"><i class="fa-brands fa-facebook-f"></i></a>
         <a href="#" class="hover:text-brand-spaGold"><i class="fa-brands fa-instagram"></i></a>
-        <a href="#" class="hover:text-brand-spaGold"><i class="fa-brands fa-twitter"></i></a>
+        <a href="https://x.com/" target="_blank" rel="noopener noreferrer" class="hover:text-brand-spaGold" aria-label="X (formerly Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
         <a href="#" class="hover:text-brand-spaGold"><i class="fa-brands fa-pinterest-p"></i></a>
       </div>
     </div>
@@ -292,7 +302,7 @@
       <!-- Masonry Grid -->
       <div class="home-2-treatment-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8 items-stretch" data-aos="fade-up">
         <!-- Card 1: Large (Aromatherapy Massage) -->
-        <div class="home-2-treatment-card home-2-treatment-card--wide lg:col-span-8 bg-white dark:bg-brand-darkCard rounded-3xl border border-emerald-950/10 dark:border-brand-darkBorder overflow-hidden flex flex-col md:flex-row hover-img-zoom shadow-sm hover:shadow-lg transition-all">
+        <div class="home-2-treatment-card home-2-treatment-card--wide lg:col-span-8 bg-white dark:bg-brand-darkCard rounded-3xl border border-emerald-950/10 dark:border-brand-darkBorder overflow-hidden flex flex-col md:flex-row hover-img-zoom shadow-sm hover:shadow-lg transition-all h-full">
           <div class="home-2-treatment-media w-full md:w-1/2 h-64 md:h-auto">
             <img src="./assets/images/img24.jpg" class="w-full h-full object-cover" alt="Aromatherapy">
           </div>
@@ -300,9 +310,27 @@
             <div>
               <span class="text-xs text-brand-spaGold uppercase tracking-widest font-bold">Holistic Massage</span>
               <h3 class="font-serif text-2xl font-bold mt-2 mb-3">Aromatherapy Hot Stone Ritual</h3>
-              <p class="text-stone-500 dark:text-brand-darkText text-sm leading-relaxed mb-6">
+              <p class="text-stone-500 dark:text-brand-darkText text-sm leading-relaxed mb-4">
                 Heated basalt river rocks combined with lavender and frankincense botanical oils. Melt deep knots, restore oxygen flow, and quiet the mind.
               </p>
+              <ul class="space-y-2 mt-4 mb-6 text-stone-500 dark:text-brand-darkText text-xs font-light">
+                <li class="flex items-start gap-2">
+                  <i class="fa-solid fa-circle-check text-brand-spaGold mt-0.5"></i>
+                  <span><strong>Heated Volcanic Basalt:</strong> Deep therapeutic warmth melts muscle knots.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <i class="fa-solid fa-circle-check text-brand-spaGold mt-0.5"></i>
+                  <span><strong>Bespoke Botanical Blend:</strong> Lavender & frankincense calms nervous system.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <i class="fa-solid fa-circle-check text-brand-spaGold mt-0.5"></i>
+                  <span><strong>Cellular Flush:</strong> Improves oxygenation and releases metabolic wastes.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <i class="fa-solid fa-circle-check text-brand-spaGold mt-0.5"></i>
+                  <span><strong>Targeted Tension Release:</strong> Focuses on stubborn, chronic muscle trigger zones.</span>
+                </li>
+              </ul>
             </div>
             <div class="home-2-treatment-meta flex justify-between items-center border-t border-stone-100 dark:border-brand-darkBorder pt-4">
               <span class="text-brand-spaGreen font-bold">$125.00</span>
@@ -312,7 +340,7 @@
         </div>
 
         <!-- Card 2: Regular (Hydrotherapy Bath) -->
-        <div class="home-2-treatment-card lg:col-span-4 bg-white dark:bg-brand-darkCard rounded-3xl border border-emerald-950/10 dark:border-brand-darkBorder overflow-hidden flex flex-col hover-img-zoom shadow-sm hover:shadow-lg transition-all">
+        <div class="home-2-treatment-card lg:col-span-4 bg-white dark:bg-brand-darkCard rounded-3xl border border-emerald-950/10 dark:border-brand-darkBorder overflow-hidden flex flex-col hover-img-zoom shadow-sm hover:shadow-lg transition-all h-full">
           <div class="home-2-treatment-media h-56">
             <img src="./assets/images/img27.jpg" class="w-full h-full object-cover" alt="Hydro Bath">
           </div>
@@ -321,7 +349,7 @@
               <span class="text-xs text-brand-spaGold uppercase tracking-widest font-bold">Hydro Suite</span>
               <h3 class="font-serif text-xl font-bold mt-1 mb-2">Dead Sea Salt Soak</h3>
               <p class="text-stone-500 dark:text-brand-darkText text-xs leading-relaxed mb-4">
-                Rich mineral salt baths combined with dynamic hydrojets to relax muscle systems.
+                Rich mineral salt baths combined with dynamic hydrojets to relax muscle systems. This premium ritual infuses your body with 21 essential minerals, including magnesium, calcium, and potassium, to detoxify skin cells, relieve joint stiffness, and soothe systemic soreness.
               </p>
             </div>
             <div class="home-2-treatment-meta flex justify-between items-center border-t border-stone-100 dark:border-brand-darkBorder pt-4">
@@ -332,7 +360,7 @@
         </div>
 
         <!-- Card 3: Regular (Facials) -->
-        <div class="home-2-treatment-card lg:col-span-4 bg-white dark:bg-brand-darkCard rounded-3xl border border-emerald-950/10 dark:border-brand-darkBorder overflow-hidden flex flex-col hover-img-zoom shadow-sm hover:shadow-lg transition-all">
+        <div class="home-2-treatment-card lg:col-span-4 bg-white dark:bg-brand-darkCard rounded-3xl border border-emerald-950/10 dark:border-brand-darkBorder overflow-hidden flex flex-col hover-img-zoom shadow-sm hover:shadow-lg transition-all h-full">
           <div class="home-2-treatment-media h-56">
             <img src="./assets/images/img25.jpg" class="w-full h-full object-cover" alt="Mud Facial">
           </div>
@@ -341,7 +369,7 @@
               <span class="text-xs text-brand-spaGold uppercase tracking-widest font-bold">Skincare</span>
               <h3 class="font-serif text-xl font-bold mt-1 mb-2">Herbal Botanical Facial</h3>
               <p class="text-stone-500 dark:text-brand-darkText text-xs leading-relaxed mb-4">
-                Purifying organic mud masque rich in vitamins and minerals to detoxify pores.
+                Purifying organic mud masque rich in vitamins and minerals to detoxify pores. A deeply clarifying therapy that uses hand-harvested organic botanical clays and fresh herbal infusions. Helps to draw out cellular impurities, balance skin pH, and restore a luminous skin glow.
               </p>
             </div>
             <div class="home-2-treatment-meta flex justify-between items-center border-t border-stone-100 dark:border-brand-darkBorder pt-4">
@@ -352,14 +380,36 @@
         </div>
 
         <!-- Card 4: Large (Wellness Consultation) -->
-        <div class="home-2-treatment-card home-2-treatment-card--wide lg:col-span-8 bg-white dark:bg-brand-darkCard rounded-3xl border border-emerald-950/10 dark:border-brand-darkBorder overflow-hidden flex flex-col md:flex-row hover-img-zoom shadow-sm hover:shadow-lg transition-all">
+        <div class="home-2-treatment-card home-2-treatment-card--wide lg:col-span-8 bg-white dark:bg-brand-darkCard rounded-3xl border border-emerald-950/10 dark:border-brand-darkBorder overflow-hidden flex flex-col md:flex-row hover-img-zoom shadow-sm hover:shadow-lg transition-all h-full">
           <div class="home-2-treatment-body p-8 md:w-1/2 flex flex-col justify-between">
             <div>
               <span class="text-xs text-brand-spaGold uppercase tracking-widest font-bold">Holistic Ritual</span>
               <h3 class="font-serif text-2xl font-bold mt-2 mb-3">Custom Ayurvedic Therapy</h3>
-              <p class="text-stone-500 dark:text-brand-darkText text-sm leading-relaxed mb-6">
+              <p class="text-stone-500 dark:text-brand-darkText text-sm leading-relaxed mb-4">
                 A customized analysis based on historical Indian holistic sciences. Includes warm oil scalp pours, somatic joint stretches, and meditation guidance.
               </p>
+              <ul class="space-y-2 mt-4 mb-6 text-stone-500 dark:text-brand-darkText text-xs font-light">
+                <li class="flex items-start gap-2">
+                  <i class="fa-solid fa-circle-check text-brand-spaGold mt-0.5"></i>
+                  <span><strong>Dosha Energy Analysis:</strong> Pinpoints your mind-body constitution profile.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <i class="fa-solid fa-circle-check text-brand-spaGold mt-0.5"></i>
+                  <span><strong>Shirodhara Oil Pour:</strong> Continuous forehead stream quiets neural pathways.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <i class="fa-solid fa-circle-check text-brand-spaGold mt-0.5"></i>
+                  <span><strong>Somatic Alignment:</strong> Soft tissue releases combined with deep breathwork.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <i class="fa-solid fa-circle-check text-brand-spaGold mt-0.5"></i>
+                  <span><strong>Nourishing Herbal Oils:</strong> Tailored warm botanical infusions hydrate deep dermis.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <i class="fa-solid fa-circle-check text-brand-spaGold mt-0.5"></i>
+                  <span><strong>Pranayama Breathwork:</strong> Conscious breathing exercises facilitate deep somatic stillness.</span>
+                </li>
+              </ul>
             </div>
             <div class="home-2-treatment-meta flex justify-between items-center border-t border-stone-100 dark:border-brand-darkBorder pt-4">
               <span class="text-brand-spaGreen font-bold">$160.00</span>
@@ -559,7 +609,7 @@
     <div class="max-w-7xl mx-auto px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
       <div class="space-y-6">
         <a href="index.html" class="flex items-center gap-2">
-          <span class="font-serif text-3xl font-bold tracking-widest text-brand-spaGold">NOVA Spa</span>
+          <span class="font-serif text-3xl font-bold tracking-widest text-brand-gold"><i class="fa-solid fa-scissors text-xl mr-2"></i>NOVA Salon</span>
         </a>
         <p class="text-stone-400 text-sm leading-relaxed font-light">
           Experience high-end botanical therapies, aromatherapy massages, and mineral clay facials at NOVA Spa Sanctuary.
@@ -567,7 +617,7 @@
         <div class="flex gap-4">
           <a href="#" class="w-10 h-10 rounded-full bg-brand-darkCard hover:bg-brand-spaGold hover:text-white flex items-center justify-center transition-all"><i class="fa-brands fa-facebook-f"></i></a>
           <a href="#" class="w-10 h-10 rounded-full bg-brand-darkCard hover:bg-brand-spaGold hover:text-white flex items-center justify-center transition-all"><i class="fa-brands fa-instagram"></i></a>
-          <a href="#" class="w-10 h-10 rounded-full bg-brand-darkCard hover:bg-brand-spaGold hover:text-white flex items-center justify-center transition-all"><i class="fa-brands fa-twitter"></i></a>
+          <a href="https://x.com/" target="_blank" rel="noopener noreferrer" aria-label="X (formerly Twitter)" class="w-10 h-10 rounded-full bg-brand-darkCard hover:bg-brand-spaGold hover:text-white flex items-center justify-center transition-all"><i class="fa-brands fa-x-twitter"></i></a>
         </div>
       </div>
 

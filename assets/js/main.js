@@ -214,13 +214,13 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!headerNav && !mobileDrawer) return;
 
     const pageKey = getPageKey();
-    const isSpaTheme = Boolean(document.querySelector('[class*="brand-spaGold"], [class*="brand-spaGreen"]'));
-    root.style.setProperty('--nova-accent', isSpaTheme ? '#C5A880' : '#D4AF37');
-    const accentText = isSpaTheme ? 'text-brand-spaGold' : 'text-brand-gold';
-    const accentHover = isSpaTheme ? 'hover:text-brand-spaGold' : 'hover:text-brand-gold';
-    const accentBg = isSpaTheme ? 'bg-brand-spaGold' : 'bg-brand-gold';
-    const accentBorder = isSpaTheme ? 'border-brand-spaGold' : 'border-brand-gold';
-    const accentHoverBorder = isSpaTheme ? 'hover:border-brand-spaGold' : 'hover:border-brand-gold';
+    const isSpaTheme = false;
+    root.style.setProperty('--nova-accent', '#D4AF37');
+    const accentText = 'text-brand-gold';
+    const accentHover = 'hover:text-brand-gold';
+    const accentBg = 'bg-brand-gold';
+    const accentBorder = 'border-brand-gold';
+    const accentHoverBorder = 'hover:border-brand-gold';
     const activePages = ['404.html', 'coming-soon.html', 'maintenance.html'];
     const homeActive = pageKey === 'index.html' || pageKey === 'home-2.html';
 
@@ -234,8 +234,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const desktopItem = (label, href) => {
       const active = isActive(href);
       const linkClass = active
-        ? `font-semibold ${accentText} transition-all py-1.5`
-        : `font-semibold text-stone-300 ${accentHover} transition-all py-1.5`;
+        ? `font-medium ${accentText} transition-all py-1.5`
+        : `font-medium text-stone-300 ${accentHover} transition-all py-1.5`;
       const underlineClass = active
         ? `absolute bottom-0 w-8 h-0.5 ${accentBg} rounded-full`
         : `absolute bottom-0 w-0 h-0.5 ${accentBg} rounded-full transition-all group-hover/nav:w-8`;
@@ -254,8 +254,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const desktopDropdown = (label, active, items) => {
       const triggerClass = active
-        ? `nova-dropdown-trigger flex items-center gap-1.5 font-semibold ${accentText} border ${accentBorder} px-3.5 py-1.5 rounded-lg transition-all`
-        : `nova-dropdown-trigger flex items-center gap-1.5 font-semibold text-stone-300 ${accentHover} border border-transparent ${accentHoverBorder} px-3.5 py-1.5 rounded-lg transition-all`;
+        ? `nova-dropdown-trigger flex items-center gap-1.5 font-medium ${accentText} border ${accentBorder} px-3.5 py-1.5 rounded-lg transition-all`
+        : `nova-dropdown-trigger flex items-center gap-1.5 font-medium text-stone-300 ${accentHover} border border-transparent ${accentHoverBorder} px-3.5 py-1.5 rounded-lg transition-all`;
       const underlineClass = active
         ? `absolute bottom-0 w-8 h-0.5 ${accentBg} rounded-full`
         : `absolute bottom-0 w-0 h-0.5 ${accentBg} rounded-full transition-all group-hover:w-8`;
@@ -279,6 +279,9 @@ document.addEventListener('DOMContentLoaded', () => {
     ]);
     const pagesActive = activePages.includes(pageKey);
     const desktopPagesDropdown = desktopDropdown('Pages', pagesActive, [
+      { label: 'Offers & Packages', href: 'pricing.html#membership', active: pageKey === 'pricing.html' },
+      { label: 'Our Stylists', href: 'about.html#artisans', active: pageKey === 'about.html' },
+      { label: 'Bridal Services', href: 'services.html#bridal-services', active: pageKey === 'services.html' },
       { label: '404 Error', href: '404.html', active: pageKey === '404.html' },
       { label: 'Coming Soon', href: 'coming-soon.html', active: pageKey === 'coming-soon.html' },
       { label: 'Maintenance', href: 'maintenance.html', active: pageKey === 'maintenance.html' }
@@ -328,13 +331,16 @@ document.addEventListener('DOMContentLoaded', () => {
           ${mobileLink('Pricing', 'pricing.html')}
           ${mobileLink('Blog', 'blog.html')}
           ${mobileDropdown('Pages', pagesActive, [
+            { label: 'Offers & Packages', href: 'pricing.html#membership', active: pageKey === 'pricing.html' },
+            { label: 'Our Stylists', href: 'about.html#artisans', active: pageKey === 'about.html' },
+            { label: 'Bridal Services', href: 'services.html#bridal-services', active: pageKey === 'services.html' },
             { label: '404 Error', href: '404.html', active: pageKey === '404.html' },
             { label: 'Coming Soon', href: 'coming-soon.html', active: pageKey === 'coming-soon.html' },
             { label: 'Maintenance', href: 'maintenance.html', active: pageKey === 'maintenance.html' }
           ])}
           ${mobileLink('Contact', 'contact.html')}
           ${mobileLink('Login', 'login.html')}
-          <a href="#booking-modal" data-booking-trigger class="mobile-booking-btn block w-full text-center px-6 py-3 bg-gradient-to-r ${isSpaTheme ? 'from-brand-spaGreen to-brand-spaGreenDark' : 'from-brand-gold to-brand-goldDark'} text-white text-sm font-semibold rounded-full hover:shadow-lg transition-all">
+          <a href="#booking-modal" data-booking-trigger class="mobile-booking-btn block w-full text-center px-6 py-3 bg-gradient-to-r from-brand-gold to-brand-goldDark text-white text-sm font-semibold rounded-full hover:shadow-lg transition-all">
             <i class="fa-regular fa-calendar-check" aria-hidden="true"></i>
             <span>BOOK NOW</span>
           </a>
@@ -347,7 +353,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <div class="flex justify-center gap-4 text-stone-500">
             <a href="${SOCIAL_LINKS.facebook}" target="_blank" rel="noopener noreferrer" class="${accentHover}" aria-label="Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
             <a href="${SOCIAL_LINKS.instagram}" target="_blank" rel="noopener noreferrer" class="${accentHover}" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
-            <a href="${SOCIAL_LINKS.twitter}" target="_blank" rel="noopener noreferrer" class="${accentHover}" aria-label="Twitter/X"><i class="fa-brands fa-twitter" aria-hidden="true"></i></a>
+            <a href="${SOCIAL_LINKS.twitter}" target="_blank" rel="noopener noreferrer" class="${accentHover}" aria-label="X (formerly Twitter)"><span class="nova-x-icon" aria-hidden="true">𝕏</span></a>
             <a href="${SOCIAL_LINKS.pinterest}" target="_blank" rel="noopener noreferrer" class="${accentHover}" aria-label="Pinterest"><i class="fa-brands fa-pinterest-p" aria-hidden="true"></i></a>
           </div>
         `;
@@ -393,7 +399,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <div class="nova-footer__social" aria-label="Social links">
             <a href="${SOCIAL_LINKS.facebook}" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
             <a href="${SOCIAL_LINKS.instagram}" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
-            <a href="${SOCIAL_LINKS.twitter}" target="_blank" rel="noopener noreferrer" aria-label="Twitter/X"><i class="fa-brands fa-twitter" aria-hidden="true"></i></a>
+            <a href="${SOCIAL_LINKS.twitter}" target="_blank" rel="noopener noreferrer" aria-label="X (formerly Twitter)"><span class="nova-x-icon" aria-hidden="true">𝕏</span></a>
             <a href="${SOCIAL_LINKS.pinterest}" target="_blank" rel="noopener noreferrer" aria-label="Pinterest"><i class="fa-brands fa-pinterest-p" aria-hidden="true"></i></a>
           </div>
         </div>
@@ -421,8 +427,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
         <div class="nova-footer__column">
           <h4>Location</h4>
-          <p class="nova-footer__text">742 Evergreen Terrace, Luxury District</p>
-          <a href="tel:+15557891234" class="nova-footer__phone">+1 (555) 789-1234</a>
+          <ul class="nova-footer__contact">
+            <li><i class="fa-solid fa-location-dot" aria-hidden="true"></i><span>742 Evergreen Terrace<br>Luxury District, New York</span></li>
+            <li><i class="fa-solid fa-phone" aria-hidden="true"></i><a href="tel:+15557891234">+1 (555) 789-1234</a></li>
+            <li><i class="fa-solid fa-envelope" aria-hidden="true"></i><a href="mailto:hello@novasalon.com">hello@novasalon.com</a></li>
+            <li><i class="fa-regular fa-clock" aria-hidden="true"></i><span>Mon–Sat, 9 AM–8 PM</span></li>
+          </ul>
         </div>
       </div>
 
@@ -479,7 +489,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <span>Theme</span>
       </button>
       <button type="button" class="rtl-ltr-toggle drawer-utility-btn" aria-label="Toggle Direction">
-        <i class="fa-solid fa-globe text-xs"></i>
+        <i class="fa-solid fa-right-left text-xs"></i>
         <span class="dir-text">LTR</span>
       </button>
     `;
