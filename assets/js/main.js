@@ -460,6 +460,10 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
+    if (document.querySelector('.auth-card')) {
+      return;
+    }
+
     const needsUtilityShell = document.querySelector('.auth-card, .utility-card, .utility-footer');
     if (needsUtilityShell && !document.querySelector('.nova-utility-page-shell')) {
       const shell = document.createElement('main');
