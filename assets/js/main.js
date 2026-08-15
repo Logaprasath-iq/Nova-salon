@@ -412,6 +412,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <li><a href="service-details.html?id=nail-artistry">Signature Nail Artistry</a></li>
             <li><a href="service-details.html?id=aromatherapy-massage">Aromatherapy Spa Massages</a></li>
             <li><a href="service-details.html?id=bridal-makeup">Bridal Makeover Packages</a></li>
+            <li><a href="service-details.html?id=mens-cut-beard">Men's Cut &amp; Beard Detail</a></li>
           </ul>
         </div>
 
@@ -650,7 +651,13 @@ document.addEventListener('DOMContentLoaded', () => {
       'bridal makeover packages': 'bridal-makeup',
       'aromatherapy massage': 'aromatherapy-massage',
       'aromatherapy spa massage': 'aromatherapy-massage',
-      'aromatherapy spa massages': 'aromatherapy-massage'
+      'aromatherapy spa massages': 'aromatherapy-massage',
+      'gentleman s cut beard detail': 'mens-cut-beard',
+      'gentleman s cut and beard detail': 'mens-cut-beard',
+      'mens cut beard detail': 'mens-cut-beard',
+      'mens cut and beard detail': 'mens-cut-beard',
+      'mens skin reset facial': 'mens-skin-reset',
+      'mens scalp detox ritual': 'mens-scalp-detox'
     };
 
     const serviceTitleFromLink = (link) => {

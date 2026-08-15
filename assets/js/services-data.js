@@ -418,6 +418,216 @@ const NOVA_SERVICES = [
     suitableFor: "Perfect for anyone carrying stress, muscle tension, or mental fatigue who wants a deeply relaxing and sensory-healing experience.",
     whatsIncluded: ["Custom essential oil selection", "90-minute full body massage", "Hot stone muscle integration", "Warm towel neck wrap & herbal tea"],
     relatedServices: ['collagen-facial', 'luxury-haircut', 'nail-artistry']
+  },
+  {
+    id: 'mens-cut-beard',
+    title: "Gentleman's Cut & Beard Detail",
+    category: "Men's Grooming",
+    subtitle: "Men's Grooming Suite",
+    metaTitle: "Gentleman's Cut & Beard Detail - NOVA Salon",
+    metaDescription: "Book NOVA Salon men's haircut and beard detail with consultation, precision shaping, hot towel finish, pricing, FAQs, and client reviews.",
+    heroImage: './assets/images/img15.jpg',
+    heroAlt: "Men's haircut and beard detail at NOVA Salon",
+    descriptionTitle: 'Sharper Shape, Calm Finish',
+    description: [
+      "Gentleman's Cut & Beard Detail is built for guests who want a clean, intentional grooming appointment without rushing through the details. Your stylist reviews face shape, hair growth pattern, beard density, and daily styling preference before starting.",
+      'The appointment includes a precision cut, neckline cleanup, beard shaping, hot towel finish, light scalp refresh, and product styling so the final look feels crisp but easy to maintain.'
+    ],
+    gallery: [
+      { src: './assets/images/img35.jpg', alt: "Men's haircut styling detail" },
+      { src: './assets/images/img16.jpg', alt: "Men's haircut profile finish" },
+      { src: './assets/images/img17.jpg', alt: 'Premium grooming tools' }
+    ],
+    benefits: [
+      ['Face-Framing Shape', 'Hair and beard lines are balanced around jawline, cheek structure, and profile.'],
+      ['Clean Neckline', 'A precise neckline and sideburn detail keep the cut fresh between visits.'],
+      ['Hot Towel Comfort', 'Warm towel prep calms skin before beard detailing.'],
+      ['Easy Styling', 'Your stylist finishes with product guidance for everyday control.']
+    ],
+    steps: [
+      ['Consultation', 'Review length, texture, beard goals, and maintenance rhythm.'],
+      ['Precision Cut', 'Shape the haircut with scissor and clipper detailing.'],
+      ['Beard Detail', 'Balance beard edges, cheek line, neckline, and moustache shape.'],
+      ['Finish', 'Hot towel, scalp refresh, and product styling for a polished result.']
+    ],
+    process: [
+      'Arrive with your beard grown to the length you want shaped.',
+      'Bring a reference photo if you want a new hair or beard direction.',
+      'Your stylist reviews quick at-home maintenance before checkout.'
+    ],
+    duration: '55 mins',
+    pricing: {
+      total: '$70.00',
+      items: [
+        ['Hair and Beard Consultation', '$15.00'],
+        ['Precision Cut and Neckline Cleanup', '$35.00'],
+        ['Beard Detail and Hot Towel Finish', '$20.00']
+      ]
+    },
+    rating: '4.9',
+    reviewCount: '76',
+    reviews: [
+      {
+        name: 'Ethan Cole',
+        date: 'August 6, 2026',
+        image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=120',
+        body: 'The cut looked sharp without feeling overstyled. Liam cleaned up the beard line exactly the way I wanted.'
+      },
+      {
+        name: 'Noah Bennett',
+        date: 'July 31, 2026',
+        image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=120',
+        body: 'Great consultation, clean tools, and a hot towel finish that made the beard detail feel like a full grooming reset.'
+      }
+    ],
+    faq: [
+      ['Can I book just the haircut?', 'Yes. The concierge can adjust the appointment if you do not need beard detailing.'],
+      ['Do you use clippers or scissors?', 'Both are available. Your stylist chooses the method based on texture, desired finish, and maintenance needs.'],
+      ['How often should I rebook?', 'Most guests rebook every 3 to 5 weeks for a clean neckline and beard shape.']
+    ],
+    suitableFor: 'Ideal for men who want a refined haircut, beard shaping, and a clean professional finish in one appointment.',
+    whatsIncluded: ['Hair and beard consultation', 'Precision haircut', 'Neckline and sideburn cleanup', 'Hot towel beard detail'],
+    relatedServices: ['mens-scalp-detox', 'mens-skin-reset', 'luxury-haircut']
+  },
+  {
+    id: 'mens-skin-reset',
+    title: "Men's Skin Reset Facial",
+    category: "Men's Skincare",
+    subtitle: "Men's Skin Studio",
+    metaTitle: "Men's Skin Reset Facial - NOVA Salon",
+    metaDescription: "Book NOVA Salon men's facial with deep cleanse, exfoliation, calming mask, hydration, shaving sensitivity care, FAQs, and reviews.",
+    heroImage: './assets/images/img18.jpg',
+    heroAlt: "Men's skincare treatment products",
+    descriptionTitle: 'Calm, Clear, and Hydrated',
+    description: [
+      "Men's Skin Reset Facial supports skin affected by shaving, gym routines, pollution, dryness, and daily stress. Your aesthetician checks sensitivity, oil balance, ingrown-hair concerns, and hydration needs before choosing the treatment pace.",
+      'The ritual includes a deep cleanse, exfoliation, steam towel, calming mask, targeted hydration, and SPF guidance so skin leaves fresh, balanced, and comfortable.'
+    ],
+    gallery: [
+      { src: './assets/images/img18.jpg', alt: 'Facial mask and skincare tools' },
+      { src: './assets/images/img20.jpg', alt: 'Hydrating skincare products' },
+      { src: './assets/images/img11.jpg', alt: 'Facial treatment suite' }
+    ],
+    benefits: [
+      ['Post-Shave Calm', 'Soothing products help reduce the look of irritation from shaving.'],
+      ['Cleaner Texture', 'Gentle exfoliation helps clear buildup without overworking skin.'],
+      ['Hydration Reset', 'Layered moisture supports a smoother and less tight skin feel.'],
+      ['Practical Aftercare', 'Your aesthetician keeps the routine simple and realistic.']
+    ],
+    steps: [
+      ['Skin Review', 'Discuss shaving routine, sensitivity, oiliness, and skin goals.'],
+      ['Cleanse and Steam', 'Remove buildup and soften the skin with warm towel prep.'],
+      ['Exfoliate and Mask', 'Polish texture and apply a calming hydration mask.'],
+      ['Protect', 'Finish with serum, moisturizer, and SPF guidance.']
+    ],
+    process: [
+      'Avoid shaving immediately before the appointment if your skin is reactive.',
+      'Tell your aesthetician about retinoids, acne products, or recent irritation.',
+      'Keep skincare simple for the rest of the day after treatment.'
+    ],
+    duration: '65 mins',
+    pricing: {
+      total: '$110.00',
+      items: [
+        ['Skin Review and Deep Cleanse', '$25.00'],
+        ['Exfoliation and Calming Mask', '$55.00'],
+        ['Hydration and SPF Finish', '$30.00']
+      ]
+    },
+    rating: '4.8',
+    reviewCount: '64',
+    reviews: [
+      {
+        name: 'Arjun Mehta',
+        date: 'August 5, 2026',
+        image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=120',
+        body: 'My skin felt clean but not stripped. The treatment helped with shaving irritation around my neck.'
+      },
+      {
+        name: 'Julian Pierce',
+        date: 'July 24, 2026',
+        image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=120',
+        body: 'Emma explained what my skin actually needed and kept the aftercare simple. The glow was subtle and natural.'
+      }
+    ],
+    faq: [
+      ['Should I shave before the facial?', 'If your skin handles shaving well, shave the night before. If shaving irritates you, wait until after the appointment.'],
+      ['Is this suitable for acne-prone skin?', 'Yes, but your aesthetician will adapt exfoliation and product selection based on your current skin condition.'],
+      ['How often should I book?', 'Every 4 to 6 weeks is a good rhythm for maintenance and skin monitoring.']
+    ],
+    suitableFor: 'Designed for men who want a low-fuss facial that addresses dullness, shaving sensitivity, clogged pores, and dehydration.',
+    whatsIncluded: ['Skin review', 'Deep cleanse and warm towel prep', 'Gentle exfoliation', 'Calming mask and hydration finish'],
+    relatedServices: ['mens-cut-beard', 'mens-scalp-detox', 'collagen-facial']
+  },
+  {
+    id: 'mens-scalp-detox',
+    title: "Men's Scalp Detox Ritual",
+    category: "Men's Hair Wellness",
+    subtitle: "Scalp Wellness Suite",
+    metaTitle: "Men's Scalp Detox Ritual - NOVA Salon",
+    metaDescription: "Book NOVA Salon men's scalp detox with scalp analysis, clarifying cleanse, tension-relief massage, treatment finish, FAQs, and pricing.",
+    heroImage: './assets/images/img17.jpg',
+    heroAlt: "Men's grooming tools for scalp detox ritual",
+    descriptionTitle: 'A Reset for Hair and Scalp',
+    description: [
+      "Men's Scalp Detox Ritual is a targeted wellness service for guests dealing with buildup, product residue, scalp tightness, or a heavy hair feel. The session begins with a scalp review and a discussion of product habits and sensitivity.",
+      'A clarifying cleanse, gentle exfoliating scalp treatment, tension-relief massage, and lightweight finish help the scalp feel cleaner while keeping hair touchable.'
+    ],
+    gallery: [
+      { src: './assets/images/img17.jpg', alt: 'Scalp care grooming tools' },
+      { src: './assets/images/img15.jpg', alt: "Men's hair styling after scalp treatment" },
+      { src: './assets/images/img22.jpg', alt: 'Wellness treatment setting' }
+    ],
+    benefits: [
+      ['Buildup Removal', 'A clarifying cleanse helps remove product residue and excess oil.'],
+      ['Scalp Comfort', 'Massage and targeted care ease tightness across the scalp and temples.'],
+      ['Lightweight Finish', 'Hair is finished with products chosen for movement instead of weight.'],
+      ['Better Routine', 'Your stylist recommends a simple cleansing cadence for home care.']
+    ],
+    steps: [
+      ['Scalp Check', 'Review scalp condition, product buildup, and sensitivity.'],
+      ['Clarifying Cleanse', 'Cleanse the scalp and hair with a targeted detox wash.'],
+      ['Massage Treatment', 'Apply scalp treatment with tension-relief massage.'],
+      ['Finish', 'Dry and style hair with lightweight control products.']
+    ],
+    process: [
+      'Avoid heavy styling products on the day of the appointment if possible.',
+      'Tell your stylist about flakes, irritation, or scalp treatments you already use.',
+      'Follow the recommended cleansing routine to keep the scalp fresh longer.'
+    ],
+    duration: '70 mins',
+    pricing: {
+      total: '$90.00',
+      items: [
+        ['Scalp Analysis', '$20.00'],
+        ['Clarifying Cleanse and Treatment', '$45.00'],
+        ['Massage and Lightweight Finish', '$25.00']
+      ]
+    },
+    rating: '4.9',
+    reviewCount: '58',
+    reviews: [
+      {
+        name: 'Miles Grant',
+        date: 'August 8, 2026',
+        image: 'https://images.unsplash.com/photo-1519345182560-3f2917c472ef?auto=format&fit=crop&q=80&w=120',
+        body: 'My scalp felt much lighter, and the massage was worth booking on its own. The style still had natural movement afterward.'
+      },
+      {
+        name: 'Rafael Torres',
+        date: 'July 27, 2026',
+        image: 'https://images.unsplash.com/photo-1530268729831-4b0b9e170218?auto=format&fit=crop&q=80&w=120',
+        body: 'Great reset after weeks of product buildup. Liam explained exactly how often I should use a clarifying wash at home.'
+      }
+    ],
+    faq: [
+      ['Is this a haircut?', 'No. It is a scalp and hair wellness service, but you can pair it with a haircut when booking.'],
+      ['Will it dry out my scalp?', 'The cleanse is balanced with a treatment and lightweight finish to avoid a stripped feeling.'],
+      ['Can I book this for dandruff?', 'It can help with buildup and comfort, but persistent flaking should be discussed with a dermatologist.']
+    ],
+    suitableFor: 'Ideal for men who use styling products often, notice scalp buildup, or want a relaxing hair and scalp reset.',
+    whatsIncluded: ['Scalp analysis', 'Clarifying cleanse', 'Scalp treatment massage', 'Lightweight styling finish'],
+    relatedServices: ['mens-cut-beard', 'mens-skin-reset', 'aromatherapy-massage']
   }
 ];
 

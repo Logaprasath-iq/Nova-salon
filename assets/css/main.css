@@ -1063,6 +1063,33 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   gap: 0.75rem;
 }
 
+section.relative.bg-stone-900 > .relative.text-center {
+  width: min(100%, 56rem);
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+section.relative.bg-stone-900 h1 {
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+.services-book-service-cta {
+  min-width: 0;
+}
+
+.services-book-service-cta > * {
+  min-width: 0;
+}
+
+.services-filter-rail {
+  width: 100%;
+}
+
+.services-filter-rail .filter-btn {
+  flex: 0 0 auto;
+}
+
 /* Home feature collage: large lead image with two right-side tiles. */
 .nova-feature-grid {
   display: grid;
@@ -1107,7 +1134,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 .nova-story-image {
-  min-height: clamp(24rem, 42vw, 40rem);
+  aspect-ratio: 3 / 2;
+  align-self: start;
+  min-height: 0;
 }
 
 .nova-story-image img {
@@ -1118,7 +1147,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 @media (min-width: 992px) {
   .nova-story-image {
-    margin-top: 3.5rem;
+    margin-top: 3rem;
   }
 }
 
@@ -1133,7 +1162,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   }
 
   .nova-story-image {
-    min-height: 21rem;
+    aspect-ratio: 4 / 3;
+    min-height: 0;
     margin-top: 2rem;
   }
   .nova-home-feature-media > div:not(.absolute) {
@@ -1154,6 +1184,35 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
   .nova-feature-grid__stat .font-serif {
     font-size: 2.25rem;
+  }
+}
+
+@media (max-width: 767.98px) {
+  section.relative.bg-stone-900 > .relative.text-center {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
+  .services-book-service-cta > a {
+    width: 100%;
+  }
+
+  .services-filter-rail {
+    flex-wrap: nowrap !important;
+    justify-content: flex-start !important;
+    max-width: 100%;
+    overflow-x: auto;
+    padding-bottom: 0.35rem;
+    scroll-snap-type: x proximity;
+    scrollbar-width: none;
+  }
+
+  .services-filter-rail::-webkit-scrollbar {
+    display: none;
+  }
+
+  .services-filter-rail .filter-btn {
+    scroll-snap-align: start;
   }
 }
 

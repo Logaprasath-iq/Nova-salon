@@ -178,6 +178,9 @@
                 <option>Nail Care & Art</option>
                 <option>Spa Aromatherapy Massage</option>
                 <option>Special Bridal Styling</option>
+                <option>Men's Cut & Beard Detail</option>
+                <option>Men's Skin Reset Facial</option>
+                <option>Men's Scalp Detox Ritual</option>
               </select>
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
