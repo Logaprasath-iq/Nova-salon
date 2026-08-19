@@ -175,8 +175,8 @@ document.addEventListener('DOMContentLoaded', () => {
         header.classList.toggle('shadow-md', isScrolled);
         header.classList.toggle('bg-stone-950/95', isScrolled);
         header.classList.toggle('backdrop-blur-md', isScrolled);
-        header.classList.toggle('py-3', isScrolled);
-        header.classList.toggle('py-5', !isScrolled);
+        header.classList.toggle('py-2', isScrolled);
+        header.classList.toggle('py-3', !isScrolled);
         header.classList.toggle('bg-stone-950/50', !isScrolled);
       }
 
@@ -340,6 +340,7 @@ document.addEventListener('DOMContentLoaded', () => {
           ])}
           ${mobileLink('Contact', 'contact.html')}
           ${mobileLink('Login', 'login.html')}
+          ${mobileLink('Sign Up', 'register.html')}
           <a href="#booking-modal" data-booking-trigger class="mobile-booking-btn block w-full text-center px-6 py-3 bg-gradient-to-r from-brand-gold to-brand-goldDark text-white text-sm font-semibold rounded-full hover:shadow-lg transition-all">
             <i class="fa-regular fa-calendar-check" aria-hidden="true"></i>
             <span>BOOK NOW</span>
@@ -457,10 +458,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const dashboardMain = document.querySelector('body[data-auth-required] main.overflow-y-auto');
     if (dashboardMain) {
       dashboardMain.insertAdjacentHTML('beforeend', buildGlobalFooter('dashboard'));
-      return;
-    }
-
-    if (document.querySelector('.auth-card')) {
       return;
     }
 

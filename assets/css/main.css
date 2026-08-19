@@ -291,10 +291,27 @@ textarea:disabled,
 
 .nova-footer__grid,
 .nova-footer__bottom {
-  width: min(80rem, 100%);
+  max-width: 80rem;
+  width: 100%;
   margin: 0 auto;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
+}
+
+@media (min-width: 992px) {
+  .nova-footer__grid,
+  .nova-footer__bottom {
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  .nova-footer__grid,
+  .nova-footer__bottom {
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+  }
 }
 
 .nova-footer__grid {
@@ -1602,5 +1619,116 @@ html[dir="rtl"] .peer:checked ~ .peer-checked\:after\:translate-x-full::after {
   html[dir="rtl"] .utility-controlbar {
     right: auto !important;
     left: 1rem !important;
+  }
+}
+
+/* --- USER REQUESTED ADJUSTMENTS --- */
+
+/* 1. Reduce header height */
+#header {
+  min-height: 3.5rem !important;
+}
+
+@media (max-width: 991.98px) {
+  #header > div {
+    min-height: 3.25rem !important;
+  }
+}
+
+/* Maintain heading font weight up to 600, with subheadings between 400-550 for a clear hierarchy */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600 !important;
+}
+
+/* Subheadings / section descriptions */
+h1 + p, h2 + p, h3 + p, h4 + p, h5 + p, h6 + p,
+.font-light,
+.subheading, .subtitle, .section-subtitle,
+span.text-brand-gold.font-serif.italic,
+span.text-brand-spaGold.font-serif.italic {
+  font-weight: 500 !important;
+}
+
+/* 4. Align 'book now' CTA properly in all grids on service page */
+.service-card {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.service-card > div:last-child {
+  flex: 1 1 auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.service-card > div:last-child > div:last-child {
+  margin-top: auto !important;
+}
+
+/* Navbar alignment, sizing, and overlap prevention */
+#header > div {
+  max-width: 80rem !important;
+  width: 100% !important;
+  margin: 0 auto !important;
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
+}
+
+@media (min-width: 992px) {
+  #header > div {
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+  }
+
+  #header > div > a {
+    flex: 1 0 0 !important;
+    display: inline-flex !important;
+    justify-content: flex-start !important;
+  }
+
+  #header nav {
+    flex: 0 0 auto !important;
+    display: flex !important;
+    justify-content: center !important;
+    gap: clamp(0.5rem, 1.2vw, 1.25rem) !important;
+  }
+
+  #header > div > div:last-child {
+    flex: 1 0 0 !important;
+    display: flex !important;
+    justify-content: flex-end !important;
+    gap: 0.75rem !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  #header > div {
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+  }
+}
+
+@media (max-width: 1279.98px) {
+  #header .rtl-ltr-toggle {
+    display: none !important;
+  }
+}
+
+/* 360px Mobile View layout fix - stack stat elements vertically to prevent overflow */
+@media (max-width: 480px) {
+  .nova-feature-grid__stat {
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 0.25rem !important;
+    text-align: center !important;
+    padding: 0.5rem !important;
+  }
+}
+
+/* Mobile View layout fix - hide hero scroll down indicator to prevent button overlap */
+@media (max-width: 767.98px) {
+  .hero-scroll-indicator {
+    display: none !important;
   }
 }
